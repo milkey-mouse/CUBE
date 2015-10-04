@@ -1,0 +1,11 @@
+AudioContent = 
+{
+	SoundBuilder = 
+	{
+		string Name = "THE LANGUAGE OF THE CUBE 1",
+		uint64 ResourceId = 5606c9ce57099842,
+		bool Compressed = true,
+		uint Quality = 100,
+		SoundLoadType LoadType = Decompress,
+	},
+},

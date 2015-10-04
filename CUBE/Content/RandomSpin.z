@@ -1,0 +1,12 @@
+class RandomSpin : ZilchComponent
+{
+    var RandSpin : Random = Random();
+    
+    [Property]
+    var Intensity : Real = 5.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Owner.RigidBody.AngularVelocity = this.RandSpin.Real3(1.0, this.Intensity);
+    }
+}

@@ -1,0 +1,50 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "CUBE",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-20, 5, 0],
+		Vec3 Scale = [3.5, 3.5, 3.5],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	RandomSpin = 
+	{
+		float Intensity = 5,
+	},
+	RandomColor = 
+	{
+	},
+	MoveConstantVector = 
+	{
+		Vec3 MovementVector = [10, 0, 0],
+	},
+},

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "MainMenuCubeDropper",
+		uint64 ResourceId = 5606e7f4f81cea02,
+	},
+},

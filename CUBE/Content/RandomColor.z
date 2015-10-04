@@ -1,0 +1,74 @@
+class RandomColor : ZilchComponent
+{
+    var RandColor : Random = Random();
+    
+    function Initialize(init : CogInitializer)
+    {
+        var color : Real4 = this.HSVtoRGB(this.RandColor.Range(0, 360), 1.0, 1.0);
+        if(this.Owner.Sprite != null)
+        {
+            this.Owner.Sprite.Color = color;
+        }
+        else if(this.Owner.SpriteText != null)
+        {
+            this.Owner.SpriteText.Color = color;
+        }
+        else if(this.Owner.Model != null)
+        {
+            var coloredMaterial : Material = Material.WhiteMaterial.RuntimeClone() as Material;
+            coloredMaterial.ColorDiffuse.DiffuseColor = color;
+            this.Owner.Model.Material = coloredMaterial;
+        }
+    }
+    
+    function HSVtoRGB(h : Real, s : Real, v : Real) : Real4
+    {
+        var h60 : Real = h / 60.0;
+        var h60f : Real = Math.Floor(h60);
+        var hi : Real = Math.Floor(h60f % 6);
+        var f : Real = h60 - h60f;
+        var p : Real = v * (1 - s);
+        var q : Real = v * (1 - f * s);
+        var t : Real = v * (1 - (1 - f) * s);
+        var r : Real = 0;
+        var g : Real = 0;
+        var b : Real = 0;
+        if (hi == 0)
+        {
+            r = v;
+            g = t;
+            b = p;
+        }
+        else if (hi == 1)
+        {
+            r = q;
+            g = v;
+            b = p;
+        }
+        else if (hi == 2)
+        {
+            r = p;
+            g = v;
+            b = t;
+        }
+        else if (hi == 3)
+        {
+            r = p;
+            g = q;
+            b = v;
+        }
+        else if (hi == 4)
+        {
+            r = t;
+            g = p;
+            b = v;
+        }
+        else if (hi == 5)
+        {
+            r = v;
+            g = p;
+            b = q;
+        }
+        return Real4(r, g, b, 1);
+    }
+}

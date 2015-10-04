@@ -1,0 +1,43 @@
+class PolyverseAmbience : ZilchComponent
+{
+    var RandMusic : Random = Random();
+    
+    var BeepInterval : Real = 2.5;
+    
+    var BeepCooldown : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        SoundCue.PolyverseAmbience3.Volume = 3;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.BeepCooldown -= event.Dt;
+        if(!this.Owner.SimpleSound.IsPlaying())
+        {
+            if(this.RandMusic.Probability(0.85))
+            {
+                this.Owner.SimpleSound.Cue = SoundCue.PolyverseAmbience1;
+                SoundCue.PolyverseAmbience1.Pitch = -7;
+                this.Owner.SimpleSound.Play();
+            }
+            else
+            {
+                this.Owner.SimpleSound.Cue = SoundCue.PolyverseAmbience2;
+                SoundCue.PolyverseAmbience2.Pitch = -7;
+                this.Owner.SimpleSound.Play();
+            }
+        }
+        else
+        {
+            if(this.RandMusic.Probability(event.Dt * 0.5) && this.BeepCooldown <= 0.0)
+            {
+                this.BeepCooldown = this.BeepInterval;
+                SoundCue.Beeps1.PitchVariation = 0.025;
+                this.Space.SoundSpace.PlayCue(SoundCue.Beeps1);
+            }
+        }
+    }
+}

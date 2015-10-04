@@ -1,0 +1,82 @@
+class MainMenuCubeDropper : ZilchComponent
+{
+    [Property]
+    var CubeSpawnRate : Real = 4.5;
+    
+    var CubeCooldown : Real = 0.0;
+    
+    var RandCube : Random = Random();
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.SpawnCube();
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.CubeCooldown += event.Dt;
+        if(this.CubeCooldown >= this.CubeSpawnRate)
+        {
+            this.CubeCooldown -= this.CubeSpawnRate;
+            this.SpawnCube();
+        }
+    }
+    
+    function SpawnCube()
+    {
+        foreach (var obj : Cog in this.Space.FindAllObjectsByName("CUBE"))
+        {
+            obj.Destroy();
+        }
+        var choice : Integer = this.RandCube.DieRoll(12);
+        if (choice == 1)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeLU);
+        }
+        else if (choice == 2)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeLM);
+        }
+        else if (choice == 3)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeLD);
+        }
+        else if (choice == 4)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeUL);
+        }
+        else if (choice == 5)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeUM);
+        }
+        else if (choice == 6)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeUR);
+        }
+        else if (choice == 7)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeRU);
+        }
+        else if (choice == 8)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeRM);
+        }
+        else if (choice == 9)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeRD);
+        }
+        else if (choice == 10)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeLL);
+        }
+        else if (choice == 11)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeLM);
+        }
+        else if (choice == 12)
+        {
+            var cube = this.Space.Create(Archetype.MainMenuCubeLR);
+        }
+    }
+}

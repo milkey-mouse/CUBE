@@ -1,0 +1,11 @@
+AudioContent = 
+{
+	SoundBuilder = 
+	{
+		string Name = "AMBIENCE_OF_THE_POLYVERSE_1",
+		uint64 ResourceId = 5606ede1866b0cfb,
+		bool Compressed = true,
+		uint Quality = 100,
+		SoundLoadType LoadType = Decompress,
+	},
+},

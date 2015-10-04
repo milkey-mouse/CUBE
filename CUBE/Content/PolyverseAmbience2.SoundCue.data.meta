@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "PolyverseAmbience2",
+		uint64 ResourceId = 5606ea8ffc28f034,
+		string LoaderType = "SoundCue",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "WhiteMaterial",
+		uint64 ResourceId = 5606eb180f0104c1,
+		string LoaderType = "Material",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "MoveConstantVector",
+		uint64 ResourceId = 5606e6c427d844ce,
+	},
+},
