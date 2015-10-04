@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "Hack-Regular",
+		uint64 ResourceId = 5606fd5abef0f5a3,
+	},
+},
