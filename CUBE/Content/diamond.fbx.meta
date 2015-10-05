@@ -1,0 +1,42 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 56049842d5860784,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.05, 0.05, 0.05],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "diamond",
+				uint64 ResourceId = 56049843d278e140,
+			},
+		],
+		MeshMode MeshMode = Single,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+	PhysicsMeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "diamond",
+				uint64 ResourceId = 56049843d278e15d,
+			},
+		],
+		bool MakeConvex = false,
+		bool OnlyUseMarkedCollision = false,
+		PhysicsMeshType MeshBuilt = GenericMesh,
+	},
+},
