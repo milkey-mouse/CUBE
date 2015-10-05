@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "FloorLowerer",
+		uint64 ResourceId = 56078d3e90c6a79d,
+	},
+},

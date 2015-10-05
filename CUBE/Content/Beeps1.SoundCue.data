@@ -4,7 +4,7 @@ SoundCue =
 	float Volume = 1,
 	float VolumeVariation = 0,
 	float Pitch = 0,
-	float PitchVariation = 0.100000001,
+	float PitchVariation = 0.0250000004,
 	float MinDistance = 1,
 	float MaxDistance = 70,
 	float MinAttenuatedVolume = 0,
@@ -14,7 +14,7 @@ SoundCue =
 	[
 		{
 			string SoundName = "5606c9ce57099842:THE LANGUAGE OF THE CUBE 1",
-			string GeneratedSoundName = "",
+			string GeneratedSoundName = "55017c595ef88bf0:DefaultGeneratedSound",
 			WhichSoundType WhichToUse = FromFile,
 			float Weight = 1,
 			float LoopEndTime = 0,
@@ -29,6 +29,6 @@ SoundCue =
 	],
 	string RolloffCurveName = "",
 	int Version = 1,
-	RolloffCurveType RolloffCurveType = Error,
+	RolloffCurveType RolloffCurveType = Linear,
 	uint LogCurveSteepnessFactor = 1131413504,
 },

@@ -1,20 +1,20 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 0.399999976,
+	float Volume = 1,
 	float VolumeVariation = 0,
-	float Pitch = -7,
+	float Pitch = 0,
 	float PitchVariation = 0,
-	float MinDistance = 10,
-	float MaxDistance = 1000,
+	float MinDistance = 1,
+	float MaxDistance = 70,
 	float MinAttenuatedVolume = 0,
 	float PositionRandomization = 0,
 	uint MaxPlaybacks = 10,
 	Array Sounds = 
 	[
 		{
-			string SoundName = "5606ede1866b0cfb:AMBIENCE_OF_THE_POLYVERSE_1",
-			string GeneratedSoundName = "55017c595ef88bf0:DefaultGeneratedSound",
+			string SoundName = "560701a06ba50244:DEFENDER OF THE POLYVERSE",
+			string GeneratedSoundName = "",
 			WhichSoundType WhichToUse = FromFile,
 			float Weight = 1,
 			float LoopEndTime = 0,
@@ -29,6 +29,6 @@ SoundCue =
 	],
 	string RolloffCurveName = "",
 	int Version = 1,
-	RolloffCurveType RolloffCurveType = Log,
-	uint LogCurveSteepnessFactor = 100,
+	RolloffCurveType RolloffCurveType = Error,
+	uint LogCurveSteepnessFactor = 117567440,
 },

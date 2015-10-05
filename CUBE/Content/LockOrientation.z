@@ -1,0 +1,17 @@
+class LockOrientation : ZilchComponent
+{
+    [Property]
+    var Target : CogPath = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var angle : Real = this.Target.Cog.Orientation.AbsoluteAngle;
+        Console.WriteLine(this.Target.Cog.Orientation.WorldForward.Y > 0.9);
+        this.Owner.Orientation.LookAtDirection(Real3(Math.Sin(angle), 0, Math.Cos(angle)));
+    }
+}

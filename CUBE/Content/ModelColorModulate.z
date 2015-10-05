@@ -1,0 +1,12 @@
+class ModelColorModulate : ZilchComponent
+{
+    [Property]
+    var Color : Real4 = Real4(0,0,0,1);
+    
+    function Initialize(init : CogInitializer)
+    {
+        var mat : Material = Material.WhiteMaterial.RuntimeClone() as Material;
+        mat.ColorDiffuse.DiffuseColor = this.Color;
+        this.Owner.Model.Material = mat;
+    }
+}

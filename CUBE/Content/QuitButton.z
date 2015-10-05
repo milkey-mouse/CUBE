@@ -1,0 +1,14 @@
+class QuitButton : ZilchComponent
+{
+    var IsMouseOver : Boolean = false;
+    
+    //When clicked quits, requires reactive
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+    }
+    function OnLeftMouseUp(event : ViewportMouseEvent)
+    {
+        this.GameSession.Quit();
+    }
+}

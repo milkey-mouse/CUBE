@@ -14,7 +14,7 @@ GameSession =
 	DefaultGameSetup = 
 	{
 		string StartingSpaceName = "55653078043224ef:Space",
-		string StartingLevelName = "556530780432200d:Level",
+		string StartingLevelName = "56060760cdea90e1:MainMenu",
 	},
 	CameraViewports = 
 	{

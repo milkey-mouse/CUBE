@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Test",
-		uint64 ResourceId = 5606d92173135bee,
+		string Name = "DefenderofPolyverse",
+		uint64 ResourceId = 560701bf7d49efb1,
 		string LoaderType = "SoundCue",
 		uint Version = 0,
 		bool ShowInEditor = true,

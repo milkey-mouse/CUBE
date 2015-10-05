@@ -6,6 +6,8 @@ class HueChange : ZilchComponent
     [Property]
     var Offset : Real = 0.0;
     
+    var Paused : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -64,6 +66,10 @@ class HueChange : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if(this.Paused)
+        {
+            return;
+        }
         var color : Real4 = this.HSVtoRGB(((event.TimePassed * this.ChangeSpeed) + this.Offset) % 360, 1.0, 1.0);
         if(this.Owner.Sprite != null)
         {

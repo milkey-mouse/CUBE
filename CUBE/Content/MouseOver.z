@@ -1,0 +1,110 @@
+class MouseOver : ZilchComponent
+{
+    //what color to change to when highlighted
+    [Property]
+    var TextColor : Real4 = Real4(255,0,0,1);
+    //scale change when moused over
+    [Property]
+    var ScaleMultiplier : Real = 1.2;
+    //speed to transition
+    [Property]
+    var ChangeSpeed : Real = 1.0;
+    
+    var OrigColor : Real4 = Real4(0,0,0,1);
+    var OrigScale : Real3 = Real3(1,1,1);
+    var OrigTrans : Real3 = Real3(0,0,0);
+    var STColor : Real4 = Real4(0,0,0,0);
+    
+    var TargetColor : Real4 = Real4(0,0,0,1);
+    var TargetScale : Real3 = Real3(1,1,1);
+    
+    [Property]
+    var HandleColor : Boolean = true;
+    
+    var IsSelected : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+        Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+        this.OrigTrans = this.Owner.Transform.Translation;
+        if (this.Owner.SpriteText != null)
+        {
+            this.STColor = this.Owner.SpriteText.Color;
+            if (this.Owner.SpriteText.Color == this.TextColor)
+            {
+                this.HandleColor = false;
+            }
+        }
+        if (this.Owner.Sprite != null)
+        {
+            this.STColor = this.Owner.Sprite.Color;
+            if (this.Owner.Sprite.Color == this.TextColor)
+            {
+                this.HandleColor = false;
+            }
+        }
+        this.OrigColor = this.STColor;
+        this.OrigScale = this.Owner.Transform.Scale;
+        this.TargetColor = this.OrigColor;
+        this.TargetScale = this.OrigScale;
+    }
+    
+    var WasSelected : Boolean = false;
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //Smoothly adjust color and scale
+        if (this.TargetScale != this.OrigScale)
+        {
+            this.Owner.Transform.Translation = this.OrigTrans + Real3(0,0,0.1);
+        }
+        this.STColor = Math.Lerp(this.STColor, this.TargetColor, event.Dt * this.ChangeSpeed);
+        this.Owner.Transform.Scale = Math.Lerp(this.Owner.Transform.Scale, this.TargetScale, event.Dt * this.ChangeSpeed);
+        if (this.HandleColor)
+        {
+            if (this.Owner.SpriteText != null)
+            {
+                this.Owner.SpriteText.Color = this.STColor;
+            }
+            if (this.Owner.Sprite != null)
+            {
+                this.Owner.Sprite.Color = this.STColor;
+            }
+        }
+    }
+    function OnMouseEnter(event : MouseEvent)
+    {
+
+        this.Enter();
+    }
+    
+    function Enter()
+    {
+        //when mouse hovers over change what color and scale we start changing to.
+        this.IsSelected = true;
+        if(this.Owner.HueChange != null)
+        {
+            Console.WriteLine("Sos");
+            this.Owner.HueChange.Paused = true;
+        }
+        this.TargetColor = this.TextColor;
+        this.TargetScale = this.OrigScale * this.ScaleMultiplier;
+    }
+    function Exit()
+    {
+        //when mouse leaves change what color and scale we start changing to back to the original
+        this.IsSelected = false;
+        if(this.Owner.HueChange != null)
+        {
+            this.Owner.HueChange.Paused = false;
+        }
+        this.TargetColor = this.OrigColor;
+        this.TargetScale = this.OrigScale;
+    }
+    function OnMouseExit(event : MouseEvent)
+    {
+        this.Exit();
+    }
+}

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LockTranslation",
+		uint64 ResourceId = 5607837438ee51c4,
+	},
+},

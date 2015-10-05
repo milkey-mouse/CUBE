@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "DisembodiedSound",
+		uint64 ResourceId = 56070032c6de68bc,
+	},
+},

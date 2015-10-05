@@ -52,15 +52,6 @@ Level =
 			Vec2 Resolution = [640, 480],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
-		ForwardRenderer = 
-		{
-			Vec4 ClearColor = [0.155000001, 0.155000001, 0.155000001, 1],
-			bool DrawNonVisible = false,
-			bool DrawDebugObjects = true,
-			bool DrawEditorIcons = true,
-			bool EditorIconDepth = true,
-			bool Wireframe = false,
-		},
 		GridDraw = 
 		{
 			bool Active = true,
@@ -76,6 +67,27 @@ Level =
 			int HilightInterval = 10,
 			bool FollowEditorCamera = false,
 		},
+		DeferredRenderer = 
+		{
+			Vec4 ClearColor = [0, 0, 0, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Hdr = true,
+			bool Shadows = false,
+			bool AntiAliasing = false,
+			bool Refraction = true,
+			bool Reflections = true,
+			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
+			bool GodRays = true,
+			bool RenderMasks = false,
+			bool Glow = true,
+			float GlowThreshold = 0.200000003,
+		},
+		HandleEscape = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -89,7 +101,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.79238474, -0.682365656, 49.9986305],
+			Vec3 Translation = [-0.914740264, -0.711408019, 44.4560966],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.00261777313, -0.00261740596, -6.85188161e-006, 0.999993205],
 		},
@@ -101,7 +113,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 59.3529205,
+			float Size = 21.8347187,
 		},
 		EditorCameraController = 
 		{
@@ -109,7 +121,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0.00523557002,
 			float HorizontalAngle = 0.00523479003,
-			Vec3 LookTarget = [-1.53065002, -0.944142997, -6.69069991e-008],
+			Vec3 LookTarget = [-0.65300554, -0.973185301, -5.54253531],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -199,7 +211,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0.469184011, 25],
+			Vec3 Translation = [0, 2.61812925, 25],
 			Vec3 Scale = [0.25, 0.25, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -239,7 +251,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -2.03081989, 25],
+			Vec3 Translation = [0, 0.118125439, 25],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -274,6 +286,209 @@ Level =
 		},
 		Named = 
 		{
+			string Name = "StartButton",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.100000001, -2.96711779, 25],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5606fd5abef0f5a3:Hack-Regular",
+			uint FontSize = 150,
+			string Text = "INITIATE THE LATEST IN 3D PICTURES",
+			TextAlign Align = Center,
+			float PixelsPerUnit = 192,
+			bool Smoothing = true,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		MouseOver = 
+		{
+			Vec4 TextColor = [254, 254, 254, 1],
+			float ScaleMultiplier = 1.20000005,
+			float ChangeSpeed = 10,
+			bool HandleColor = false,
+		},
+		ChangeLevelButton = 
+		{
+			string LevelToLoad = "560718983cb3f080:LevelBlue",
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 8,
+				},
+				Named = 
+				{
+					string Name = "TARGET OF THE POINTING DEVICE",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [2, 2, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5607230aebcd484f:TARGET OF THE POINTING DEVICE",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Area = 
+				{
+					Vec2 Size = [8.25, 0.625],
+					Location Origin = Center,
+				},
+				HueChange = 
+				{
+					float ChangeSpeed = 10,
+					float Offset = 0,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 9,
+		},
+		Named = 
+		{
+			string Name = "QuitButton",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.100000001, -5.00341988, 25],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5606fd5abef0f5a3:Hack-Regular",
+			uint FontSize = 150,
+			string Text = "EXIT THE POLYVERSE",
+			TextAlign Align = Center,
+			float PixelsPerUnit = 192,
+			bool Smoothing = true,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		MouseOver = 
+		{
+			Vec4 TextColor = [254, 254, 254, 1],
+			float ScaleMultiplier = 1.20000005,
+			float ChangeSpeed = 10,
+			bool HandleColor = false,
+		},
+		QuitButton = 
+		{
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 10,
+				},
+				Named = 
+				{
+					string Name = "TARGET OF THE POINTING DEVICE",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [2, 2, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5607230aebcd484f:TARGET OF THE POINTING DEVICE",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Area = 
+				{
+					Vec2 Size = [4.5, 0.625],
+					Location Origin = Center,
+				},
+				HueChange = 
+				{
+					float ChangeSpeed = 10,
+					float Offset = 0,
+				},
+				Reactive = 
+				{
+					bool Active = true,
+					bool CaptureMouse = false,
+				},
+				QuitButton = 
+				{
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 11,
+		},
+		Named = 
+		{
 			string Name = "Ambience",
 		},
 		Transform = 
@@ -303,7 +518,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 8,
+					uint Id = 12,
 				},
 				Named = 
 				{
@@ -334,7 +549,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -366,7 +581,7 @@ Level =
 		string Name = "5606cfce749e3040:ComputerBeeper",
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 14,
 		},
 		Transform = 
 		{
@@ -377,6 +592,37 @@ Level =
 		Named = 
 		{
 			string Name = "Beeper",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 15,
+		},
+		Named = 
+		{
+			string Name = "Light",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 25],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Light = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			LightType LightType = Point,
+			Vec4 Color = [1, 1, 1, 1],
+			float Intensity = 1,
+			float Range = 50,
+			float Falloff = 1,
+			float Angle = 10,
+			float Size = 20,
 		},
 	},
 },

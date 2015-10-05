@@ -2,9 +2,12 @@ class RandomColor : ZilchComponent
 {
     var RandColor : Random = Random();
     
+    [Property]
+    var Saturation : Real = 1.0;
+    
     function Initialize(init : CogInitializer)
     {
-        var color : Real4 = this.HSVtoRGB(this.RandColor.Range(0, 360), 1.0, 1.0);
+        var color : Real4 = this.HSVtoRGB(this.RandColor.Range(0, 360), this.Saturation, 1.0);
         if(this.Owner.Sprite != null)
         {
             this.Owner.Sprite.Color = color;

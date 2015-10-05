@@ -1,0 +1,8 @@
+PhysicsMaterial = 
+{
+	float Restitution = 0.0700000003,
+	float StaticFriction = 0,
+	float DynamicFriction = 0,
+	float Density = 10,
+	bool HighPriority = true,
+},

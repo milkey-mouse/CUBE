@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LerpTowardsTarget",
+		uint64 ResourceId = 56070d0fbe55de8d,
+	},
+},

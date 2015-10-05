@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "CUBEController",
+		uint64 ResourceId = 560714ad79f23e95,
+	},
+},

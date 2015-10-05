@@ -1,0 +1,64 @@
+class CUBEController : ZilchComponent
+{
+    var Paused : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var group : ActionSet = this.Owner.Actions; //Action.Group();
+        Action.Delay(group, 1.0);
+        Action.Call(group, this.RemoveLock);
+    }
+    
+    function RemoveLock()
+    {
+        this.Paused = false;
+        this.Space.FindObjectByName("Camera").LerpTowardsTarget.Tracking = true;
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Paused)
+        {
+            return;
+        }
+        if(this.Owner.Transform.WorldTranslation.Y < -10)
+        {
+            this.Space.ReloadLevel();
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.Space))
+        {
+            this.Owner.RigidBody.Velocity = Real3(this.Owner.RigidBody.Velocity.X,10,this.Owner.RigidBody.Velocity.Z);
+        }
+        if(Zero.Keyboard.KeyIsDown(Keys.A) && !Zero.Keyboard.KeyIsDown(Keys.D))
+        {
+            this.Owner.RigidBody.AngularVelocity = Real3(this.Owner.RigidBody.AngularVelocity.X, event.Dt * 200, this.Owner.RigidBody.AngularVelocity.Z);
+        }
+        else if(Zero.Keyboard.KeyIsDown(Keys.D) && !Zero.Keyboard.KeyIsDown(Keys.A))
+        {
+            this.Owner.RigidBody.AngularVelocity = Real3(this.Owner.RigidBody.AngularVelocity.X, -event.Dt * 200, this.Owner.RigidBody.AngularVelocity.Z);
+        }
+        else
+        {
+            this.Owner.RigidBody.AngularVelocity = Real3(this.Owner.RigidBody.AngularVelocity.X,0,this.Owner.RigidBody.AngularVelocity.Z);
+        }
+        var angle : Real = this.Owner.Orientation.AbsoluteAngle;
+        if(Zero.Keyboard.KeyIsDown(Keys.W) && !Zero.Keyboard.KeyIsDown(Keys.S))
+        {
+            this.Owner.RigidBody.Velocity = -Real3(Math.Sin(angle) * event.Dt * 500, this.Owner.RigidBody.Velocity.Y, Math.Cos(angle) * event.Dt * 500);
+        }
+        else if(Zero.Keyboard.KeyIsDown(Keys.S) && !Zero.Keyboard.KeyIsDown(Keys.W))
+        {
+            this.Owner.RigidBody.Velocity = Real3(Math.Sin(angle) * event.Dt * 500, this.Owner.RigidBody.Velocity.Y, Math.Cos(angle) * event.Dt * 500);
+        }
+        else
+        {
+            this.Owner.RigidBody.Velocity = Real3(0,this.Owner.RigidBody.Velocity.Y,0);
+        }
+    }
+}

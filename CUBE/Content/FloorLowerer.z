@@ -1,0 +1,12 @@
+class FloorLowerer : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Action.Property(this.Owner.Actions, @this.Owner.Transform.Translation.Y, 0, 5, Ease.Linear);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

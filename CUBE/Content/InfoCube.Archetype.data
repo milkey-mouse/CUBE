@@ -1,0 +1,57 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "InfoCube",
+	},
+	Archetyped = 
+	{
+		string Name = "5607fe5a55e9983a:InfoCube",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-6.21905899, 2.38782454, 6.55036497],
+		Vec3 Scale = [5, 5, 1],
+		Quat Rotation = [-0.00138446118, 0.351321131, 0.000777637411, 0.936253667],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [0.123965576, 0.106700003, 0.970000029, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	ModelColorModulate = 
+	{
+		Vec4 Color = [0.575000167, 0.574999988, 1, 1],
+	},
+},

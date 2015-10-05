@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "MouseOver",
+		uint64 ResourceId = 56071e85decad24b,
+	},
+},

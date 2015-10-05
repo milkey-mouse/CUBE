@@ -1,0 +1,15 @@
+class LockTranslation : ZilchComponent
+{
+    [Property]
+    var Target : CogPath = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.Transform.Translation = this.Target.Cog.Transform.WorldTranslation;
+    }
+}

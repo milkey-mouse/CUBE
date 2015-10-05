@@ -1,0 +1,19 @@
+class ClearBelowLevel : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        foreach (var obj in this.Space.AllObjects())
+        {
+            if(obj.Transform == null){continue;}
+            if(obj.Transform.WorldTranslation.Y < -15)
+            {
+                obj.Destroy();
+            }
+        }
+    }
+}

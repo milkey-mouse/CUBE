@@ -2,19 +2,26 @@ class PolyverseAmbience : ZilchComponent
 {
     var RandMusic : Random = Random();
     
-    var BeepInterval : Real = 2.5;
+    var BeepInterval : Real = 4.0;
     
     var BeepCooldown : Real = 0.0;
     
+    var TimeSinceCube : Real = 0.0;
+    
+    [Property]
+    var Beep : Boolean = true;
+    
     function Initialize(init : CogInitializer)
     {
-        SoundCue.PolyverseAmbience3.Volume = 3;
+        SoundCue.PolyverseAmbience3.Volume = 30;
+        SoundCue.Beeps1.Volume = 10;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.BeepCooldown -= event.Dt;
+        this.TimeSinceCube += event.Dt;
         if(!this.Owner.SimpleSound.IsPlaying())
         {
             if(this.RandMusic.Probability(0.85))
@@ -32,11 +39,25 @@ class PolyverseAmbience : ZilchComponent
         }
         else
         {
-            if(this.RandMusic.Probability(event.Dt * 0.5) && this.BeepCooldown <= 0.0)
+            if(this.RandMusic.Probability(event.Dt) && this.BeepCooldown <= 0.0)
             {
                 this.BeepCooldown = this.BeepInterval;
                 SoundCue.Beeps1.PitchVariation = 0.025;
-                this.Space.SoundSpace.PlayCue(SoundCue.Beeps1);
+                SoundCue.Beeps1.Volume = 10.0;
+                SoundCue.Beeps2.PitchVariation = 0.025;
+                SoundCue.Beeps2.Volume = 1.25;
+                if(this.Beep)
+                {
+                    if(this.RandMusic.Probability(0.6))
+                    {
+                        this.Space.SoundSpace.PlayCue(SoundCue.Beeps1);
+                    }
+                    else if(this.TimeSinceCube > 6.0)
+                    {
+                        this.TimeSinceCube = 0.0;
+                        this.Space.SoundSpace.PlayCue(SoundCue.Beeps2);
+                    }
+                }
             }
         }
     }

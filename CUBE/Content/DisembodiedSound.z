@@ -1,0 +1,14 @@
+class DisembodiedSound : ZilchComponent
+{
+    [Property]
+    var SoundToPlay : SoundCue = null;
+    
+    [Property]
+    var Volume : Real = 1.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.SoundToPlay.Volume = this.Volume;
+        this.Space.SoundSpace.PlayCue(this.SoundToPlay);
+    }
+}

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HandleEscape",
+		uint64 ResourceId = 56071a7c55a60c85,
+	},
+},

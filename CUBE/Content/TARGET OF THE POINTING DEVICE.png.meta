@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "TARGET OF THE POINTING DEVICE",
+		uint64 ResourceId = 5607230aebcd484f,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 100,
+		uint FrameSizeY = 50,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 50,
+		float OriginY = 25,
+		float PixelsPerUnit = 64,
+		bool Smoothing = true,
+		bool Looping = true,
+		Vec4 Slices = [5, 5, 5, 5],
+		SpriteFill Fill = NineSlice,
+	},
+},
