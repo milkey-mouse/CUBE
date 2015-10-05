@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "WallBreakHandler",
+		uint64 ResourceId = 5621ec9b9121836b,
+	},
+},

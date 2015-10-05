@@ -1,0 +1,35 @@
+class WallBreakHandler : ZilchComponent
+{
+    var HasFired : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.HasFired){return;}
+        var broken = true;
+        foreach (var obj in this.Space.FindAllObjectsByName("WallCube"))
+        {
+            if(obj.Transform.Translation.Y > 1.75)
+            {
+                broken = false;
+                break;
+            }
+        }
+        if(broken)
+        {
+            this.SpawnExit();
+        }
+    }
+    
+    function SpawnExit()
+    {
+        this.HasFired = true;
+        SoundCue.CollectDiamonds.Volume = 1.5;
+        this.Space.SoundSpace.PlayCue(SoundCue.CollectDiamonds);
+        this.Space.Create(Archetype.ExitInfoCube);
+    }
+}

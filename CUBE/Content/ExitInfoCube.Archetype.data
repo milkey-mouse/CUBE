@@ -1,0 +1,192 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "InfoCube",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-8, 20, -14],
+		Vec3 Scale = [5, 5, 1],
+		Quat Rotation = [0, 0.195090324, 0, 0.980785251],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [0.970000029, 0.106700003, 0.106700003, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	ModelColorModulate = 
+	{
+		Vec4 Color = [1, 0, 0.000599861145, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "WASDInfo",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0.478959799, 0.518324137],
+				Vec3 Scale = [0.5, 0.5, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string FontName = "5606fd5abef0f5a3:Hack-Regular",
+				uint FontSize = 150,
+				string Text = "EXIT",
+				TextAlign Align = Center,
+				float PixelsPerUnit = 192,
+				bool Smoothing = true,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "WASDInfo",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0.0502116755, 0.510841012],
+				Vec3 Scale = [0.5, 0.5, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [0, 0, 0, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string FontName = "5606fd5abef0f5a3:Hack-Regular",
+				uint FontSize = 80,
+				string Text = "MOVE",
+				TextAlign Align = Center,
+				float PixelsPerUnit = 192,
+				bool Smoothing = true,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "WASDInfo",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.253801525, 0.505535007],
+				Vec3 Scale = [0.5, 0.5, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [0, 0, 0, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string FontName = "5606fd5abef0f5a3:Hack-Regular",
+				uint FontSize = 80,
+				string Text = "TARGET",
+				TextAlign Align = Center,
+				float PixelsPerUnit = 192,
+				bool Smoothing = true,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "WASDInfo",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.168150887, 0.507029891],
+				Vec3 Scale = [0.5, 0.5, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [0, 0, 0, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string FontName = "5606fd5abef0f5a3:Hack-Regular",
+				uint FontSize = 40,
+				string Text = "TO THE",
+				TextAlign Align = Center,
+				float PixelsPerUnit = 192,
+				bool Smoothing = true,
+			},
+		},
+	},
+},

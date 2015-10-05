@@ -27,6 +27,10 @@ class CUBEController : ZilchComponent
         {
             return;
         }
+        if(this.Owner.Orientation.WorldForward.Y > 0.9 || this.Owner.Orientation.WorldForward.Y < -0.9)
+        {
+            this.Owner.Transform.RotateAnglesWorld(Real3(Math.Pi / 2, 0, 0));
+        }
         if(this.Owner.Transform.WorldTranslation.Y < -10)
         {
             this.Space.ReloadLevel();
