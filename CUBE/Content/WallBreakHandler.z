@@ -1,6 +1,6 @@
 class WallBreakHandler : ZilchComponent
 {
-    var HasFired : Boolean = false;
+    var Stage : Integer = 0;
     
     function Initialize(init : CogInitializer)
     {
@@ -9,27 +9,49 @@ class WallBreakHandler : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.HasFired){return;}
-        var broken = true;
-        foreach (var obj in this.Space.FindAllObjectsByName("WallCube"))
+        if(this.Stage == 0)
         {
-            if(obj.Transform.Translation.Y > 1.75)
+            var broken = true;
+            foreach (var obj in this.Space.FindAllObjectsByName("WallCube"))
             {
-                broken = false;
-                break;
+                if(obj.Transform.Translation.Y > 2.5)
+                {
+                    broken = false;
+                    break;
+                }
+            }
+            if(broken)
+            {
+                this.SpawnDiamondInfo();
             }
         }
-        if(broken)
+        if(this.Stage == 1)
         {
-            this.SpawnExit();
+            if(!this.Space.FindAllObjectsByName("Diamond").IsNotEmpty)
+            {
+                
+                this.Stage = 2;
+            }
         }
     }
     
-    function SpawnExit()
+    function SpawnDiamondInfo()
     {
-        this.HasFired = true;
-        SoundCue.CollectDiamonds.Volume = 1.5;
+        this.Stage = 1;
+        SoundCue.CollectDiamonds.Volume = 1.0;
         this.Space.SoundSpace.PlayCue(SoundCue.CollectDiamonds);
         this.Space.Create(Archetype.ExitInfoCube);
+        Action.Delay(this.Owner.Actions, 3.5);
+        Action.Call(this.Owner.Actions, this.SpawnDiamonds);
+    }
+    
+    function SpawnDiamonds()
+    {
+        var seq = Action.Sequence(this.Owner.Actions);
+        foreach (var diamond : Cog in this.Space.FindAllObjectsByName("Diamond"))
+        {
+            Action.Delay(seq, 0.5);
+            Action.Call(seq, diamond.DiamondHover.Unlock);
+        }
     }
 }

@@ -112,9 +112,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [7.35982418, 15.2937431, 89.2785721],
+			Vec3 Translation = [137.327972, 31.6441059, 16.5516109],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0392060056, 0.0522979721, 0.00205479143, 0.997859478],
+			Quat Rotation = [-0.0761077404, 0.614145756, 0.0596764684, 0.783244073],
 		},
 		Camera = 
 		{
@@ -129,10 +129,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 100.94828,
-			float VerticalAngle = 0.0785398111,
-			float HorizontalAngle = -6.38790989,
-			Vec3 LookTarget = [-3.16009879, 7.37343264, -10.8071566],
+			float LookDistance = 141.237152,
+			float VerticalAngle = 0.193731561,
+			float HorizontalAngle = -7.61313248,
+			Vec3 LookTarget = [2.73343134, 4.45285082, -16.507082],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -160,7 +160,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, -15],
+			Vec3 Translation = [0, 0, -30],
 			Vec3 Scale = [100, 0.100000001, 100],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -4780,13 +4780,103 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.82894897, 6.10116577, 12.1540375],
+			Vec3 Translation = [0, 1, -23],
 			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
-			string Name = "diamond",
+			string Name = "Diamond",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56049842d5860784:diamond",
+		LinkId = 
+		{
+			uint Id = 88,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [3, 1, -23],
+			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Diamond",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56049842d5860784:diamond",
+		LinkId = 
+		{
+			uint Id = 89,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-3, 1, -23],
+			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Diamond",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56049842d5860784:diamond",
+		LinkId = 
+		{
+			uint Id = 90,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-3, 1, -26],
+			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Diamond",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56049842d5860784:diamond",
+		LinkId = 
+		{
+			uint Id = 91,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [3, 1, -26],
+			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Diamond",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56049842d5860784:diamond",
+		LinkId = 
+		{
+			uint Id = 92,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 1, -26],
+			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Diamond",
 		},
 	},
 },

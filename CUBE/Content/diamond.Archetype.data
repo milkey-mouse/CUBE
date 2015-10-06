@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "diamond",
+		string Name = "Diamond",
 	},
 	Archetyped = 
 	{
@@ -14,48 +14,23 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-2.82894897, 6.10116577, 12.1540375],
+		Vec3 Translation = [0, 1, -23],
 		Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 		Quat Rotation = [0, 0, 0, 1],
 	},
-	Model = 
+	Orientation = 
 	{
-		bool Visible = true,
-		bool VisibilityCulling = true,
-		bool VisibilityEvents = true,
-		bool CastShadows = true,
-		string MaterialName = "5606eb180f0104c1:WhiteMaterial",
-		string MeshName = "56049843d278e140:diamond",
-		Vec4 Color = [1, 1, 1, 1],
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 1, 0],
+		Vec3 ForwardVector = [0, 0, 1],
+		OrientationBases DefaultBases = ForwardZUpY,
 	},
-	MeshCollider = 
+	DiamondHover = 
 	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		string PhysicsMeshName = "56049843d278e15d:diamond",
-		bool DrawEdges = true,
-		bool DrawFaces = false,
-		bool DrawFaceNormals = false,
 	},
-	RandomColor = 
+	DestroyOnCollide = 
 	{
-		float Saturation = 1,
-	},
-	RigidBody = 
-	{
-		bool Static = false,
-		bool Asleep = false,
-		bool Kinematic = true,
-		bool RotationLocked = false,
-		bool Mode2D = false,
-		bool AllowSleep = true,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
+		string PlayOnDeath = "5606c9ce57d2692f:Beeps1",
 	},
 	Hierarchy = 
 	{
@@ -67,13 +42,40 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "aSDFASDFGSDBSDFBG_root",
+				string Name = "DiamondMesh",
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 0, 0],
+				Vec3 Translation = [0, 0, -0.5],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+				string MeshName = "5604920e639c0122:diamond",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			RandomColor = 
+			{
+				float Saturation = 0.800000012,
+			},
+			MeshCollider = 
+			{
+				bool Ghost = true,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "5604920e639c0162:diamond",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
 			},
 		},
 	},

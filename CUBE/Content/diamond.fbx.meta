@@ -1,9 +1,5 @@
 GeometryContent = 
 {
-	GeneratedArchetype = 
-	{
-		uint64 ResourceId = 56049842d5860784,
-	},
 	GeometryImport = 
 	{
 		bool ChangeWinding = false,
@@ -17,7 +13,7 @@ GeometryContent =
 		[
 			{
 				string Name = "diamond",
-				uint64 ResourceId = 56049843d278e140,
+				uint64 ResourceId = 5604920e639c0122,
 			},
 		],
 		MeshMode MeshMode = Single,
@@ -32,7 +28,7 @@ GeometryContent =
 		[
 			{
 				string Name = "diamond",
-				uint64 ResourceId = 56049843d278e15d,
+				uint64 ResourceId = 5604920e639c0162,
 			},
 		],
 		bool MakeConvex = false,

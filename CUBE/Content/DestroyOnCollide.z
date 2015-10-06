@@ -1,0 +1,26 @@
+class DestroyOnCollide : ZilchComponent
+{
+    [Property]
+    var PlayOnDeath : SoundCue = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+         foreach (var child : Cog in this.Owner.Children)
+         {
+             Zero.Connect(child, Events.CollisionStarted, this.OnCollisionStarted);
+         }
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "CUBE")
+        {
+            if(this.PlayOnDeath != null)
+            {
+                event.OtherObject.SoundEmitter.PlayCue(this.PlayOnDeath);
+            }
+            this.Owner.Destroy();
+        }
+    }
+}
