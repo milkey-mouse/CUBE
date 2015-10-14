@@ -112,9 +112,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [137.327972, 31.6441059, 16.5516109],
+			Vec3 Translation = [0.979562163, 12.6632271, -12.9146423],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0761077404, 0.614145756, 0.0596764684, 0.783244073],
+			Quat Rotation = [-0.0679960027, 0.0235069282, 0.00160252932, 0.997407317],
 		},
 		Camera = 
 		{
@@ -129,10 +129,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 141.237152,
-			float VerticalAngle = 0.193731561,
-			float HorizontalAngle = -7.61313248,
-			Vec3 LookTarget = [2.73343134, 4.45285082, -16.507082],
+			float LookDistance = 49.5480385,
+			float VerticalAngle = 0.136134863,
+			float HorizontalAngle = -6.33031273,
+			Vec3 LookTarget = [-1.3330487, 5.93882751, -61.9497528],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -4877,6 +4877,290 @@ Level =
 		Named = 
 		{
 			string Name = "Diamond",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 93,
+		},
+		Named = 
+		{
+			string Name = "Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 3, -63.0528259],
+			Vec3 Scale = [0.300000012, 0.300000012, 0.300000012],
+			Quat Rotation = [-0.707106769, 0, 0, 0.707106769],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+			string MeshName = "566796ca1d139fc0:exit",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RandomColor = 
+		{
+			float Saturation = 1,
+		},
+		MeshCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			string PhysicsMeshName = "566796ca1d139fca:exit",
+			bool DrawEdges = true,
+			bool DrawFaces = false,
+			bool DrawFaceNormals = false,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 94,
+				},
+				Named = 
+				{
+					string Name = "Sprite",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.25, 3, 0.100000001],
+					Vec3 Scale = [1.29999995, 1.29999995, 1],
+					Quat Rotation = [3.55271368e-015, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5667bc03752ff06c:target",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				SphereCollider = 
+				{
+					bool Ghost = true,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					float Radius = 3,
+				},
+				ExitHandler = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 95,
+				},
+				Named = 
+				{
+					string Name = "SpriteText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.0097549, -15.0100002, 33.5818901],
+					Vec3 Scale = [15, 15, 15],
+					Quat Rotation = [0.707106769, 0, 0, 0.707106829],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0, 0, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "5606fd5abef0f5a3:Hack-Regular",
+					uint FontSize = 150,
+					string Text = "EXIT",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 192,
+					bool Smoothing = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 96,
+				},
+				Named = 
+				{
+					string Name = "SpriteText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.0097549, -15.0100012, 19.5114002],
+					Vec3 Scale = [5, 5, 5],
+					Quat Rotation = [0.707106769, 0, 0, 0.707106829],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.274999976, 0.274999976, 0.274999976, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "5606fd5abef0f5a3:Hack-Regular",
+					uint FontSize = 65,
+					string Text = "REACH THE CENTER OF THE TARGET",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 192,
+					bool Smoothing = true,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 97,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 1.5, -65],
+			Vec3 Scale = [100, 3, 30],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = false,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		RandomColor = 
+		{
+			float Saturation = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 98,
+		},
+		Named = 
+		{
+			string Name = "SpriteText",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 2.79999995, -49.9990005],
+			Vec3 Scale = [2, 2, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0, 0, 0, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5606fd5abef0f5a3:Hack-Regular",
+			uint FontSize = 150,
+			string Text = "PRESS SPACE TO JUMP",
+			TextAlign Align = Center,
+			float PixelsPerUnit = 192,
+			bool Smoothing = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 99,
+		},
+		Named = 
+		{
+			string Name = "SpriteText",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 1, -49.9990005],
+			Vec3 Scale = [1.33000004, 1.33000004, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0, 0, 0, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5606fd5abef0f5a3:Hack-Regular",
+			uint FontSize = 80,
+			string Text = "YOU CAN DOUBLE JUMP BY JUMPING IN MIDAIR",
+			TextAlign Align = Center,
+			float PixelsPerUnit = 192,
+			bool Smoothing = true,
 		},
 	},
 },

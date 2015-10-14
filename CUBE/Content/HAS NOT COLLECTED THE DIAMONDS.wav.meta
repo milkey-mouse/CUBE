@@ -1,0 +1,11 @@
+AudioContent = 
+{
+	SoundBuilder = 
+	{
+		string Name = "HAS NOT COLLECTED THE DIAMONDS",
+		uint64 ResourceId = 5667b0f6086d00ba,
+		bool Compressed = true,
+		uint Quality = 100,
+		SoundLoadType LoadType = Decompress,
+	},
+},

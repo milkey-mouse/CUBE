@@ -18,7 +18,10 @@ class CUBEController : ZilchComponent
             Action.Delay(group, 1.0);
             Action.Call(group, this.RemoveLock);
         }
-        this.JumpsLeft = 2;
+        if(event.FirstPoint.WorldNormalTowardsOther.Y < -0.7)
+        {
+            this.JumpsLeft = 2;
+        }
     }
     
     function RemoveLock()
@@ -65,7 +68,7 @@ class CUBEController : ZilchComponent
         }
         else if(Zero.Keyboard.KeyIsDown(Keys.S) && !Zero.Keyboard.KeyIsDown(Keys.W))
         {
-            this.Owner.RigidBody.Velocity = Real3(Math.Sin(angle) * event.Dt * 500, -this.Owner.RigidBody.Velocity.Y, Math.Cos(angle) * event.Dt * 500);
+            this.Owner.RigidBody.Velocity = Real3(Math.Sin(angle) * event.Dt * 500, this.Owner.RigidBody.Velocity.Y, Math.Cos(angle) * event.Dt * 500);
         }
         else
         {
