@@ -12,6 +12,7 @@ class ClearBelowLevel : ZilchComponent
             if(obj.Transform == null){continue;}
             if(obj.Transform.WorldTranslation.Y < -15)
             {
+                Console.WriteLine("Cleared `obj.Name`");
                 obj.Destroy();
             }
         }

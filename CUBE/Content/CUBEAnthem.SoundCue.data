@@ -13,8 +13,8 @@ SoundCue =
 	Array Sounds = 
 	[
 		{
-			string SoundName = "4e1bda59a3a9f650:DefaultSound",
-			string GeneratedSoundName = "",
+			string SoundName = "5667b6c475c18653:THE ANTHEM OF THE CUBE 1",
+			string GeneratedSoundName = "55017c595ef88bf0:DefaultGeneratedSound",
 			WhichSoundType WhichToUse = FromFile,
 			float Weight = 1,
 			float LoopEndTime = 0,
@@ -29,6 +29,6 @@ SoundCue =
 	],
 	string RolloffCurveName = "",
 	int Version = 1,
-	RolloffCurveType RolloffCurveType = Error,
+	RolloffCurveType RolloffCurveType = Linear,
 	uint LogCurveSteepnessFactor = 144776112,
 },

@@ -112,9 +112,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.979562163, 12.6632271, -12.9146423],
+			Vec3 Translation = [15.7229071, 4.33875227, -38.2944412],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0679960027, 0.0235069282, 0.00160252932, 0.997407317],
+			Quat Rotation = [-0.21618703, 0.447088003, 0.112300754, 0.860676527],
 		},
 		Camera = 
 		{
@@ -129,10 +129,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 49.5480385,
-			float VerticalAngle = 0.136134863,
-			float HorizontalAngle = -6.33031273,
-			Vec3 LookTarget = [-1.3330487, 5.93882751, -61.9497528],
+			float LookDistance = 25.6731205,
+			float VerticalAngle = 0.49218291,
+			float HorizontalAngle = -7.24137545,
+			Vec3 LookTarget = [-2.78844905, -7.79310179, -51.3043175],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -223,7 +223,7 @@ Level =
 			Facing Facing = NegativeZ,
 			CameraTransparentSort TransparentSort = InheritFromSpace,
 			float FieldOfView = 45,
-			float NearPlane = 0.5,
+			float NearPlane = 0.00999999978,
 			float FarPlane = 500,
 			float Size = 20,
 		},
@@ -4971,12 +4971,32 @@ Level =
 				ExitHandler = 
 				{
 				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 95,
+						},
+						Named = 
+						{
+							string Name = "Transform",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -22, 65],
+							Vec3 Scale = [2.56410241, 3.33333325, 2.56410289],
+							Quat Rotation = [0.707106769, 0, 0, 0.707106769],
+						},
+					},
+				},
 			},
 			Cog = 
 			{
 				LinkId = 
 				{
-					uint Id = 95,
+					uint Id = 96,
 				},
 				Named = 
 				{
@@ -5010,7 +5030,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 96,
+					uint Id = 97,
 				},
 				Named = 
 				{
@@ -5046,7 +5066,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 97,
+			uint Id = 98,
 		},
 		Named = 
 		{
@@ -5099,7 +5119,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 98,
+			uint Id = 99,
 		},
 		Named = 
 		{
@@ -5107,7 +5127,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 2.79999995, -49.9990005],
+			Vec3 Translation = [0, 2.79999995, -49.9000015],
 			Vec3 Scale = [2, 2, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -5133,7 +5153,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 99,
+			uint Id = 100,
 		},
 		Named = 
 		{
@@ -5141,7 +5161,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 1, -49.9990005],
+			Vec3 Translation = [0, 1, -49.9000015],
 			Vec3 Scale = [1.33000004, 1.33000004, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},

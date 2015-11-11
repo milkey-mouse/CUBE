@@ -4,6 +4,10 @@ class CUBEController : ZilchComponent
     
     var JumpsLeft : Integer = 0;
     
+    var RotationSpeed : Integer = 175;
+    
+    var JumpForce : Real = 5;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -27,7 +31,11 @@ class CUBEController : ZilchComponent
     function RemoveLock()
     {
         this.Paused = false;
-        this.Space.FindObjectByName("Camera").LerpTowardsTarget.Tracking = true;
+        var camera : Cog = this.Space.FindObjectByName("Camera");
+        if(camera.LerpTowardsTarget != null)
+        {
+            camera.LerpTowardsTarget.Tracking = true;
+        }
     }
     
     function OnLogicUpdate(event : UpdateEvent)
@@ -46,16 +54,16 @@ class CUBEController : ZilchComponent
         }
         if(this.JumpsLeft > 0 && Zero.Keyboard.KeyIsPressed(Keys.Space))
         {
-            this.Owner.RigidBody.Velocity = Real3(this.Owner.RigidBody.Velocity.X,4.5,this.Owner.RigidBody.Velocity.Z);
+            this.Owner.RigidBody.Velocity = Real3(this.Owner.RigidBody.Velocity.X,this.JumpForce,this.Owner.RigidBody.Velocity.Z);
             --this.JumpsLeft;
         }
         if(Zero.Keyboard.KeyIsDown(Keys.A) && !Zero.Keyboard.KeyIsDown(Keys.D))
         {
-            this.Owner.RigidBody.AngularVelocity = Real3(this.Owner.RigidBody.AngularVelocity.X, event.Dt * 200, this.Owner.RigidBody.AngularVelocity.Z);
-        }
+            this.Owner.RigidBody.AngularVelocity = Real3(this.Owner.RigidBody.AngularVelocity.X, event.Dt * this.RotationSpeed, this.Owner.RigidBody.AngularVelocity.Z);
+        }   
         else if(Zero.Keyboard.KeyIsDown(Keys.D) && !Zero.Keyboard.KeyIsDown(Keys.A))
         {
-            this.Owner.RigidBody.AngularVelocity = Real3(this.Owner.RigidBody.AngularVelocity.X, -event.Dt * 200, this.Owner.RigidBody.AngularVelocity.Z);
+            this.Owner.RigidBody.AngularVelocity = Real3(this.Owner.RigidBody.AngularVelocity.X, -event.Dt * this.RotationSpeed, this.Owner.RigidBody.AngularVelocity.Z);
         }
         else
         {

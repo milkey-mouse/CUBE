@@ -1,8 +1,33 @@
 class ExitHandler : ZilchComponent
 {
+    var RandRotate : Real3 = Real3(0,0,0);
+    
+    var Rand : Random = Random();
+    
+    var Cube : Cog = null;
+    
+    var Camera : Cog = null;
+    
+    var CubeCountdown : Real = 1.18;
+    
     function Initialize(init : CogInitializer)
     {
          Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+         this.Cube = this.Space.FindObjectByName("CUBE");
+         foreach(var obj : Cog in this.Space.AllObjects())
+         {
+             if(obj.LerpTowardsTarget != null)
+             {
+                 this.Camera = obj;
+                 Console.WriteLine(obj.Name);
+             }
+         }
+    }
+    
+    function AlignCamera()
+    {
+        var direction : Real3 = this.Camera.Transform.WorldTranslation - this.Cube.Transform.WorldTranslation;
+        this.Camera.Orientation.LookAtDirection(direction);
     }
     
     function OnCollisionStarted(event : CollisionEvent)
@@ -14,6 +39,39 @@ class ExitHandler : ZilchComponent
                 this.Space.SoundSpace.PlayCue(SoundCue.DiamondError);
                 var angle : Real = event.OtherObject.Orientation.AbsoluteAngle;
                 event.OtherObject.RigidBody.ApplyForce(Real3(Math.Sin(angle) * 300000, event.OtherObject.RigidBody.Velocity.Y, Math.Cos(angle) * 300000));
+            }
+            else
+            {
+                SoundCue.CUBEAnthem.Volume = 3;
+                this.Space.SoundSpace.PlayCue(SoundCue.CUBEAnthem);
+                this.Camera.RemoveComponentByName("LerpTowardsTarget");
+                this.Camera.AddComponentByName("Orientation");
+                this.Camera.AttachTo(this.Owner);
+                this.Camera.Transform.Translation = Real3(0, -17.5, 65);
+                this.Camera.Camera.FieldOfView = 25;
+                this.AlignCamera();
+                this.Cube.CUBEController.Paused = true;
+                this.Cube.RigidBody.DynamicState = RigidBodyDynamicState.Kinematic;
+                this.RandRotate = this.Rand.Real3(4,4);
+                Zero.Disconnect(this.Owner, Events.CollisionStarted, this);
+                Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+            }
+        }
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Cube.CUBEController.Paused = true;
+        this.Cube.Transform.RotateAnglesWorld(this.RandRotate * event.Dt);
+        this.Cube.Transform.Translation += Real3(0,event.Dt*15,0);
+        this.AlignCamera();
+        this.CubeCountdown -= event.Dt;
+        if(this.CubeCountdown <= 0)
+        {
+            if(this.LevelSettings.ForwardRenderer.ClearColor != Real4(0,0,0,1))
+            {
+                var mult : Real = 1.0 - Math.Max(1.0, -this.CubeCountdown);
+                this.LevelSettings.ForwardRenderer.ClearColor = Real4(mult,mult,mult,1);
             }
         }
     }
