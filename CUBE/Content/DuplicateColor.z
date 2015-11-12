@@ -1,0 +1,18 @@
+class DuplicateColor : ZilchComponent
+{
+    [Property]
+    var Target : CogPath = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var mat : Material = Material.WhiteMaterial.RuntimeClone() as Material;
+        mat.ColorDiffuse.DiffuseColor = this.Target.Cog.Model.Material.ColorDiffuse.DiffuseColor;
+        this.Owner.Model.Material = mat;
+        Zero.Disconnect(this.Owner, Events.LogicUpdate, this);
+    }
+}

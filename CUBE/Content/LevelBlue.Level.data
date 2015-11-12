@@ -112,9 +112,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [15.7229071, 4.33875227, -38.2944412],
+			Vec3 Translation = [-2.78845739, 201.85759, -51.3043213],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.21618703, 0.447088003, 0.112300754, 0.860676527],
+			Quat Rotation = [-0.592018485, 0.38667053, 0.38667056, 0.592018485],
 		},
 		Camera = 
 		{
@@ -129,9 +129,9 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 25.6731205,
-			float VerticalAngle = 0.49218291,
-			float HorizontalAngle = -7.24137545,
+			float LookDistance = 209.650696,
+			float VerticalAngle = 1.57079637,
+			float HorizontalAngle = -7.44034338,
 			Vec3 LookTarget = [-2.78844905, -7.79310179, -51.3043175],
 			float MoveSensitivity = 1,
 		},
@@ -559,6 +559,7 @@ Level =
 		PolyverseAmbience = 
 		{
 			bool Beep = false,
+			bool Music = true,
 		},
 		SoundEmitter = 
 		{
@@ -4300,7 +4301,7 @@ Level =
 		DisembodiedSound = 
 		{
 			string SoundToPlay = "560701bf7d49efb1:DefenderofPolyverse",
-			float Volume = 1.5,
+			float Volume = 5,
 		},
 		SoundEmitter = 
 		{
@@ -4889,6 +4890,10 @@ Level =
 		{
 			string Name = "Transform",
 		},
+		Archetyped = 
+		{
+			string Name = "563dc3dda13e18fc:LevelExit",
+		},
 		Transform = 
 		{
 			Vec3 Translation = [0, 3, -63.0528259],
@@ -4970,6 +4975,7 @@ Level =
 				},
 				ExitHandler = 
 				{
+					string NextLevel = "563dd2b6182076e7:LevelGreen",
 				},
 				Hierarchy = 
 				{

@@ -1,0 +1,19 @@
+class GameOverHandler : ZilchComponent
+{
+    var MainSpace : Space = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(!this.Owner.SimpleSound.IsPlaying())
+        {
+            this.MainSpace.TimeSpace.Paused = false;
+            this.MainSpace.ReloadLevel();
+            this.Space.Destroy();
+        }
+    }
+}

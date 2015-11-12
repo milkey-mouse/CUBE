@@ -38,6 +38,14 @@ class CUBEController : ZilchComponent
         }
     }
     
+    function Kill()
+    {
+        this.Space.TimeSpace.Paused = true;
+        var gos : Space = this.GameSession.CreateNamedSpace("GameOver", Archetype.Space);
+        gos.LoadLevel(Level.GameOver);
+        gos.FindObjectByName("CubeCaption").GameOverHandler.MainSpace = this.Space;
+    }
+    
     function OnLogicUpdate(event : UpdateEvent)
     {
         if(this.Paused)
@@ -50,7 +58,7 @@ class CUBEController : ZilchComponent
         }
         if(this.Owner.Transform.WorldTranslation.Y < -10)
         {
-            this.Space.ReloadLevel();
+            this.Kill();
         }
         if(this.JumpsLeft > 0 && Zero.Keyboard.KeyIsPressed(Keys.Space))
         {

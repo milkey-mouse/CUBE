@@ -12,7 +12,8 @@ class LerpTowardsTarget : ZilchComponent
     {
         if(!this.Tracking){return;}
         var target : Cog = this.Space.FindObjectByName("CameraTarget");
-        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, target.Transform.WorldRotation, 0.45);
-        this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, target.Transform.WorldTranslation, 0.3);
+        var speed : Real = Math.Min(0.9, 14 / event.Dt);
+        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, target.Transform.WorldRotation, speed);
+        this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, target.Transform.WorldTranslation, speed);
     }
 }

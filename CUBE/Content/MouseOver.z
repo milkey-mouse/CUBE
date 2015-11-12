@@ -86,7 +86,6 @@ class MouseOver : ZilchComponent
         this.IsSelected = true;
         if(this.Owner.HueChange != null)
         {
-            Console.WriteLine("Sos");
             this.Owner.HueChange.Paused = true;
         }
         this.TargetColor = this.TextColor;

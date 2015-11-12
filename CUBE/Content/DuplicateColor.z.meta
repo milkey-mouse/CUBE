@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "DuplicateColor",
+		uint64 ResourceId = 563dfa63ef760683,
+	},
+},

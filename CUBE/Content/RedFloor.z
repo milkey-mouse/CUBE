@@ -1,0 +1,15 @@
+class RedFloor : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.CUBEController != null)
+        {
+            event.OtherObject.CUBEController.Kill();
+        }
+    }
+}

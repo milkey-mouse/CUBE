@@ -11,6 +11,9 @@ class PolyverseAmbience : ZilchComponent
     [Property]
     var Beep : Boolean = true;
     
+    [Property]
+    var Music : Boolean = true;
+    
     function Initialize(init : CogInitializer)
     {
         SoundCue.PolyverseAmbience3.Volume = 30;
@@ -22,7 +25,7 @@ class PolyverseAmbience : ZilchComponent
     {
         this.BeepCooldown -= event.Dt;
         this.TimeSinceCube += event.Dt;
-        if(!this.Owner.SimpleSound.IsPlaying())
+        if(this.Music && !this.Owner.SimpleSound.IsPlaying())
         {
             if(this.RandMusic.Probability(0.85))
             {

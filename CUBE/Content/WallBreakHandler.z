@@ -5,6 +5,7 @@ class WallBreakHandler : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        SoundCue.DefenderofPolyverse.Volume = 4.0;
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -29,16 +30,21 @@ class WallBreakHandler : ZilchComponent
         {
             if(!this.Space.FindAllObjectsByName("Diamond").IsNotEmpty)
             {
-                
                 this.Stage = 2;
             }
+        }
+        if(this.Stage == 2 && !this.Space.FindAllObjectsByName("Diamond").IsNotEmpty)
+        {
+            SoundCue.NewColorLevel.Volume = 4.0;
+            this.Space.SoundSpace.PlayCue(SoundCue.NewColorLevel);
+            this.Stage = 3;
         }
     }
     
     function SpawnDiamondInfo()
     {
         this.Stage = 1;
-        SoundCue.CollectDiamonds.Volume = 1.0;
+        SoundCue.CollectDiamonds.Volume = 3.0;
         this.Space.SoundSpace.PlayCue(SoundCue.CollectDiamonds);
         this.Space.Create(Archetype.ExitInfoCube);
         Action.Delay(this.Owner.Actions, 3.5);

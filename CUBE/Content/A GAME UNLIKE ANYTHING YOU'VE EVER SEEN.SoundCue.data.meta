@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "A GAME UNLIKE ANYTHING YOU'VE EVER SEEN",
+		uint64 ResourceId = 563de1a1e9e59fef,
+		string LoaderType = "SoundCue",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

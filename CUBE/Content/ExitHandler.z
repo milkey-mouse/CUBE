@@ -10,16 +10,23 @@ class ExitHandler : ZilchComponent
     
     var CubeCountdown : Real = 1.18;
     
+    var StartColors : Real4 = Real4.Zero;
+    
+    var MadeSpace : Boolean = false;
+    
+    [Property]
+    var NextLevel : Level = null;
+    
     function Initialize(init : CogInitializer)
     {
          Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+         this.StartColors = this.LevelSettings.ForwardRenderer.ClearColor;
          this.Cube = this.Space.FindObjectByName("CUBE");
          foreach(var obj : Cog in this.Space.AllObjects())
          {
              if(obj.LerpTowardsTarget != null)
              {
                  this.Camera = obj;
-                 Console.WriteLine(obj.Name);
              }
          }
     }
@@ -63,15 +70,33 @@ class ExitHandler : ZilchComponent
     {
         this.Cube.CUBEController.Paused = true;
         this.Cube.Transform.RotateAnglesWorld(this.RandRotate * event.Dt);
-        this.Cube.Transform.Translation += Real3(0,event.Dt*15,0);
+        this.Cube.Transform.Translation += Real3(0,event.Dt*17.5,0);
         this.AlignCamera();
         this.CubeCountdown -= event.Dt;
         if(this.CubeCountdown <= 0)
         {
-            if(this.LevelSettings.ForwardRenderer.ClearColor != Real4(0,0,0,1))
+            if(!this.MadeSpace)
             {
-                var mult : Real = 1.0 - Math.Max(1.0, -this.CubeCountdown);
-                this.LevelSettings.ForwardRenderer.ClearColor = Real4(mult,mult,mult,1);
+                var nlspace : Space = this.GameSession.CreateNamedSpace("NextLevelMenu", Archetype.Space);
+                nlspace.LoadLevel(Level.NextLevel);
+                var bln : String = this.NextLevel.Name.Replace("Level", "").ToUpper();
+                var sb : Cog = nlspace.FindObjectByName("StartButton");
+                var sbtext : String = "ENTER LEVEL `bln`";
+                sb.SpriteText.Text = sbtext;
+                sb.ChangeLevelButton.LevelToLoad = this.NextLevel;
+                var tpd : Cog = nlspace.FindObjectByName("TARGET OF THE POINTING DEVICE");
+                tpd.Area.Size = Real2(sb.SpriteText.MeasureGivenText(sbtext).X + 0.5, tpd.Area.Size.Y);
+                this.MadeSpace = true;
+            }
+            if(this.LevelSettings.ForwardRenderer.ClearColor != Real4(0,0,0,0))
+            {
+                var mult : Real = Math.Min(1.0, -this.CubeCountdown);
+                var ccolor : Real4 = this.StartColors - (this.StartColors * mult);
+                this.LevelSettings.ForwardRenderer.ClearColor = ccolor;
+            }
+            else
+            {
+                Zero.Disconnect(this.Owner, Events.LogicUpdate, this);
             }
         }
     }

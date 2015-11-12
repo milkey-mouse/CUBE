@@ -1,0 +1,120 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LevelExit",
+	},
+	Archetyped = 
+	{
+		string Name = "563dc3dda13e18fc:LevelExit",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0.0549999997, -63.0528259],
+		Vec3 Scale = [0.300000012, 0.300000012, 0.300000012],
+		Quat Rotation = [-0.707106769, 0, 0, 0.707106769],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+		string MeshName = "566796ca1d139fc0:exit",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RandomColor = 
+	{
+		float Saturation = 1,
+	},
+	MeshCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		string PhysicsMeshName = "566796ca1d139fca:exit",
+		bool DrawEdges = true,
+		bool DrawFaces = false,
+		bool DrawFaceNormals = false,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Sprite",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-2.25, 3, 0.100000001],
+				Vec3 Scale = [1.29999995, 1.29999995, 1],
+				Quat Rotation = [3.55271368e-015, 0, 0, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "5667bc03752ff06c:target",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			SphereCollider = 
+			{
+				bool Ghost = true,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				float Radius = 3,
+			},
+			ExitHandler = 
+			{
+				string NextLevel = "",
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "Transform",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, -22, 65],
+						Vec3 Scale = [2.56410241, 3.33333325, 2.56410289],
+						Quat Rotation = [0.707106769, 0, 0, 0.707106769],
+					},
+				},
+			},
+		},
+	},
+},
