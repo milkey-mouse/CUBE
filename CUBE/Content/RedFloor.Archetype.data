@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0.00999999978, -17.2004223],
+		Vec3 Translation = [0, 0.0299999993, -17.2004223],
 		Vec3 Scale = [100, 0.100000001, 40],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -43,7 +43,7 @@ Cog =
 	BoxCollider = 
 	{
 		bool Ghost = false,
-		bool SendsMessages = false,
+		bool SendsMessages = true,
 		bool Seamless = true,
 		string MaterialName = "5607124975741e2d:Floor",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",

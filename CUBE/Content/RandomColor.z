@@ -22,6 +22,12 @@ class RandomColor : ZilchComponent
             coloredMaterial.ColorDiffuse.DiffuseColor = color;
             this.Owner.Model.Material = coloredMaterial;
         }
+        else if(this.Owner.HeightMapModel != null)
+        {
+            var coloredMaterial : Material = Material.WhiteMaterial.RuntimeClone() as Material;
+            coloredMaterial.ColorDiffuse.DiffuseColor = color;
+            this.Owner.HeightMapModel.Material = coloredMaterial;
+        }
     }
     
     function HSVtoRGB(h : Real, s : Real, v : Real) : Real4

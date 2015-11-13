@@ -1,0 +1,18 @@
+class ForeverSpin : ZilchComponent
+{
+    [Property]
+    var SpinDirection : Real3 = Real3.Zero;
+    
+    var Rand : Random = new Random();
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Owner.Transform.RotateAnglesWorld(this.SpinDirection * this.Rand.Range(0, 10));
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.Transform.RotateAnglesWorld(this.SpinDirection * event.Dt);
+    }
+}

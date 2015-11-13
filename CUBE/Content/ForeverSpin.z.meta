@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ForeverSpin",
+		uint64 ResourceId = 565347b222ce78c9,
+	},
+},

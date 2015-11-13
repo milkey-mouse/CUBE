@@ -1,0 +1,12 @@
+BinaryContent = 
+{
+	BinaryBuilder = 
+	{
+		string Name = "LevelGreen_HeightMap00",
+		uint64 ResourceId = 56531c88216d8386,
+		string LoaderType = "HeightMapSource",
+		uint Version = 0,
+		string FilterTag = "",
+		string ResourceOwner = "563dd2b6182076e7:LevelGreen",
+	},
+},
