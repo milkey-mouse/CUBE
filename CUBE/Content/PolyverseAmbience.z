@@ -16,7 +16,12 @@ class PolyverseAmbience : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        SoundCue.PolyverseAmbience3.Volume = 30;
+        SoundCue.PolyverseAmbience1.Volume = 1;
+        SoundCue.PolyverseAmbience2.Volume = 1;
+        SoundCue.PolyverseAmbience3.Volume = 1;
+        SoundCue.PolyverseAmbience1.Pitch = 0;
+        SoundCue.PolyverseAmbience2.Pitch = 0;
+        SoundCue.PolyverseAmbience3.Pitch = 0;
         SoundCue.Beeps1.Volume = 10;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
@@ -31,6 +36,7 @@ class PolyverseAmbience : ZilchComponent
             {
                 this.Owner.SimpleSound.Cue = SoundCue.PolyverseAmbience1;
                 SoundCue.PolyverseAmbience1.Pitch = -7;
+                
                 this.Owner.SimpleSound.Play();
             }
             else

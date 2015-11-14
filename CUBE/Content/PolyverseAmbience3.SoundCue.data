@@ -14,7 +14,7 @@ SoundCue =
 	[
 		{
 			string SoundName = "5606ccb14ec9f6ab:AMBIENCE OF THE POLYVERSE 3",
-			string GeneratedSoundName = "",
+			string GeneratedSoundName = "55017c595ef88bf0:DefaultGeneratedSound",
 			WhichSoundType WhichToUse = FromFile,
 			float Weight = 1,
 			float LoopEndTime = 0,
@@ -29,6 +29,6 @@ SoundCue =
 	],
 	string RolloffCurveName = "",
 	int Version = 1,
-	RolloffCurveType RolloffCurveType = Error,
+	RolloffCurveType RolloffCurveType = Linear,
 	uint LogCurveSteepnessFactor = 113573744,
 },
