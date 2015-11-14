@@ -16,12 +16,11 @@ class PolyverseAmbience : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        SoundCue.PolyverseAmbience1.Volume = 1;
-        SoundCue.PolyverseAmbience2.Volume = 1;
-        SoundCue.PolyverseAmbience3.Volume = 1;
+        SoundCue.PolyverseAmbience1.Volume = 1.5;
+        SoundCue.PolyverseAmbience2.Volume = 1.5;
+        SoundCue.PolyverseAmbience3.Volume = 4.0;
         SoundCue.PolyverseAmbience1.Pitch = 0;
         SoundCue.PolyverseAmbience2.Pitch = 0;
-        SoundCue.PolyverseAmbience3.Pitch = 0;
         SoundCue.Beeps1.Volume = 10;
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
@@ -30,20 +29,15 @@ class PolyverseAmbience : ZilchComponent
     {
         this.BeepCooldown -= event.Dt;
         this.TimeSinceCube += event.Dt;
-        if(this.Music && !this.Owner.SimpleSound.IsPlaying())
+        if(this.Music && !this.Owner.SoundEmitter.IsPlaying())
         {
             if(this.RandMusic.Probability(0.85))
             {
-                this.Owner.SimpleSound.Cue = SoundCue.PolyverseAmbience1;
-                SoundCue.PolyverseAmbience1.Pitch = -7;
-                
-                this.Owner.SimpleSound.Play();
+                this.Owner.SoundEmitter.PlayCue(SoundCue.PolyverseAmbience1);
             }
             else
             {
-                this.Owner.SimpleSound.Cue = SoundCue.PolyverseAmbience2;
-                SoundCue.PolyverseAmbience2.Pitch = -7;
-                this.Owner.SimpleSound.Play();
+                this.Owner.SoundEmitter.PlayCue(SoundCue.PolyverseAmbience2);
             }
         }
         else

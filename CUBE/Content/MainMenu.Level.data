@@ -509,11 +509,6 @@ Level =
 			bool Beep = true,
 			bool Music = true,
 		},
-		SimpleSound = 
-		{
-			bool StartPlaying = false,
-			string CueName = "5606ede2865e0d99:PolyverseAmbience1",
-		},
 		Hierarchy = 
 		{
 			Cog = 
