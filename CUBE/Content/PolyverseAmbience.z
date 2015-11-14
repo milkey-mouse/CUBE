@@ -16,8 +16,8 @@ class PolyverseAmbience : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        SoundCue.PolyverseAmbience1.Volume = 1.5;
-        SoundCue.PolyverseAmbience2.Volume = 1.5;
+        SoundCue.PolyverseAmbience1.Volume = 0.5;
+        SoundCue.PolyverseAmbience2.Volume = 0.5;
         SoundCue.PolyverseAmbience3.Volume = 4.0;
         SoundCue.PolyverseAmbience1.Pitch = 0;
         SoundCue.PolyverseAmbience2.Pitch = 0;
@@ -46,7 +46,7 @@ class PolyverseAmbience : ZilchComponent
             {
                 this.BeepCooldown = this.BeepInterval;
                 SoundCue.Beeps1.PitchVariation = 0.025;
-                SoundCue.Beeps1.Volume = 10.0;
+                SoundCue.Beeps1.Volume = 3;
                 SoundCue.Beeps2.PitchVariation = 0.025;
                 SoundCue.Beeps2.Volume = 1.25;
                 if(this.Beep)

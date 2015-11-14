@@ -14,9 +14,9 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0.5, 8.64412308],
+		Vec3 Translation = [0, 20, 9],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
+		Quat Rotation = [-7.40562472e-011, 2.54427105e-022, 8.09068437e-011, 1],
 	},
 	Model = 
 	{
@@ -38,7 +38,7 @@ Cog =
 		bool AllowSleep = false,
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 160],
 	},
 	BoxCollider = 
 	{
@@ -52,6 +52,7 @@ Cog =
 	},
 	RandomColor = 
 	{
+		float Saturation = 1,
 	},
 	Orientation = 
 	{
@@ -63,20 +64,17 @@ Cog =
 	CUBEController = 
 	{
 	},
-	PolyverseAmbience = 
-	{
-	},
 	SoundEmitter = 
 	{
-		float Volume = 1,
+		float Volume = 0.280000001,
 		float Pitch = 0,
 		bool Positional = true,
 		int Version = 1,
 	},
 	SimpleSound = 
 	{
-		bool StartPlaying = false,
-		string CueName = "4e1bd44008b4dc2a:DefaultCue",
+		bool StartPlaying = true,
+		string CueName = "5606cc8848aac78a:PolyverseAmbience3",
 	},
 	Hierarchy = 
 	{
@@ -88,27 +86,25 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "Camera",
+				string Name = "AuxSoundCube",
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 8.53657532, 18.4091663],
+				Vec3 Translation = [0, 0, 0],
 				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [-0.238242507, -1.1301978e-008, -2.25324026e-009, 0.971205711],
+				Quat Rotation = [0, 0, 0, 1],
 			},
-			Camera = 
+			SoundEmitter = 
 			{
-				ProjectionMode ProjectionMode = Perspective,
-				Facing Facing = NegativeZ,
-				CameraTransparentSort TransparentSort = InheritFromSpace,
-				float FieldOfView = 45,
-				float NearPlane = 0.5,
-				float FarPlane = 500,
-				float Size = 20,
+				float Volume = 0.099999994,
+				float Pitch = 0,
+				bool Positional = true,
+				int Version = 1,
 			},
-			SoundListener = 
+			SimpleSound = 
 			{
-				bool Active = true,
+				bool StartPlaying = true,
+				string CueName = "5606cc8848aac78a:PolyverseAmbience3",
 			},
 		},
 	},

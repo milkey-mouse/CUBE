@@ -1022,22 +1022,17 @@ Level =
 		CUBEController = 
 		{
 		},
-		PolyverseAmbience = 
-		{
-			bool Beep = false,
-			bool Music = true,
-		},
 		SoundEmitter = 
 		{
-			float Volume = 0.280000001,
+			float Volume = 1,
 			float Pitch = 0,
-			bool Positional = true,
+			bool Positional = false,
 			int Version = 1,
 		},
 		SimpleSound = 
 		{
-			bool StartPlaying = false,
-			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			bool StartPlaying = true,
+			string CueName = "5606cc8848aac78a:PolyverseAmbience3",
 		},
 		Hierarchy = 
 		{
