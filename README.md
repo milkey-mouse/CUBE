@@ -26,3 +26,5 @@ you will face many obstructions in your path.
 It's up to you to guide CUBE around things that CUBE can't go through!
 
 CUBE!
+
+The video that inspired CUBE: https://vimeo.com/9147425
