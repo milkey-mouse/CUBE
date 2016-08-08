@@ -4,7 +4,7 @@ class CUBEController : ZilchComponent
     
     var JumpsLeft : Integer = 0;
     
-    var RotationSpeed : Integer = 175;
+    var RotationSpeed : Integer = 125;
     
     var JumpForce : Real = 5;
     
