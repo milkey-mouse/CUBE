@@ -103,7 +103,7 @@ Level =
 		{
 			Vec3 Translation = [-0.914740264, -0.711408019, 44.4560966],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.00261777313, -0.00261740596, -6.85188161e-006, 0.999993205],
+			Quat Rotation = [-0.00261777337, -0.00261740619, -6.85188206e-06, 0.999993205],
 		},
 		Camera = 
 		{
@@ -113,7 +113,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 21.8347187,
+			float Size = 72.4937744,
 		},
 		EditorCameraController = 
 		{
@@ -162,6 +162,7 @@ Level =
 		SoundListener = 
 		{
 			bool Active = true,
+			float Volume = 1,
 		},
 	},
 	Cog = 
@@ -573,12 +574,19 @@ Level =
 			float CubeSpawnRate = 4.5,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "4faa6050b86884ec:DefaultArchetype",
 		LinkId = 
 		{
 			uint Id = 14,
+		},
+		Named = 
+		{
+			string Name = "Beeper",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
 		},
 		Transform = 
 		{
@@ -586,9 +594,15 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Model = 
 		{
-			string Name = "Beeper",
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
 		},
 	},
 	Cog = 

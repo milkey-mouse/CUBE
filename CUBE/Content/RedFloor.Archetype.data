@@ -14,8 +14,8 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0.0299999993, -17.2004223],
-		Vec3 Scale = [100, 0.100000001, 40],
+		Vec3 Translation = [0, 0, -27.2000008],
+		Vec3 Scale = [100, 0.100000001, 60],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = true,
-		string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+		string MaterialName = "4e1be40d46f45030:EditorMaterial",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 0, 0, 1],
 	},

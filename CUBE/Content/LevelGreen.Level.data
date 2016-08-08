@@ -23,6 +23,7 @@ Level =
 			bool Active = true,
 			bool WakeUpOnChange = false,
 			float Drag = 0.699999988,
+			float AngularDrag = 0.100000001,
 		},
 		CameraViewport = 
 		{
@@ -77,7 +78,7 @@ Level =
 		},
 		GridDraw = 
 		{
-			bool Active = true,
+			bool Active = false,
 			bool HalfCellOffset = false,
 			float CellSize = 1,
 			GridAxis Axis = YAxis,
@@ -109,9 +110,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [166.040421, 245.570068, 59.2781296],
+			Vec3 Translation = [67.2111588, 14.5906219, -131.237289],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.315791726, 0.323653907, 0.11556638, 0.884402692],
+			Quat Rotation = [-0.260857701, 0.64838177, 0.252793103, 0.669066429],
 		},
 		Camera = 
 		{
@@ -126,10 +127,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 298.50116,
-			float VerticalAngle = 0.685914755,
-			float HorizontalAngle = -6.98482466,
-			Vec3 LookTarget = [16.9417667, 56.5050697, -117.15023],
+			float LookDistance = 150.59729,
+			float VerticalAngle = 0.743509173,
+			float HorizontalAngle = -7.8225832,
+			Vec3 LookTarget = [-43.5885391, -87.3449478, -134.717377],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -157,8 +158,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, -120],
-			Vec3 Scale = [100, 0.100000001, 300],
+			Vec3 Translation = [0, 0, -245.5],
+			Vec3 Scale = [100, 0.100000001, 40],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Model = 
@@ -167,9 +168,180 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = true,
-			string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+			string MaterialName = "4de020863e816dde:Grid",
 			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 0, 0, 1],
+			Vec4 Color = [0.160784319, 1, 0.160784319, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = false,
+			bool Seamless = true,
+			string MaterialName = "5607124975741e2d:Floor",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		ModelColorModulate = 
+		{
+			Vec4 Color = [0.160000026, 1, 0.160784289, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "Floor",
+		},
+		Archetyped = 
+		{
+			string Name = "5607156b4940091d:Floor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -94.8000031],
+			Vec3 Scale = [100, 0.100000001, 75.3000031],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e816dde:Grid",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.160784319, 1, 0.160784319, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = false,
+			bool Seamless = true,
+			string MaterialName = "5607124975741e2d:Floor",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		ModelColorModulate = 
+		{
+			Vec4 Color = [0.160000026, 1, 0.160784289, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Named = 
+		{
+			string Name = "Floor",
+		},
+		Archetyped = 
+		{
+			string Name = "5607156b4940091d:Floor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -183],
+			Vec3 Scale = [100, 0.100000001, 21],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e816dde:Grid",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.160784319, 1, 0.160784319, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = false,
+			bool Seamless = true,
+			string MaterialName = "5607124975741e2d:Floor",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		ModelColorModulate = 
+		{
+			Vec4 Color = [0.160000026, 1, 0.160784289, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "Floor",
+		},
+		Archetyped = 
+		{
+			string Name = "5607156b4940091d:Floor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 16.5499992],
+			Vec3 Scale = [100, 0.100000001, 27.5],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e816dde:Grid",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.160784319, 1, 0.160784319, 1],
 		},
 		RigidBody = 
 		{
@@ -203,48 +375,12 @@ Level =
 		string Name = "563de57081e21402:RedFloor",
 		LinkId = 
 		{
-			uint Id = 5,
+			uint Id = 8,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0.0500000007, -27.2003994],
+			Vec3 Translation = [0, 0, -27.2000008],
 			Vec3 Scale = [100, 0.100000001, 60],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "Floor",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "563de57081e21402:RedFloor",
-		LinkId = 
-		{
-			uint Id = 6,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0.0500000007, -152.415314],
-			Vec3 Scale = [100, 0.100000001, 40],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "Floor",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "563de57081e21402:RedFloor",
-		LinkId = 
-		{
-			uint Id = 7,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0.0500000007, -209.579193],
-			Vec3 Scale = [100, 0.100000001, 32],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
@@ -256,7 +392,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -268,7 +404,127 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [6.22226715, 0.0500000007, -69.7179794],
+			Vec3 Translation = [0, 0, -152.5],
+			Vec3 Scale = [100, 0.100000001, 40],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "4e1be40d46f45030:EditorMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = false,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "5607124975741e2d:Floor",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		ModelColorModulate = 
+		{
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RedFloor = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 10,
+		},
+		Named = 
+		{
+			string Name = "Floor",
+		},
+		Archetyped = 
+		{
+			string Name = "563de57081e21402:RedFloor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -209.5],
+			Vec3 Scale = [100, 0.100000001, 32],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "4e1be40d46f45030:EditorMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = false,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "5607124975741e2d:Floor",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		ModelColorModulate = 
+		{
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RedFloor = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 11,
+		},
+		Named = 
+		{
+			string Name = "Floor",
+		},
+		Archetyped = 
+		{
+			string Name = "563de57081e21402:RedFloor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [6.22226715, 0.100000001, -69.7179794],
 			Vec3 Scale = [35, 0.100000001, 35],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -278,7 +534,7 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = true,
-			string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b3572e:Cylinder",
 			Vec4 Color = [1, 0, 0, 1],
 		},
@@ -316,7 +572,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -373,7 +629,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -430,7 +686,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 14,
 		},
 		Named = 
 		{
@@ -490,7 +746,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 9,
+				uint ResolvedCog = 12,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -501,7 +757,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 15,
 		},
 		Named = 
 		{
@@ -561,7 +817,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 9,
+				uint ResolvedCog = 12,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -572,7 +828,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 16,
 		},
 		Named = 
 		{
@@ -632,7 +888,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 9,
+				uint ResolvedCog = 12,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -643,7 +899,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 17,
 		},
 		Named = 
 		{
@@ -703,7 +959,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 9,
+				uint ResolvedCog = 12,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -714,7 +970,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 15,
+			uint Id = 18,
 		},
 		Named = 
 		{
@@ -774,7 +1030,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 9,
+				uint ResolvedCog = 12,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -785,7 +1041,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 16,
+			uint Id = 19,
 		},
 		Named = 
 		{
@@ -852,7 +1108,7 @@ Level =
 		{
 			Vec3 Translation = [0, 9.03657532, 27.0532894],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.238242522, -1.13019798e-008, -2.25324093e-009, 0.971205711],
+			Quat Rotation = [-0.238242522, -1.13019798e-08, -2.25324093e-09, 0.971205711],
 		},
 		Camera = 
 		{
@@ -867,6 +1123,7 @@ Level =
 		SoundListener = 
 		{
 			bool Active = true,
+			float Volume = 1,
 		},
 		LerpTowardsTarget = 
 		{
@@ -880,7 +1137,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 17,
+			uint Id = 20,
 		},
 		Named = 
 		{
@@ -890,7 +1147,7 @@ Level =
 		{
 			Vec3 Translation = [0, 20, 9],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, -8.49755462e-031, 1],
+			Quat Rotation = [0, 0, -8.49755462e-31, 1],
 		},
 		LockTranslation = 
 		{
@@ -904,7 +1161,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 18,
+				uint ResolvedCog = 21,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -922,7 +1179,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 18,
+				uint ResolvedCog = 21,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -941,7 +1198,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 19,
+					uint Id = 22,
 				},
 				Named = 
 				{
@@ -949,9 +1206,9 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-1.38133471e-009, 8.53657532, 18.4091663],
+					Vec3 Translation = [-1.38133471e-09, 8.53657532, 18.4091663],
 					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [-0.258818984, -2.09402287e-011, 7.81499934e-011, 0.965925813],
+					Quat Rotation = [-0.258818984, -2.09402287e-11, 7.81499934e-11, 0.965925813],
 				},
 			},
 		},
@@ -960,7 +1217,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 18,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -974,7 +1231,7 @@ Level =
 		{
 			Vec3 Translation = [0, 10, 9],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-7.40562472e-011, 2.54427105e-022, 8.09068437e-011, 1],
+			Quat Rotation = [-7.40562472e-11, 2.54427105e-22, 8.09068437e-11, 1],
 		},
 		Model = 
 		{
@@ -1040,7 +1297,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 20,
+					uint Id = 23,
 				},
 				Named = 
 				{
@@ -1071,7 +1328,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 21,
+			uint Id = 24,
 		},
 		Named = 
 		{
@@ -1120,7 +1377,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 22,
+					uint Id = 25,
 				},
 				Named = 
 				{
@@ -1130,7 +1387,7 @@ Level =
 				{
 					Vec3 Translation = [-2.25, 3, 0.100000001],
 					Vec3 Scale = [1.29999995, 1.29999995, 1],
-					Quat Rotation = [3.55271368e-015, 0, 0, 1],
+					Quat Rotation = [3.55271368e-15, 0, 0, 1],
 				},
 				Sprite = 
 				{
@@ -1170,7 +1427,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 23,
+							uint Id = 26,
 						},
 						Named = 
 						{
@@ -1191,7 +1448,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 24,
+			uint Id = 27,
 		},
 		Named = 
 		{
@@ -1249,7 +1506,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 25,
+					uint Id = 28,
 				},
 				Named = 
 				{
@@ -1283,7 +1540,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 26,
+					uint Id = 29,
 				},
 				Named = 
 				{
@@ -1317,7 +1574,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 27,
+					uint Id = 30,
 				},
 				Named = 
 				{
@@ -1353,7 +1610,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 28,
+			uint Id = 31,
 		},
 		Named = 
 		{
@@ -1411,7 +1668,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 29,
+					uint Id = 32,
 				},
 				Named = 
 				{
@@ -1445,7 +1702,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 30,
+					uint Id = 33,
 				},
 				Named = 
 				{
@@ -1479,7 +1736,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 31,
+					uint Id = 34,
 				},
 				Named = 
 				{
@@ -1513,7 +1770,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 32,
+					uint Id = 35,
 				},
 				Named = 
 				{
@@ -1549,7 +1806,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 33,
+			uint Id = 36,
 		},
 		Named = 
 		{
@@ -1607,7 +1864,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 34,
+					uint Id = 37,
 				},
 				Named = 
 				{
@@ -1641,7 +1898,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 35,
+					uint Id = 38,
 				},
 				Named = 
 				{
@@ -1675,7 +1932,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 36,
+					uint Id = 39,
 				},
 				Named = 
 				{
@@ -1709,7 +1966,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 37,
+					uint Id = 40,
 				},
 				Named = 
 				{
@@ -1745,7 +2002,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 38,
+			uint Id = 41,
 		},
 		Named = 
 		{
@@ -1767,7 +2024,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 39,
+			uint Id = 42,
 		},
 		Named = 
 		{
@@ -1799,7 +2056,7 @@ Level =
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
 			float Height = 1,
-			uint Direction = 1,
+			AxisDirection Direction = Y,
 		},
 		RigidBody = 
 		{
@@ -1810,7 +2067,7 @@ Level =
 			bool Mode2D = false,
 			bool AllowSleep = true,
 			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
+			Vec3 Velocity = [0, 374.999969, -2562.49976],
 			Vec3 AngularVelocity = [0, 0, 0],
 		},
 		ForeverSpin = 
@@ -1829,7 +2086,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 40,
+				uint ResolvedCog = 43,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -1840,7 +2097,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 41,
+			uint Id = 44,
 		},
 		Named = 
 		{
@@ -1872,7 +2129,7 @@ Level =
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
 			float Height = 1,
-			uint Direction = 1,
+			AxisDirection Direction = Y,
 		},
 		RigidBody = 
 		{
@@ -1883,7 +2140,7 @@ Level =
 			bool Mode2D = false,
 			bool AllowSleep = true,
 			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
+			Vec3 Velocity = [1749.99988, 374.999969, -3598.1853],
 			Vec3 AngularVelocity = [0, 0, 0],
 		},
 		ForeverSpin = 
@@ -1902,7 +2159,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 40,
+				uint ResolvedCog = 43,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -1913,7 +2170,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 40,
+			uint Id = 43,
 		},
 		Named = 
 		{
@@ -1945,7 +2202,7 @@ Level =
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 1,
 			float Height = 1,
-			uint Direction = 1,
+			AxisDirection Direction = Y,
 		},
 		RigidBody = 
 		{
@@ -1956,7 +2213,7 @@ Level =
 			bool Mode2D = false,
 			bool AllowSleep = true,
 			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
+			Vec3 Velocity = [0, 374.999969, -4218.74951],
 			Vec3 AngularVelocity = [0, 0, 0],
 		},
 		ForeverSpin = 
@@ -1972,7 +2229,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 42,
+			uint Id = 45,
 		},
 		Named = 
 		{
@@ -2009,7 +2266,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 43,
+					uint Id = 46,
 				},
 				Named = 
 				{
@@ -2055,7 +2312,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 44,
+			uint Id = 47,
 		},
 		Named = 
 		{
@@ -2092,7 +2349,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 45,
+					uint Id = 48,
 				},
 				Named = 
 				{
@@ -2138,7 +2395,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 46,
+			uint Id = 49,
 		},
 		Named = 
 		{
@@ -2175,7 +2432,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 47,
+					uint Id = 50,
 				},
 				Named = 
 				{
@@ -2221,7 +2478,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 48,
+			uint Id = 51,
 		},
 		Named = 
 		{
@@ -2258,7 +2515,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 49,
+					uint Id = 52,
 				},
 				Named = 
 				{
@@ -2304,7 +2561,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 50,
+			uint Id = 53,
 		},
 		Named = 
 		{
@@ -2341,7 +2598,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 51,
+					uint Id = 54,
 				},
 				Named = 
 				{
@@ -2387,7 +2644,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 52,
+			uint Id = 55,
 		},
 		Named = 
 		{
@@ -2424,7 +2681,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 53,
+					uint Id = 56,
 				},
 				Named = 
 				{
@@ -2470,7 +2727,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 54,
+			uint Id = 57,
 		},
 		Named = 
 		{
