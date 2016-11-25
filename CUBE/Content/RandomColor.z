@@ -1,3 +1,4 @@
+[RunInEditor]
 class RandomColor : ZilchComponent
 {
     var RandColor : Random = Random();
@@ -5,9 +6,18 @@ class RandomColor : ZilchComponent
     [Property]
     var Saturation : Real = 1.0;
     
+    var Color : Real4 = Real4(0, 0, 0, 0);
+    
     function Initialize(init : CogInitializer)
     {
-        var color : Real4 = this.HSVtoRGB(this.RandColor.Range(0, 360), this.Saturation, 1.0);
+        this.Recolor();
+    }
+    
+    function Recolor() {
+        var color : Real4 = this.Color;
+        if (this.Color == Real4(0, 0, 0, 0)) {
+            color = this.HSVtoRGB(this.RandColor.Range(0, 360), this.Saturation, 1.0);
+        }
         if(this.Owner.Sprite != null)
         {
             this.Owner.Sprite.Color = color;

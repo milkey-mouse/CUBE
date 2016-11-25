@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "SuperJump",
+		uint64 ResourceId = 5804d01c4422d1ed,
+	},
+},

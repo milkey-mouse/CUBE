@@ -1,7 +1,5 @@
 class GameOverHandler : ZilchComponent
 {
-    var MainSpace : Space = null;
-    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -9,10 +7,11 @@ class GameOverHandler : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(!this.Owner.SimpleSound.IsPlaying())
+        if(!this.Owner.SimpleSound.IsPlaying() || Zero.Keyboard.KeyIsPressed(Keys.Escape))
         {
-            this.MainSpace.TimeSpace.Paused = false;
-            this.MainSpace.ReloadLevel();
+            var mainSpace : Space = this.GameSession.FindSpaceByName("Main");
+            mainSpace.TimeSpace.Paused = false;
+            mainSpace.ReloadLevel();
             this.Space.Destroy();
         }
     }

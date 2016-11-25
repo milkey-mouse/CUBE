@@ -1,0 +1,23 @@
+class DestroySpace : ZilchComponent
+{
+    [Property]
+    var ReloadSpace : Boolean = false;
+    
+    [Property]
+    var SpaceName : String = "Main";
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+    }
+    
+    function OnLeftMouseUp(event : ViewportMouseEvent)
+    {
+        this.GameSession.FindSpaceByName(this.SpaceName).TimeSpace.Paused = false;
+        this.GameSession.FindSpaceByName(this.SpaceName).SoundSpace.Pause = false;
+        if (this.ReloadSpace) {
+            this.GameSession.FindSpaceByName(this.SpaceName).ReloadLevel();
+        }
+        this.Space.Destroy();
+    }
+}

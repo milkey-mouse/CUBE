@@ -1,4 +1,4 @@
-class DestroyOnCollide : ZilchComponent
+class SuperJump : ZilchComponent
 {
     [Property]
     var PlayOnDeath : SoundCue = null;
@@ -16,11 +16,7 @@ class DestroyOnCollide : ZilchComponent
     {
         if(event.OtherObject.CUBEController != null)
         {
-            if(this.PlayOnDeath != null)
-            {
-                event.OtherObject.SoundEmitter.PlayCue(this.PlayOnDeath);
-            }
-            this.Owner.Destroy();
+            event.OtherObject.CUBEController.ActivateSuperJump();
         }
     }
 }

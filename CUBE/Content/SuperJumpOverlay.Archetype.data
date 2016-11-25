@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SuperJumpOverlay",
+	},
+	Archetyped = 
+	{
+		string Name = "5804c4a95d3d2574:SuperJumpOverlay",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [0.899999976, 0.899999976, 0.899999976],
+		Quat Rotation = [7.40562472e-11, -2.54427105e-22, -8.09068437e-11, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "5804c4c15559c763:SuperJumpOverlay",
+		string MeshName = "4de0354322b376ae:Sphere",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+},

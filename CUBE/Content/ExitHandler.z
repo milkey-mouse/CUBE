@@ -84,8 +84,8 @@ class ExitHandler : ZilchComponent
                 var sbtext : String = "ENTER LEVEL `bln`";
                 sb.SpriteText.Text = sbtext;
                 sb.ChangeLevelButton.LevelToLoad = this.NextLevel;
-                var tpd : Cog = nlspace.FindObjectByName("TARGET OF THE POINTING DEVICE");
-                tpd.Area.Size = Real2(sb.SpriteText.MeasureGivenText(sbtext).X + 0.5, tpd.Area.Size.Y);
+                var tpd : Cog = sb.Children.Current;
+                tpd.Area.Size = Real2((sb.SpriteText.MeasureGivenText(sbtext).X + 1) / 2, tpd.Area.Size.Y);
                 this.MadeSpace = true;
             }
             if(this.LevelSettings.ForwardRenderer.ClearColor != Real4(0,0,0,0))

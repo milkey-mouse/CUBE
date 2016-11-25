@@ -3,6 +3,16 @@ class LerpTowardsTarget : ZilchComponent
     [Property]
     var Tracking : Boolean = true;
     
+    [Property]
+    var Speed : Real = 7.5;
+    
+    [Property]
+    var Smoothing : Boolean = true;
+    
+    var FirstPerson : Boolean = false;
+    
+    var FinishedAnimation : Boolean = true;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -12,8 +22,34 @@ class LerpTowardsTarget : ZilchComponent
     {
         if(!this.Tracking){return;}
         var target : Cog = this.Space.FindObjectByName("CameraTarget");
-        var speed : Real = Math.Min(0.9, 14 / event.Dt);
-        this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, target.Transform.WorldRotation, speed);
-        this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, target.Transform.WorldTranslation, speed);
+        if (!this.FinishedAnimation) {
+            if (this.FirstPerson) {
+                target.Transform.LocalTranslation = Real3(0, 0, 0);
+                target.Transform.LocalRotation = Quaternion(0, 0, 0, 0);
+            } else {
+                target.Transform.LocalTranslation = Real3(0, 8.5, 18.5);
+                target.Transform.LocalRotation = Quaternion(-0.258819, 0, 0, 0.965926);
+                this.Smoothing = true;
+            }
+            if (Math.ApproximatelyEqual(this.Owner.Transform.WorldTranslation, target.Transform.WorldTranslation, 0.01) == Boolean3(true, true, true)) {
+                this.Smoothing = !this.FirstPerson;
+                this.FinishedAnimation = true;
+            }
+        }
+        if (this.Smoothing) {
+            var speed : Real = this.Speed * event.Dt;
+            if (!this.FinishedAnimation && this.FirstPerson) {
+                // because of the exponential speed decrease as the camera gets closer
+                // we need this extra push at the end of the animation
+                if (Math.ApproximatelyEqual(this.Owner.Transform.WorldTranslation, target.Transform.WorldTranslation, 2) == Boolean3(true, true, true)) {
+                    speed = 18 * event.Dt;
+                }
+            }
+            this.Owner.Transform.Rotation = Math.Slerp(this.Owner.Transform.Rotation, target.Transform.WorldRotation, speed);
+            this.Owner.Transform.Translation = Math.Lerp(this.Owner.Transform.Translation, target.Transform.WorldTranslation, speed);
+        } else {
+            this.Owner.Transform.Rotation = target.Transform.WorldRotation;
+            this.Owner.Transform.Translation = target.Transform.WorldTranslation;
+        }
     }
 }

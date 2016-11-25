@@ -1,0 +1,61 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "SuperJump",
+	},
+	Archetyped = 
+	{
+		string Name = "5804c316ee10937a:SuperJump",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 1, 0],
+		Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "5804da8d4ce21aff:SuperJump",
+		string MeshName = "4de0354322b376ae:Sphere",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 1, 0],
+		Vec3 ForwardVector = [0, 0, 1],
+		OrientationBases DefaultBases = ForwardZUpY,
+	},
+	DiamondHover = 
+	{
+		float BasePos = -2,
+		bool Paused = false,
+	},
+	DestroyOnCollide = 
+	{
+		string PlayOnDeath = "5606c9ce57d2692f:Beeps1",
+	},
+	SphereCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+	},
+	SuperJump = 
+	{
+		string PlayOnDeath = "",
+	},
+},

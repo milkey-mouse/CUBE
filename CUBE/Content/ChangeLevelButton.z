@@ -4,26 +4,16 @@ class ChangeLevelButton : ZilchComponent
     [Property]
     var LevelToLoad : Level = null;
     
+    [Property]
+    var LoadIntoSpace : String = "Main";
+       
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
-        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-    }
-    
-    function OnLogicUpdate(event : UpdateEvent)
-    {
-        if (this.Owner.MouseOver == null)
-        {
-            return;
-        }
-        if ((this.Owner.MouseOver.IsSelected) && (Zero.Gamepads.GetGamePad(0).IsButtonPressed(0)))
-        {
-            this.Space.LoadLevel(this.LevelToLoad);
-        }
     }
     
     function OnLeftMouseUp(event : ViewportMouseEvent)
     {
-        this.Space.LoadLevel(this.LevelToLoad);
+        this.GameSession.FindSpaceByName(this.LoadIntoSpace).LoadLevel(this.LevelToLoad);
     }
 }

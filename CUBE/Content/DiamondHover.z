@@ -1,16 +1,16 @@
 class DiamondHover : ZilchComponent
 {
-    
     [Property]
     var BasePos : Real = -2;
     
     var StartTime : Real = 0.0;
     
+    [Property]
     var Paused : Boolean = true;
     
     function Initialize(init : CogInitializer)
     {
-        if(this.BasePos < 1.25)
+        if(this.BasePos < 1.15)
         {
             this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.BasePos, this.Owner.Transform.Translation.Z);
         }
@@ -24,13 +24,13 @@ class DiamondHover : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         if(this.Paused){return;}
-        if(this.BasePos < 1.25)
+        if(this.BasePos < 1.15)
         {
             this.BasePos += event.Dt * 1.5;
-            if(this.BasePos > 1.25)
+            if(this.BasePos > 1.15)
             {
                 this.StartTime = event.TimePassed;
-                this.BasePos = 1.25;
+                this.BasePos = 1.15;
             }
             else
             {
@@ -39,7 +39,7 @@ class DiamondHover : ZilchComponent
         }
         var angle : Real = (event.TimePassed * Math.Pi) % (Math.Pi * 2);
         this.Owner.Orientation.LookAtDirection(Real3(Math.Sin(angle), 0, Math.Cos(angle)));
-        if(this.BasePos >= 1.25)
+        if(this.BasePos >= 1.15)
         {
             this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, (Math.Sin(((event.TimePassed - this.StartTime) * Math.Pi) % (Math.Pi * 2)) * 0.25) + this.BasePos, this.Owner.Transform.Translation.Z);
         }

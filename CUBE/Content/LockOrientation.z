@@ -10,7 +10,8 @@ class LockOrientation : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var angle : Real = this.Target.Cog.Orientation.AbsoluteAngle;
-        this.Owner.Orientation.LookAtDirection(Real3(Math.Sin(angle), 0, Math.Cos(angle)));
+        var forward : Real3 = this.Target.Cog.Orientation.WorldForward;
+        forward.Y = 0;
+        this.Owner.Orientation.LookAtDirection(forward);
     }
 }

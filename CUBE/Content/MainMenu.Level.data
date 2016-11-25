@@ -78,7 +78,7 @@ Level =
 			bool Shadows = false,
 			bool AntiAliasing = false,
 			bool Refraction = true,
-			bool Reflections = true,
+			bool Reflections = false,
 			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
 			bool GodRays = true,
 			bool RenderMasks = false,
@@ -502,6 +502,8 @@ Level =
 		{
 			float Volume = 1,
 			float Pitch = 0,
+			float PitchSemitones = 0,
+			bool UsePitchSemitones = false,
 			bool Positional = true,
 			int Version = 1,
 		},
@@ -532,6 +534,8 @@ Level =
 				{
 					float Volume = 1,
 					float Pitch = 0,
+					float PitchSemitones = 0,
+					bool UsePitchSemitones = false,
 					bool Positional = true,
 					int Version = 1,
 				},

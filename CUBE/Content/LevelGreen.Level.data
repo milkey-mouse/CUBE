@@ -63,7 +63,7 @@ Level =
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
 			},
-			ViewportScaling Scaling = Letterbox,
+			ViewportScaling Scaling = Fill,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
@@ -110,9 +110,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [67.2111588, 14.5906219, -131.237289],
+			Vec3 Translation = [-9.65694714, 11.3471336, -227.929504],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.260857701, 0.64838177, 0.252793103, 0.669066429],
+			Quat Rotation = [-0.253757089, 9.64911465e-07, 2.4351462e-07, 0.96726799],
 		},
 		Camera = 
 		{
@@ -127,10 +127,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 150.59729,
-			float VerticalAngle = 0.743509173,
-			float HorizontalAngle = -7.8225832,
-			Vec3 LookTarget = [-43.5885391, -87.3449478, -134.717377],
+			float LookDistance = 27.5116692,
+			float VerticalAngle = 0.513125002,
+			float HorizontalAngle = -6.28318739,
+			Vec3 LookTarget = [-9.65699673, -2.15840578, -251.898071],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -158,8 +158,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, -245.5],
-			Vec3 Scale = [100, 0.100000001, 40],
+			Vec3 Translation = [0, 0, -247.5],
+			Vec3 Scale = [100, 0.100000001, 32],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Model = 
@@ -464,8 +464,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, -209.5],
-			Vec3 Scale = [100, 0.100000001, 32],
+			Vec3 Translation = [0, 0, -212.5],
+			Vec3 Scale = [100, 0.100000001, 38],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Model = 
@@ -550,7 +550,14 @@ Level =
 			Vec3 Velocity = [0, 0, 0],
 			Vec3 AngularVelocity = [0, 0, 0],
 		},
-		BoxCollider = 
+		ModelColorModulate = 
+		{
+			Vec4 Color = [1, 0, 0, 1],
+		},
+		RedFloor = 
+		{
+		},
+		CylinderCollider = 
 		{
 			bool Ghost = false,
 			bool SendsMessages = true,
@@ -558,14 +565,9 @@ Level =
 			string MaterialName = "5607124975741e2d:Floor",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		ModelColorModulate = 
-		{
-			Vec4 Color = [1, 0, 0, 1],
-		},
-		RedFloor = 
-		{
+			float Radius = 1,
+			float Height = 1,
+			AxisDirection Direction = Y,
 		},
 	},
 	Cog = 
@@ -1128,6 +1130,8 @@ Level =
 		LerpTowardsTarget = 
 		{
 			bool Tracking = false,
+			float Speed = 7.5,
+			bool Smoothing = true,
 		},
 		Hierarchy = 
 		{
@@ -1188,9 +1192,9 @@ Level =
 		Orientation = 
 		{
 			Vec3 GlobalUp = [0, 1, 0],
-			Vec3 UpVector = [0, 1, 0],
-			Vec3 ForwardVector = [0, 0, 1],
-			OrientationBases DefaultBases = ForwardZUpY,
+			Vec3 UpVector = [1.32992013e-37, 1.00000012, -1.1920929e-07],
+			Vec3 ForwardVector = [0, -1.1920929e-07, 1.00000012],
+			OrientationBases DefaultBases = Custom,
 		},
 		Hierarchy = 
 		{
@@ -1206,7 +1210,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-1.38133471e-09, 8.53657532, 18.4091663],
+					Vec3 Translation = [0, 8.5, 18.5],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [-0.258818984, -2.09402287e-11, 7.81499934e-11, 0.965925813],
 				},
@@ -1272,17 +1276,20 @@ Level =
 		Orientation = 
 		{
 			Vec3 GlobalUp = [0, 1, 0],
-			Vec3 UpVector = [0, 1, 0],
-			Vec3 ForwardVector = [0, 0, 1],
-			OrientationBases DefaultBases = ForwardZUpY,
+			Vec3 UpVector = [-9.81307853e-18, 1.00000012, -1.1920929e-07],
+			Vec3 ForwardVector = [0, -1.1920929e-07, 1.00000012],
+			OrientationBases DefaultBases = Custom,
 		},
 		CUBEController = 
 		{
+			bool DrawCoords = false,
 		},
 		SoundEmitter = 
 		{
 			float Volume = 1,
 			float Pitch = 0,
+			float PitchSemitones = 0,
+			bool UsePitchSemitones = false,
 			bool Positional = false,
 			int Version = 1,
 		},
@@ -1313,6 +1320,8 @@ Level =
 				{
 					float Volume = 0.099999994,
 					float Pitch = 0,
+					float PitchSemitones = 0,
+					bool UsePitchSemitones = false,
 					bool Positional = true,
 					int Version = 1,
 				},
@@ -1419,7 +1428,7 @@ Level =
 				},
 				ExitHandler = 
 				{
-					string NextLevel = "56060760cdea90e1:MainMenu",
+					string NextLevel = "586fd2d0360c48ca:LevelOrange",
 				},
 				Hierarchy = 
 				{
@@ -1460,7 +1469,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-8.88888741, 2.5999999, 2.5392952],
+			Vec3 Translation = [-8.88888741, 18.8176212, 2.5392952],
 			Vec3 Scale = [5, 5, 1],
 			Quat Rotation = [0, 0.139173105, 0, 0.990268052],
 		},
@@ -2241,7 +2250,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 4.5, -2],
+			Vec3 Translation = [0, 4.25, -2],
 			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2254,7 +2263,7 @@ Level =
 		},
 		DiamondHover = 
 		{
-			float BasePos = 4.5,
+			float BasePos = 4.25,
 		},
 		DestroyOnCollide = 
 		{
@@ -2324,7 +2333,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [13.6697578, 7.45491123, -2],
+			Vec3 Translation = [13.6697578, 7.25, -2],
 			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2337,7 +2346,7 @@ Level =
 		},
 		DiamondHover = 
 		{
-			float BasePos = 7.5,
+			float BasePos = 7.25,
 		},
 		DestroyOnCollide = 
 		{
@@ -2656,7 +2665,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-13.6697998, 7.45491123, -2],
+			Vec3 Translation = [-13.6697998, 7.25, -2],
 			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2669,7 +2678,7 @@ Level =
 		},
 		DiamondHover = 
 		{
-			float BasePos = 7.5,
+			float BasePos = 7.25,
 		},
 		DestroyOnCollide = 
 		{

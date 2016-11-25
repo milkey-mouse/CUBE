@@ -1,0 +1,10 @@
+Material = 
+{
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5804dad84436aebe:superjump",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 0.5],
+		Vec2 DiffuseOffset = [0.5, 1],
+	},
+},

@@ -1,12 +1,19 @@
 class CUBEController : ZilchComponent
 {
+    [Property]
+    var DrawCoords : Boolean = false;
+    
     var Paused : Boolean = true;
     
     var JumpsLeft : Integer = 0;
     
-    var RotationSpeed : Integer = 125;
+    var RotationSpeed : Integer = 150;
     
     var JumpForce : Real = 5;
+    
+    var JumpAligned : Boolean = true;
+    
+    var SuperJump : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
@@ -18,13 +25,14 @@ class CUBEController : ZilchComponent
     {
         if(this.Paused)
         {
-            var group : ActionSet = this.Owner.Actions; //Action.Group();
+            var group : ActionSet = this.Owner.Actions;
             Action.Delay(group, 1.0);
             Action.Call(group, this.RemoveLock);
         }
         if(event.FirstPoint.WorldNormalTowardsOther.Y < -0.7)
         {
             this.JumpsLeft = 2;
+            this.JumpAligned = true;
         }
     }
     
@@ -36,6 +44,13 @@ class CUBEController : ZilchComponent
         {
             camera.LerpTowardsTarget.Tracking = true;
         }
+        this.Owner.Orientation.LookAtDirection(Real3(0, 0, 1));
+    }
+    
+    function ActivateSuperJump() {
+        this.SuperJump = true;
+        var sjo : Cog = this.Space.Create(Archetype.SuperJumpOverlay);
+        sjo.AttachTo(this.Owner.Children.Current);
     }
     
     function Kill()
@@ -43,32 +58,106 @@ class CUBEController : ZilchComponent
         this.Space.TimeSpace.Paused = true;
         var gos : Space = this.GameSession.CreateNamedSpace("GameOver", Archetype.Space);
         gos.LoadLevel(Level.GameOver);
-        gos.FindObjectByName("CubeCaption").GameOverHandler.MainSpace = this.Space;
     }
     
     function OnLogicUpdate(event : UpdateEvent)
     {
+        var objects = this.Space.AllObjects();
+        while (objects.IsNotEmpty) {
+            if (objects.Current.Name.EndsWith("_transparent")) {
+                if (objects.Current.ModelColorModulate != null) {
+                    objects.Current.ModelColorModulate.Recolor();
+                }
+                if (objects.Current.RandomColor != null) {
+                    objects.Current.RandomColor.Recolor();
+                }
+                objects.Current.Name = objects.Current.Name.Replace("_transparent", "");
+            }
+            objects.MoveNext();
+        }
+            
+        if (this.Space.FindObjectByName("Camera").LerpTowardsTarget != null && !this.Space.FindObjectByName("Camera").LerpTowardsTarget.FirstPerson) {
+            var ray = Ray();
+            ray.Start = this.LevelSettings.CameraViewport.Camera.Transform.WorldTranslation;
+            ray.Direction = Math.Normalize(this.Owner.Transform.WorldTranslation - ray.Start);
+            foreach (var castResult in this.Space.PhysicsSpace.CastRayResults(ray, 10)) {
+                if (castResult.ObjectHit == this.Owner) { break; }
+                if (castResult.ObjectHit.Model != null && (castResult.ObjectHit.RigidBody == null || castResult.ObjectHit.RigidBody.DynamicState == RigidBodyDynamicState.Static)) {
+                    castResult.ObjectHit.Model.Material = Material.TransparentWhite;
+                    castResult.ObjectHit.Name = "`castResult.ObjectHit.Name`_transparent";
+                }
+            }
+        }
+        if(Zero.Keyboard.KeyIsPressed(Keys.Escape)) {
+            this.Space.TimeSpace.Paused = true;
+            this.Space.SoundSpace.Pause = true;
+            var pauseSpace : Space = this.GameSession.CreateNamedSpace("PauseMenu", Archetype.Space);
+            pauseSpace.LoadLevel(Level.PauseMenu);
+            return;
+        }
         if(this.Paused)
         {
             return;
         }
-        if(this.Owner.Orientation.WorldForward.Y > 0.9 || this.Owner.Orientation.WorldForward.Y < -0.9)
-        {
-            this.Owner.Transform.RotateAnglesWorld(Real3(Math.Pi / 2, 0, 0));
+        if (this.JumpAligned) {
+            if (this.Owner.Orientation.WorldForward.Y < -0.95) {
+                this.Owner.Orientation.LookAtDirection(this.Owner.Orientation.WorldUp);
+            } else if (this.Owner.Orientation.WorldForward.Y > 0.95) {
+                this.Owner.Orientation.LookAtDirection(-this.Owner.Orientation.WorldUp);
+            }
+            if (this.Owner.Orientation.WorldUp.Y < 0.05) {
+                if (this.Owner.Orientation.WorldRight.Y > 0) {
+                    this.Owner.Orientation.LookAtDirectionWithUp(this.Owner.Orientation.WorldForward, this.Owner.Orientation.WorldRight);
+                } else {
+                    this.Owner.Orientation.LookAtDirectionWithUp(this.Owner.Orientation.WorldForward, -this.Owner.Orientation.WorldRight);
+                }
+            }
+        }
+        if (this.DrawCoords) {
+            var forward = new DebugLine();
+            forward.Width(2);
+            forward.Float4Color(Real4(1, 0, 0, 1));
+            forward.Start(this.Owner.Transform.Translation);
+            forward.End(this.Owner.Transform.Translation + this.Owner.Orientation.WorldForward * 5);
+            forward.Draw();
+            var up = new DebugLine();
+            up.Width(2);
+            up.Float4Color(Real4(0, 0, 1, 1));
+            up.Start(this.Owner.Transform.Translation);
+            up.End(this.Owner.Transform.Translation + this.Owner.Orientation.WorldUp * 5);
+            up.Draw();
+            var right = new DebugLine();
+            right.Width(2);
+            right.Float4Color(Real4(0, 1, 0, 1));
+            right.Start(this.Owner.Transform.Translation);
+            right.End(this.Owner.Transform.Translation + this.Owner.Orientation.WorldRight * 5);
+            right.Draw();
         }
         if(this.Owner.Transform.WorldTranslation.Y < -10)
         {
             this.Kill();
         }
+        if (Zero.Keyboard.KeyIsPressed(Keys.V)) {
+            var camera : Cog = this.Space.LevelSettings.CameraViewport.Camera;
+            camera.LerpTowardsTarget.FirstPerson = !camera.LerpTowardsTarget.FirstPerson;
+            camera.LerpTowardsTarget.FinishedAnimation = false;
+        }
         if(this.JumpsLeft > 0 && Zero.Keyboard.KeyIsPressed(Keys.Space))
         {
-            this.Owner.RigidBody.ApplyLinearVelocity(Real3(0,this.JumpForce-this.Owner.RigidBody.Velocity.Y,0));
+            if (this.SuperJump) {
+                this.Owner.RigidBody.ApplyLinearVelocity(Real3(0,(this.JumpForce*3)-this.Owner.RigidBody.Velocity.Y,0));
+                this.Owner.Children.Current.Children.Current.Destroy();
+                this.SuperJump = false;
+            } else {
+                this.Owner.RigidBody.ApplyLinearVelocity(Real3(0,this.JumpForce-this.Owner.RigidBody.Velocity.Y,0));
+            }
+            this.JumpAligned = false;
             --this.JumpsLeft;
         }
         if(Zero.Keyboard.KeyIsDown(Keys.A) && !Zero.Keyboard.KeyIsDown(Keys.D))
         {
             this.Owner.RigidBody.ApplyAngularVelocity(Real3(this.Owner.RigidBody.AngularVelocity.X, event.Dt * this.RotationSpeed, this.Owner.RigidBody.AngularVelocity.Z) - this.Owner.RigidBody.AngularVelocity);
-        }   
+        }
         else if(Zero.Keyboard.KeyIsDown(Keys.D) && !Zero.Keyboard.KeyIsDown(Keys.A))
         {
             this.Owner.RigidBody.ApplyAngularVelocity(Real3(this.Owner.RigidBody.AngularVelocity.X, -event.Dt * this.RotationSpeed, this.Owner.RigidBody.AngularVelocity.Z) - this.Owner.RigidBody.AngularVelocity);
@@ -80,15 +169,40 @@ class CUBEController : ZilchComponent
         var angle : Real = this.Owner.Orientation.AbsoluteAngle;
         if(Zero.Keyboard.KeyIsDown(Keys.W) && !Zero.Keyboard.KeyIsDown(Keys.S))
         {
-            this.Owner.RigidBody.ApplyLinearVelocity(-Real3(Math.Sin(angle) * event.Dt * 500, -this.Owner.RigidBody.Velocity.Y, Math.Cos(angle) * event.Dt * 500) - this.Owner.RigidBody.Velocity);
+            this.Owner.RigidBody.ApplyLinearVelocity(Real3(-this.Owner.Orientation.WorldForward.X * event.Dt * 500,
+                                                           this.Owner.RigidBody.Velocity.Y,
+                                                           -this.Owner.Orientation.WorldForward.Z * event.Dt * 500) - this.Owner.RigidBody.Velocity);
         }
         else if(Zero.Keyboard.KeyIsDown(Keys.S) && !Zero.Keyboard.KeyIsDown(Keys.W))
         {
-            this.Owner.RigidBody.ApplyLinearVelocity(Real3(Math.Sin(angle) * event.Dt * 500, this.Owner.RigidBody.Velocity.Y, Math.Cos(angle) * event.Dt * 500) - this.Owner.RigidBody.Velocity);
+            this.Owner.RigidBody.ApplyLinearVelocity(Real3(this.Owner.Orientation.WorldForward.X * event.Dt * 500,
+                                                           this.Owner.RigidBody.Velocity.Y,
+                                                           this.Owner.Orientation.WorldForward.Z * event.Dt * 500) - this.Owner.RigidBody.Velocity);
         }
         else
         {
-            this.Owner.RigidBody.Velocity = Real3(0,this.Owner.RigidBody.Velocity.Y,0);
+            this.Owner.RigidBody.Velocity = Real3(this.Owner.RigidBody.Velocity.X * 0.9,
+                                                  this.Owner.RigidBody.Velocity.Y,
+                                                  this.Owner.RigidBody.Velocity.Z * 0.9);
+        }
+        if(!this.JumpAligned && Zero.Keyboard.KeyIsDown(Keys.Space)) {
+            var newUp : Real3 = Math.Normalize(this.Owner.Orientation.WorldUp + Real3(0, event.Dt * 5, 0));
+            var newForward : Real3 = this.Owner.Orientation.WorldForward;
+            this.JumpAligned = true;
+            if (Math.Abs(this.Owner.Orientation.WorldUp.Z) < 0.025) {
+                this.Owner.RigidBody.AngularVelocity = Real3(0, this.Owner.RigidBody.AngularVelocity.Y, this.Owner.RigidBody.AngularVelocity.Z);
+            } else {
+                this.JumpAligned = false;
+            }
+            if (Math.Abs(this.Owner.Orientation.WorldUp.X) < 0.025) {
+                this.Owner.RigidBody.AngularVelocity = Real3(this.Owner.RigidBody.AngularVelocity.X, this.Owner.RigidBody.AngularVelocity.Y, 0);
+            } else {
+                newForward = Real3(newForward.X, newForward.Y - (newForward.Y * event.Dt * 10), newForward.Z);
+                this.JumpAligned = false;
+            }
+            if (!this.JumpAligned) {
+                this.Owner.Orientation.LookAtDirectionWithUp(newForward, newUp);
+            }
         }
     }
 }

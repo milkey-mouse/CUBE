@@ -1,0 +1,22 @@
+class DestroyOnEscape : ZilchComponent
+{
+    var EscapePressed : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (Zero.Keyboard.KeyIsDown(Keys.Escape)) {
+            if (this.EscapePressed == false) {
+                this.GameSession.FindSpaceByName("Main").TimeSpace.Paused = false;
+                this.GameSession.FindSpaceByName("Main").SoundSpace.Pause = false;
+                this.Space.Destroy();
+            }
+        } else {
+            this.EscapePressed = false;
+        }
+    }
+}

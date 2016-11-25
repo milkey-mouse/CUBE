@@ -1,14 +1,19 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 1,
+	float Volume = 0.5,
 	float VolumeVariation = 0,
+	float VolumeDB = -6.02060032,
+	bool UseVolumeDB = false,
+	float VolumeDBVariation = 0,
 	float Pitch = 0,
+	float PitchSemitones = 0,
+	bool UsePitchSemitones = false,
 	float PitchVariation = 0,
+	float PitchSTVariation = 0,
 	float MinDistance = 10,
 	float MaxDistance = 1000,
 	float MinAttenuatedVolume = 0,
-	float PositionRandomization = 0,
 	uint MaxPlaybacks = 10,
 	Array Sounds = 
 	[
@@ -30,5 +35,4 @@ SoundCue =
 	string RolloffCurveName = "",
 	int Version = 1,
 	RolloffCurveType RolloffCurveType = Log,
-	uint LogCurveSteepnessFactor = 100,
 },
