@@ -57,7 +57,7 @@ class WallBreakHandler : ZilchComponent
         foreach (var diamond : Cog in this.Space.FindAllObjectsByName("Diamond"))
         {
             Action.Delay(seq, 0.5);
-            Action.Call(seq, diamond.DiamondHover.Unlock);
+            Action.Call(seq, diamond.PickupHover.Unlock);
         }
     }
 }

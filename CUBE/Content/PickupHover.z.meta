@@ -2,7 +2,7 @@ TextContent =
 {
 	ZilchScriptBuilder = 
 	{
-		string Name = "DiamondHover",
+		string Name = "PickupHover",
 		uint64 ResourceId = 56049947f464495b,
 	},
 },

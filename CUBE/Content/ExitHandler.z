@@ -17,17 +17,28 @@ class ExitHandler : ZilchComponent
     [Property]
     var NextLevel : Level = null;
     
+    var Renderer : Renderer;
+    
     function Initialize(init : CogInitializer)
     {
-         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
-         this.StartColors = this.LevelSettings.ForwardRenderer.ClearColor;
-         this.Cube = this.Space.FindObjectByName("CUBE");
-         foreach(var obj : Cog in this.Space.AllObjects())
-         {
-             if(obj.LerpTowardsTarget != null)
-             {
-                 this.Camera = obj;
-             }
+        this.RefreshRenderer();
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        this.StartColors = this.Renderer.ClearColor;
+        this.Cube = this.Space.FindObjectByName("CUBE");
+        foreach(var obj : Cog in this.Space.AllObjects())
+        {
+            if(obj.LerpTowardsTarget != null)
+            {
+                this.Camera = obj;
+            }
+        }
+    }
+    
+    function RefreshRenderer() {
+         if (this.LevelSettings.ForwardRenderer != null) {
+             this.Renderer = this.LevelSettings.ForwardRenderer;
+         } else {
+             this.Renderer = this.LevelSettings.DeferredRenderer;
          }
     }
     
@@ -88,11 +99,11 @@ class ExitHandler : ZilchComponent
                 tpd.Area.Size = Real2((sb.SpriteText.MeasureGivenText(sbtext).X + 1) / 2, tpd.Area.Size.Y);
                 this.MadeSpace = true;
             }
-            if(this.LevelSettings.ForwardRenderer.ClearColor != Real4(0,0,0,0))
+            if(this.Renderer.ClearColor != Real4(0,0,0,0))
             {
                 var mult : Real = Math.Min(1.0, -this.CubeCountdown);
                 var ccolor : Real4 = this.StartColors - (this.StartColors * mult);
-                this.LevelSettings.ForwardRenderer.ClearColor = ccolor;
+                this.Renderer.ClearColor = ccolor;
             }
             else
             {

@@ -1,8 +1,5 @@
 class SuperJump : ZilchComponent
 {
-    [Property]
-    var PlayOnDeath : SoundCue = null;
-    
     function Initialize(init : CogInitializer)
     {
          Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);

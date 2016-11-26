@@ -8,6 +8,8 @@ class RandomColor : ZilchComponent
     
     var Color : Real4 = Real4(0, 0, 0, 0);
     
+    var Mat : Material = null;
+    
     function Initialize(init : CogInitializer)
     {
         this.Recolor();
@@ -28,15 +30,19 @@ class RandomColor : ZilchComponent
         }
         else if(this.Owner.Model != null)
         {
-            var coloredMaterial : Material = Material.WhiteMaterial.RuntimeClone() as Material;
-            coloredMaterial.ColorDiffuse.DiffuseColor = color;
-            this.Owner.Model.Material = coloredMaterial;
+            if (this.Mat == null) {
+                this.Mat = Material.WhiteMaterial.RuntimeClone() as Material;
+                this.Mat.ColorDiffuse.DiffuseColor = color;
+            }
+            this.Owner.Model.Material = this.Mat;
         }
         else if(this.Owner.HeightMapModel != null)
         {
-            var coloredMaterial : Material = Material.WhiteMaterial.RuntimeClone() as Material;
-            coloredMaterial.ColorDiffuse.DiffuseColor = color;
-            this.Owner.HeightMapModel.Material = coloredMaterial;
+            if (this.Mat == null) {
+                this.Mat = Material.WhiteMaterial.RuntimeClone() as Material;
+                this.Mat.ColorDiffuse.DiffuseColor = color;
+            }
+            this.Owner.HeightMapModel.Material = this.Mat;
         }
     }
     

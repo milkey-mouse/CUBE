@@ -110,9 +110,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [17.1034508, 21.1395493, 29.1155338],
+			Vec3 Translation = [2.72823453, 17.5126534, 11.4186773],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.258707613, 0.229914591, 0.0635449514, 0.936040461],
+			Quat Rotation = [-0.184717625, 0.030863896, 0.00580388634, 0.982289791],
 		},
 		Camera = 
 		{
@@ -127,10 +127,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 34.4534454,
-			float VerticalAngle = 0.539306879,
-			float HorizontalAngle = -6.7648983,
-			Vec3 LookTarget = [3.40683985, 3.44628048, 2.916471],
+			float LookDistance = 0.918151677,
+			float VerticalAngle = 0.371754557,
+			float HorizontalAngle = -6.34600544,
+			Vec3 LookTarget = [2.67453146, 17.1791344, 10.5649309],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -168,7 +168,7 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = true,
-			string MaterialName = "5804b9419325bc4d:Runtime",
+			string MaterialName = "580a6246514d441a:Runtime",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.330000013, 0.330000013, 0.330000013, 1],
 		},
@@ -208,7 +208,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Floor",
+			string Name = "Wall",
 		},
 		Archetyped = 
 		{
@@ -216,8 +216,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [25, 5, -30],
-			Vec3 Scale = [10, 0.100000001, 100],
+			Vec3 Translation = [25, 7.5, -30],
+			Vec3 Scale = [15, 0.100000001, 100],
 			Quat Rotation = [0, 0, 0.707106829, 0.707106829],
 		},
 		Model = 
@@ -226,7 +226,7 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = true,
-			string MaterialName = "5804b9419325bbb4:Runtime",
+			string MaterialName = "580a6246514d4598:Runtime",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.330000013, 0.330000013, 0.330000013, 1],
 		},
@@ -266,7 +266,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Floor",
+			string Name = "Wall",
 		},
 		Archetyped = 
 		{
@@ -274,8 +274,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-25, 5, -30],
-			Vec3 Scale = [10, 0.100000001, 100],
+			Vec3 Translation = [-25, 7.5, -30],
+			Vec3 Scale = [15, 0.100000001, 100],
 			Quat Rotation = [0, 0, 0.707106829, 0.707106829],
 		},
 		Model = 
@@ -284,7 +284,7 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = true,
-			string MaterialName = "5804b9419325bb13:Runtime",
+			string MaterialName = "580a6246514d46b5:Runtime",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.330000013, 0.330000013, 0.330000013, 1],
 		},
@@ -463,7 +463,7 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = true,
-			string MaterialName = "5804b9419325ba77:Runtime",
+			string MaterialName = "580a6246514d493e:Runtime",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
 		},
@@ -517,6 +517,9 @@ Level =
 		{
 			bool StartPlaying = true,
 			string CueName = "5606cc8848aac78a:PolyverseAmbience3",
+		},
+		CameraXray = 
+		{
 		},
 		Hierarchy = 
 		{
@@ -579,7 +582,7 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = true,
-			string MaterialName = "5804b9419325b9e2:Runtime",
+			string MaterialName = "580a6246514d52e9:Runtime",
 			string MeshName = "566796ca1d139fc0:exit",
 			Vec4 Color = [1, 1, 1, 1],
 		},
@@ -681,12 +684,16 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Transform",
+			string Name = "SuperJump",
+		},
+		Archetyped = 
+		{
+			string Name = "5804c316ee10937a:SuperJump",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1, 8.06168556, 1],
-			Vec3 Scale = [5, 5, 5],
+			Vec3 Translation = [0, 1, 7.07077217],
+			Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Model = 
@@ -695,27 +702,290 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = true,
-			string MaterialName = "5804b9419325b8fa:Runtime",
-			string MeshName = "5804f4c7d079cf05:torus",
+			string MaterialName = "5804da8d4ce21aff:SuperJump",
+			string MeshName = "4de0354322b376ae:Sphere",
 			Vec4 Color = [1, 1, 1, 1],
 		},
-		ModelColorModulate = 
+		Orientation = 
 		{
-			Vec4 Color = [1, 0.356862754, 1, 1],
-			string MaterialToClone = "5804b9229a875e15:FlatWhiteMatieral",
+			Vec3 GlobalUp = [0, 1, 0],
+			Vec3 UpVector = [0, 1, 0],
+			Vec3 ForwardVector = [0, 0, 1],
+			OrientationBases DefaultBases = ForwardZUpY,
 		},
-		MeshCollider = 
+		SphereCollider = 
 		{
-			bool Ghost = false,
+			bool Ghost = true,
 			bool SendsMessages = true,
 			bool Seamless = true,
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
-			string PhysicsMeshName = "5804f4c7d079cf0f:torus",
-			bool DrawEdges = false,
-			bool DrawFaces = false,
-			bool DrawFaceNormals = false,
+			float Radius = 1,
+		},
+		RegeneratePickup = 
+		{
+			string PlayOnDeath = "",
+			float Cooldown = 0,
+		},
+		SuperJump = 
+		{
+		},
+		PickupHover = 
+		{
+			float BasePos = -2,
+			bool Paused = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 15,
+		},
+		Named = 
+		{
+			string Name = "HoleWall",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 10, -10],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 16,
+				},
+				Named = 
+				{
+					string Name = "Hole",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [5, 5, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = true,
+					string MaterialName = "580a6246514d54ed:Runtime",
+					string MeshName = "5804f4c7d079cf05:torus",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				ModelColorModulate = 
+				{
+					Vec4 Color = [1, 0, 0, 1],
+					string MaterialToClone = "5804b9229a875e15:FlatWhiteMatieral",
+				},
+				MeshCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					string PhysicsMeshName = "5804f4c7d079cf0f:torus",
+					bool DrawEdges = false,
+					bool DrawFaces = false,
+					bool DrawFaceNormals = false,
+				},
+				RedFloor = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 17,
+				},
+				Named = 
+				{
+					string Name = "Floor",
+				},
+				Archetyped = 
+				{
+					string Name = "5607156b4940091d:Floor",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [14.5, -2.5, 0],
+					Vec3 Scale = [21, 0.0500000082, 15.0000019],
+					Quat Rotation = [0.707106829, 0, 0, 0.707106769],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = true,
+					string MaterialName = "580a6246514d566b:Runtime",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.330000013, 0.330000013, 0.330000013, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				ModelColorModulate = 
+				{
+					Vec4 Color = [1, 0, 0.000599861145, 1],
+					string MaterialToClone = "5606eb180f0104c1:WhiteMaterial",
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				RedFloor = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 18,
+				},
+				Named = 
+				{
+					string Name = "Floor",
+				},
+				Archetyped = 
+				{
+					string Name = "5607156b4940091d:Floor",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -7.5, 0],
+					Vec3 Scale = [8, 0.0500000082, 5.00000048],
+					Quat Rotation = [0.707106829, 0, 0, 0.707106769],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = true,
+					string MaterialName = "580a6246514d57bf:Runtime",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.330000013, 0.330000013, 0.330000013, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				ModelColorModulate = 
+				{
+					Vec4 Color = [1, 0, 0.000599861145, 1],
+					string MaterialToClone = "5606eb180f0104c1:WhiteMaterial",
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				RedFloor = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 19,
+				},
+				Named = 
+				{
+					string Name = "Floor",
+				},
+				Archetyped = 
+				{
+					string Name = "5607156b4940091d:Floor",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-14.5, -2.5, 0],
+					Vec3 Scale = [21, 0.0500000082, 15.0000019],
+					Quat Rotation = [0.707106829, 0, 0, 0.707106769],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = true,
+					string MaterialName = "580a6246514d5908:Runtime",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [0.330000013, 0.330000013, 0.330000013, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = false,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				ModelColorModulate = 
+				{
+					Vec4 Color = [1, 0, 0.000599861145, 1],
+					string MaterialToClone = "5606eb180f0104c1:WhiteMaterial",
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				RedFloor = 
+				{
+				},
+			},
 		},
 	},
 },

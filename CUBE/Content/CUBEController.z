@@ -48,9 +48,17 @@ class CUBEController : ZilchComponent
     }
     
     function ActivateSuperJump() {
-        this.SuperJump = true;
-        var sjo : Cog = this.Space.Create(Archetype.SuperJumpOverlay);
-        sjo.AttachTo(this.Owner.Children.Current);
+        if (!this.SuperJump) {
+            this.SuperJump = true;
+            var sjo : Cog = this.Space.Create(Archetype.SuperJumpOverlay);
+            sjo.AttachTo(this.Owner.Children.Current);
+            
+            // make overlay on first person mode
+            var cam = this.LevelSettings.CameraViewport.Camera;
+            if (cam.LerpTowardsTarget.FirstPerson && cam.LerpTowardsTarget.FinishedAnimation && this.GameSession.FindSpaceByName("SuperJumpOverlay") == null) {
+                this.GameSession.CreateNamedSpace("SuperJumpOverlay", Archetype.Space).LoadLevel(Level.FirstPersonSuperJumpOverlay);
+            }
+        }
     }
     
     function Kill()
@@ -62,32 +70,6 @@ class CUBEController : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var objects = this.Space.AllObjects();
-        while (objects.IsNotEmpty) {
-            if (objects.Current.Name.EndsWith("_transparent")) {
-                if (objects.Current.ModelColorModulate != null) {
-                    objects.Current.ModelColorModulate.Recolor();
-                }
-                if (objects.Current.RandomColor != null) {
-                    objects.Current.RandomColor.Recolor();
-                }
-                objects.Current.Name = objects.Current.Name.Replace("_transparent", "");
-            }
-            objects.MoveNext();
-        }
-            
-        if (this.Space.FindObjectByName("Camera").LerpTowardsTarget != null && !this.Space.FindObjectByName("Camera").LerpTowardsTarget.FirstPerson) {
-            var ray = Ray();
-            ray.Start = this.LevelSettings.CameraViewport.Camera.Transform.WorldTranslation;
-            ray.Direction = Math.Normalize(this.Owner.Transform.WorldTranslation - ray.Start);
-            foreach (var castResult in this.Space.PhysicsSpace.CastRayResults(ray, 10)) {
-                if (castResult.ObjectHit == this.Owner) { break; }
-                if (castResult.ObjectHit.Model != null && (castResult.ObjectHit.RigidBody == null || castResult.ObjectHit.RigidBody.DynamicState == RigidBodyDynamicState.Static)) {
-                    castResult.ObjectHit.Model.Material = Material.TransparentWhite;
-                    castResult.ObjectHit.Name = "`castResult.ObjectHit.Name`_transparent";
-                }
-            }
-        }
         if(Zero.Keyboard.KeyIsPressed(Keys.Escape)) {
             this.Space.TimeSpace.Paused = true;
             this.Space.SoundSpace.Pause = true;
@@ -148,6 +130,9 @@ class CUBEController : ZilchComponent
                 this.Owner.RigidBody.ApplyLinearVelocity(Real3(0,(this.JumpForce*3)-this.Owner.RigidBody.Velocity.Y,0));
                 this.Owner.Children.Current.Children.Current.Destroy();
                 this.SuperJump = false;
+                if (this.GameSession.FindSpaceByName("SuperJumpOverlay") != null) {
+                    this.GameSession.FindSpaceByName("SuperJumpOverlay").Destroy();
+                }
             } else {
                 this.Owner.RigidBody.ApplyLinearVelocity(Real3(0,this.JumpForce-this.Owner.RigidBody.Velocity.Y,0));
             }

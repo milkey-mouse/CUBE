@@ -1,0 +1,37 @@
+class RegeneratePickup : ZilchComponent
+{
+    [Property]
+    var PlayOnDeath : SoundCue = null;
+    
+    [Property]
+    var Cooldown : Real = 0;
+    
+    var BasePos : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.BasePos = this.Owner.PickupHover.BasePos;
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        foreach (var child : Cog in this.Owner.Children)
+        {
+            Zero.Connect(child, Events.CollisionStarted, this.OnCollisionStarted);
+        }
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.CUBEController != null)
+        {
+            if(this.PlayOnDeath != null)
+            {
+                event.OtherObject.SoundEmitter.PlayCue(this.PlayOnDeath);
+            }
+            this.Owner.PickupHover.BasePos = this.BasePos;
+            this.Owner.PickupHover.Paused = true;
+            
+            var seq = Action.Sequence(this.Owner.Actions);
+            Action.Delay(seq, this.Cooldown);
+            Action.Call(seq, this.Owner.PickupHover.Unlock);
+        }
+    }
+}

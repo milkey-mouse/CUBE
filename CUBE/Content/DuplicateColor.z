@@ -1,3 +1,4 @@
+[RunInEditor]
 class DuplicateColor : ZilchComponent
 {
     [Property]
@@ -10,9 +11,7 @@ class DuplicateColor : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var mat : Material = Material.WhiteMaterial.RuntimeClone() as Material;
-        mat.ColorDiffuse.DiffuseColor = this.Target.Cog.Model.Material.ColorDiffuse.DiffuseColor;
-        this.Owner.Model.Material = mat;
+        this.Owner.Model.Material = this.Target.Cog.Model.Material;
         Zero.Disconnect(this.Owner, Events.LogicUpdate, this);
     }
 }

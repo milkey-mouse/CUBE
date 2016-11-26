@@ -7,14 +7,18 @@ class ModelColorModulate : ZilchComponent
     [Property]
     var MaterialToClone : Material = Material.WhiteMaterial;
     
+    var Mat : Material = null;
+    
     function Initialize(init : CogInitializer)
     {
         this.Recolor();
     }
     
     function Recolor() {
-        var mat : Material = this.MaterialToClone.RuntimeClone() as Material;
-        mat.ColorDiffuse.DiffuseColor = this.Color;
-        this.Owner.Model.Material = mat;
+        if (this.Mat == null) {
+            this.Mat = this.MaterialToClone.RuntimeClone() as Material;
+            this.Mat.ColorDiffuse.DiffuseColor = this.Color;
+        }
+        this.Owner.Model.Material = this.Mat;
     }
 }

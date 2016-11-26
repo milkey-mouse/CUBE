@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 1, -23],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -25,12 +25,14 @@ Cog =
 		Vec3 ForwardVector = [0, 0, 1],
 		OrientationBases DefaultBases = ForwardZUpY,
 	},
-	DiamondHover = 
-	{
-	},
 	DestroyOnCollide = 
 	{
 		string PlayOnDeath = "5606c9ce57d2692f:Beeps1",
+	},
+	PickupHover = 
+	{
+		float BasePos = -2,
+		bool Paused = true,
 	},
 	Hierarchy = 
 	{
@@ -56,7 +58,7 @@ Cog =
 				bool VisibilityCulling = true,
 				bool VisibilityEvents = true,
 				bool CastShadows = true,
-				string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+				string MaterialName = "580bacf1a7457246:Runtime",
 				string MeshName = "5604920e639c0122:diamond",
 				Vec4 Color = [1, 1, 1, 1],
 			},

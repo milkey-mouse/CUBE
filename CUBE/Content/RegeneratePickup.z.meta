@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "RegeneratePickup",
+		uint64 ResourceId = 580baf974cd192db,
+	},
+},

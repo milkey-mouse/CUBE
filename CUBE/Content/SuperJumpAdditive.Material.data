@@ -1,0 +1,14 @@
+Material = 
+{
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Alpha,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5804c4cb562c2346:superjump-transparent",
+		Vec2 DiffuseScroll = [0.400000006, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

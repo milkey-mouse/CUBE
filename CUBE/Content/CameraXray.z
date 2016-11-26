@@ -1,0 +1,46 @@
+class CameraXray : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function MakeTreeTransparent(target : Cog) {
+        if (target.Model != null && (target.RigidBody == null || target.RigidBody.DynamicState == RigidBodyDynamicState.Static)) {
+            target.Model.Material = Material.TransparentWhite;
+        }
+        foreach (var child in target.Children) {
+            this.MakeTreeTransparent(child);
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var objects = this.Space.AllObjects();
+        while (objects.IsNotEmpty) {
+            if (objects.Current.Model != null && objects.Current.Model.Material == Material.TransparentWhite) {
+                if (objects.Current.ModelColorModulate != null) {
+                    objects.Current.ModelColorModulate.Recolor();
+                }
+                if (objects.Current.RandomColor != null) {
+                    objects.Current.RandomColor.Recolor();
+                }
+            }
+            objects.MoveNext();
+        }
+        if (this.Space.FindObjectByName("Camera").LerpTowardsTarget != null && !this.Space.FindObjectByName("Camera").LerpTowardsTarget.FirstPerson) {
+            var ray = Ray();
+            ray.Start = this.LevelSettings.CameraViewport.Camera.Transform.WorldTranslation;
+            ray.Direction = Math.Normalize(this.Owner.Transform.WorldTranslation - ray.Start);
+            var crr = this.Space.PhysicsSpace.CastRayResults(ray, 10);
+            foreach (var castResult in this.Space.PhysicsSpace.CastRayResults(ray, 10)) {
+                if (castResult.ObjectHit == this.Owner) { break; }
+                var topLevel = castResult.ObjectHit;
+                while (topLevel.Parent != null) {
+                    topLevel = topLevel.Parent;
+                }
+                this.MakeTreeTransparent(topLevel);
+            }
+        }
+    }
+}

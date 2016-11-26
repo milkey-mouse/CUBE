@@ -1,4 +1,4 @@
-class DiamondHover : ZilchComponent
+class PickupHover : ZilchComponent
 {
     [Property]
     var BasePos : Real = -2;

@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 1, 0],
+		Vec3 Translation = [0, 1, 7.07077217],
 		Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -35,11 +35,6 @@ Cog =
 		Vec3 ForwardVector = [0, 0, 1],
 		OrientationBases DefaultBases = ForwardZUpY,
 	},
-	DiamondHover = 
-	{
-		float BasePos = -2,
-		bool Paused = false,
-	},
 	DestroyOnCollide = 
 	{
 		string PlayOnDeath = "5606c9ce57d2692f:Beeps1",
@@ -56,6 +51,10 @@ Cog =
 	},
 	SuperJump = 
 	{
-		string PlayOnDeath = "",
+	},
+	PickupHover = 
+	{
+		float BasePos = -2,
+		bool Paused = false,
 	},
 },
