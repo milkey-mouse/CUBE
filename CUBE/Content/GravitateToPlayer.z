@@ -1,0 +1,30 @@
+class GravitateToPlayer : ZilchComponent
+{
+    [Property]
+    var Speed : Real = 10;
+    
+    [Property]
+    var ScaleSpeed : Real = 0.5;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var cube : Cog = this.Space.FindObjectByName("CUBE");
+        var distsq = Math.DistanceSq(cube.Transform.WorldTranslation, this.Owner.Transform.WorldTranslation);
+        if (distsq < 0.1) {
+            this.Owner.AttachTo(cube.Children.Current);
+            this.Owner.Transform.Translation = Real3(0, 0, 0);
+            this.Owner.Transform.Scale = Real3(0.9, 0.9, 0.9);
+            Zero.Disconnect(this.Space, Events.LogicUpdate, this);
+        } else {
+            var direction = cube.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
+            this.Owner.Transform.Translation += Math.Normalize(direction) * event.Dt * this.Speed;
+            var scale = Math.Max(0.4, 0.9 - Math.Distance(cube.Transform.WorldTranslation, this.Owner.Transform.WorldTranslation) * this.ScaleSpeed);
+            this.Owner.Transform.Scale = Real3(scale, scale, scale);
+        }
+    }
+}

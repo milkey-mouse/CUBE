@@ -13,7 +13,7 @@ class SuperJump : ZilchComponent
     {
         if(event.OtherObject.CUBEController != null)
         {
-            event.OtherObject.CUBEController.ActivateSuperJump();
+            event.OtherObject.CUBEController.ActivateSuperJump(this.Owner.Transform.WorldTranslation);
         }
     }
 }

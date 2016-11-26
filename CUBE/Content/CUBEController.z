@@ -47,12 +47,11 @@ class CUBEController : ZilchComponent
         this.Owner.Orientation.LookAtDirection(Real3(0, 0, 1));
     }
     
-    function ActivateSuperJump() {
+    function ActivateSuperJump(pos : Real3) {
         if (!this.SuperJump) {
             this.SuperJump = true;
-            var sjo : Cog = this.Space.Create(Archetype.SuperJumpOverlay);
-            sjo.AttachTo(this.Owner.Children.Current);
-            
+            var sjo : Cog = this.Space.CreateAtPosition(Archetype.SuperJumpOverlay, pos);
+
             // make overlay on first person mode
             var cam = this.LevelSettings.CameraViewport.Camera;
             if (cam.LerpTowardsTarget.FirstPerson && cam.LerpTowardsTarget.FinishedAnimation && this.GameSession.FindSpaceByName("SuperJumpOverlay") == null) {

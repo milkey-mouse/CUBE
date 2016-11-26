@@ -15,7 +15,7 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [0.899999976, 0.899999976, 0.899999976],
+		Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 		Quat Rotation = [7.40562472e-11, -2.54427105e-22, -8.09068437e-11, 1],
 	},
 	Model = 
@@ -27,5 +27,8 @@ Cog =
 		string MaterialName = "5804c4c15559c763:SuperJumpOverlay",
 		string MeshName = "4de0354322b376ae:Sphere",
 		Vec4 Color = [1, 1, 1, 1],
+	},
+	GravitateToPlayer = 
+	{
 	},
 },
