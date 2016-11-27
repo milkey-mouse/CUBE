@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "RandomSpin",
-		uint64 ResourceId = 5606e8de733261a1,
-	},
-},

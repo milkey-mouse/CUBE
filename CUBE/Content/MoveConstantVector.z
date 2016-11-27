@@ -1,7 +1,10 @@
 class MoveConstantVector : ZilchComponent
 {
     [Property]
-    var MovementVector : Real3 = Real3(0,0,0);
+    var MovementVector : Real3 = Real3(0, 0, 0);
+    
+    [Property]
+    var RotationVector : Real3 = Real3(0, 0, 0);
     
     function Initialize(init : CogInitializer)
     {
@@ -10,6 +13,7 @@ class MoveConstantVector : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.Owner.Transform.Translation += this.MovementVector * Real3(event.Dt, event.Dt, event.Dt);
+        this.Owner.Transform.Translation += this.MovementVector * event.Dt;
+        this.Owner.RigidBody.AngularVelocity = this.RotationVector;
     }
 }

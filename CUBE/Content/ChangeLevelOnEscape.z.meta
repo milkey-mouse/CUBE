@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ChangeLevelOnEscape",
+		uint64 ResourceId = 58097f1ee8b2ee2b,
+	},
+},

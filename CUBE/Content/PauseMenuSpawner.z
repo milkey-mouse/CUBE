@@ -1,0 +1,18 @@
+class PauseMenuSpawner : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Escape)) {
+            this.Space.TimeSpace.Paused = true;
+            this.Space.SoundSpace.Pause = true;
+            var pauseSpace : Space = this.GameSession.CreateNamedSpace("PauseMenu", Archetype.Space);
+            pauseSpace.LoadLevel(Level.PauseMenu);
+            return;
+        }
+    }
+}

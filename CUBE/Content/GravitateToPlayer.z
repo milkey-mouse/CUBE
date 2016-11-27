@@ -6,6 +6,8 @@ class GravitateToPlayer : ZilchComponent
     [Property]
     var ScaleSpeed : Real = 0.5;
     
+    var Attached : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -14,12 +16,18 @@ class GravitateToPlayer : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         var cube : Cog = this.Space.FindObjectByName("CUBE");
+        if (this.Attached) {
+            if (!cube.CUBEController.SuperJump) {
+                this.Owner.Destroy();
+            }
+            return;
+        }
         var distsq = Math.DistanceSq(cube.Transform.WorldTranslation, this.Owner.Transform.WorldTranslation);
         if (distsq < 0.1) {
             this.Owner.AttachTo(cube.Children.Current);
             this.Owner.Transform.Translation = Real3(0, 0, 0);
             this.Owner.Transform.Scale = Real3(0.9, 0.9, 0.9);
-            Zero.Disconnect(this.Space, Events.LogicUpdate, this);
+            this.Attached = true;
         } else if (!cube.CUBEController.SuperJump) {
             this.Owner.Destroy();
         } else {

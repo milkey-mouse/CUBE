@@ -10,11 +10,11 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "5606e6189f1d152d:MainMenuCube",
+		string Name = "5809674427ed1af9:MainMenuCube",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-20, 0, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [3.5, 3.5, 3.5],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = true,
-		string MaterialName = "5606eb180f0104c1:WhiteMaterial",
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
 	},
@@ -40,15 +40,13 @@ Cog =
 		Vec3 Velocity = [0, 0, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
 	},
-	RandomSpin = 
-	{
-		float Intensity = 5,
-	},
 	RandomColor = 
 	{
+		float Saturation = 1,
 	},
 	MoveConstantVector = 
 	{
-		Vec3 MovementVector = [10, 0, 0],
+		Vec3 MovementVector = [0, 0, 0],
+		Vec3 RotationVector = [0, 0, 0],
 	},
 },

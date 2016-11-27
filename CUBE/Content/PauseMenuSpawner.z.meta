@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "PauseMenuSpawner",
+		uint64 ResourceId = 58094032a4041e19,
+	},
+},

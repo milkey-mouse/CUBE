@@ -30,53 +30,55 @@ class MainMenuCubeDropper : ZilchComponent
             obj.Destroy();
         }
         var choice : Integer = this.RandCube.DieRoll(12);
-        if (choice == 1)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeLU);
+        var cube = this.Space.Create(Archetype.MainMenuCube);
+        cube.MoveConstantVector.RotationVector = this.RandCube.Real3(1, 5);
+        if (choice == 1) {
+            cube.Transform.Translation = Real3(-20, 5, 0);
+            cube.MoveConstantVector.MovementVector = Real3(10, 0, 0);
         }
-        else if (choice == 2)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeLM);
+        else if (choice == 2) {
+            cube.Transform.Translation = Real3(-20, 0, 0);
+            cube.MoveConstantVector.MovementVector = Real3(10, 0, 0);
         }
-        else if (choice == 3)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeLD);
+        else if (choice == 3) {
+            cube.Transform.Translation = Real3(-20, -5, 0);
+            cube.MoveConstantVector.MovementVector = Real3(10, 0, 0);
         }
-        else if (choice == 4)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeUL);
+        else if (choice == 4) {
+            cube.Transform.Translation = Real3(-5, 20, 0);
+            cube.MoveConstantVector.MovementVector = Real3(0, -10, 0);
         }
-        else if (choice == 5)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeUM);
+        else if (choice == 5) {
+            cube.Transform.Translation = Real3(0, 20, 0);
+            cube.MoveConstantVector.MovementVector = Real3(0, -10, 0);
         }
-        else if (choice == 6)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeUR);
+        else if (choice == 6) {
+            cube.Transform.Translation = Real3(5, 20, 0);
+            cube.MoveConstantVector.MovementVector = Real3(0, -10, 0);
         }
-        else if (choice == 7)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeRU);
+        else if (choice == 7) {
+            cube.Transform.Translation = Real3(20, 5, 0);
+            cube.MoveConstantVector.MovementVector = Real3(-10, 0, 0);
         }
-        else if (choice == 8)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeRM);
+        else if (choice == 8) {
+            cube.Transform.Translation = Real3(20, 0, 0);
+            cube.MoveConstantVector.MovementVector = Real3(-10, 0, 0);
         }
-        else if (choice == 9)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeRD);
+        else if (choice == 9) {
+            cube.Transform.Translation = Real3(20, -5, 0);
+            cube.MoveConstantVector.MovementVector = Real3(-10, 0, 0);
         }
-        else if (choice == 10)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeLL);
+        else if (choice == 10) {
+            cube.Transform.Translation = Real3(-5, -20, 0);
+            cube.MoveConstantVector.MovementVector = Real3(0, 10, 0);
         }
-        else if (choice == 11)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeLM);
+        else if (choice == 11) {
+            cube.Transform.Translation = Real3(-20, 0, 0);
+            cube.MoveConstantVector.MovementVector = Real3(10, 0, 0);
         }
-        else if (choice == 12)
-        {
-            var cube = this.Space.Create(Archetype.MainMenuCubeLR);
+        else if (choice == 12) {
+            cube.Transform.Translation = Real3(5, -20, 0);
+            cube.MoveConstantVector.MovementVector = Real3(0, 10, 0);
         }
     }
 }

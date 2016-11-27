@@ -26,6 +26,7 @@ class RegeneratePickup : ZilchComponent
             {
                 event.OtherObject.SoundEmitter.PlayCue(this.PlayOnDeath);
             }
+            this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.BasePos, this.Owner.Transform.Translation.Z);
             this.Owner.PickupHover.BasePos = this.BasePos;
             this.Owner.PickupHover.Paused = true;
             

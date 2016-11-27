@@ -104,7 +104,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 50],
+			Vec3 Translation = [-0.121869214, -0.203115374, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -116,7 +116,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 22.3130226,
+			float Size = 36.3482666,
 		},
 		EditorCameraController = 
 		{
@@ -124,7 +124,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0, 0, 0],
+			Vec3 LookTarget = [-0.121869214, -0.203115374, -5.32707256e-09],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -461,7 +461,7 @@ Level =
 		},
 		ChangeLevelButton = 
 		{
-			string LevelToLoad = "580bb97faae7a9f0:FirstPersonSuperJumpOverlay",
+			string LevelToLoad = "58094111bef02645:OptionsMenu",
 			string LoadIntoSpace = "PauseMenu",
 		},
 		Hierarchy = 

@@ -1,6 +1,5 @@
 class ChangeLevelButton : ZilchComponent
 {
-    //Requires reactive component, changes to desired level when clicked
     [Property]
     var LevelToLoad : Level = null;
     

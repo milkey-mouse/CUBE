@@ -62,20 +62,15 @@ class CUBEController : ZilchComponent
     
     function Kill()
     {
-        this.Space.TimeSpace.Paused = true;
-        var gos : Space = this.GameSession.CreateNamedSpace("GameOver", Archetype.Space);
-        gos.LoadLevel(Level.GameOver);
+        if (!this.Space.TimeSpace.Paused) {
+            this.Space.TimeSpace.Paused = true;
+            var gos : Space = this.GameSession.CreateNamedSpace("GameOver", Archetype.Space);
+            gos.LoadLevel(Level.GameOver);
+        }
     }
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(Zero.Keyboard.KeyIsPressed(Keys.Escape)) {
-            this.Space.TimeSpace.Paused = true;
-            this.Space.SoundSpace.Pause = true;
-            var pauseSpace : Space = this.GameSession.CreateNamedSpace("PauseMenu", Archetype.Space);
-            pauseSpace.LoadLevel(Level.PauseMenu);
-            return;
-        }
         if(this.Paused)
         {
             return;
@@ -123,7 +118,7 @@ class CUBEController : ZilchComponent
             camera.LerpTowardsTarget.FirstPerson = !camera.LerpTowardsTarget.FirstPerson;
             camera.LerpTowardsTarget.FinishedAnimation = false;
         }
-        if(this.JumpsLeft > 0 && Zero.Keyboard.KeyIsPressed(Keys.Space))
+        if((this.JumpsLeft > 0 || this.SuperJump) && Zero.Keyboard.KeyIsPressed(Keys.Space))
         {
             if (this.SuperJump) {
                 this.Owner.RigidBody.ApplyLinearVelocity(Real3(0,(this.JumpForce*3)-this.Owner.RigidBody.Velocity.Y,0));

@@ -1,0 +1,26 @@
+class ChangeLevelOnEscape : ZilchComponent
+{
+    [Property]
+    var LevelToLoad : Level = null;
+    
+    [Property]
+    var LoadIntoSpace : String = "Main";
+    
+    var EscapePressed : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (Zero.Keyboard.KeyIsDown(Keys.Escape)) {
+            if (this.EscapePressed == false) {
+                this.GameSession.FindSpaceByName(this.LoadIntoSpace).LoadLevel(this.LevelToLoad);
+            }
+        } else {
+            this.EscapePressed = false;
+        }
+    }
+}

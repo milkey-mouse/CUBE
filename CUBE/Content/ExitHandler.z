@@ -55,8 +55,10 @@ class ExitHandler : ZilchComponent
             if(this.Space.FindAllObjectsByName("Diamond").IsNotEmpty)
             {
                 this.Space.SoundSpace.PlayCue(SoundCue.DiamondError);
-                var angle : Real = event.OtherObject.Orientation.AbsoluteAngle;
-                event.OtherObject.RigidBody.ApplyForce(Real3(Math.Sin(angle) * 300000, event.OtherObject.RigidBody.Velocity.Y, Math.Cos(angle) * 300000));
+                var targetPos : Real3 = this.Owner.Transform.WorldTranslation + Real3(0, 0, 5.5);
+                var offset : Real3 = targetPos - event.OtherObject.Transform.WorldTranslation;
+                offset = Math.Normalize(offset) * 50;
+                event.OtherObject.RigidBody.ApplyLinearVelocity(offset);
             }
             else
             {
