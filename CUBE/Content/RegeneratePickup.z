@@ -1,7 +1,7 @@
 class RegeneratePickup : ZilchComponent
 {
     [Property]
-    var PlayOnDeath : SoundCue = null;
+    var PlayOnDeath : SoundCue = SoundCue.Beeps1;
     
     [Property]
     var Cooldown : Real = 0;

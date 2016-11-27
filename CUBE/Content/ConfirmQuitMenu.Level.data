@@ -88,8 +88,10 @@ Level =
 			bool Glow = true,
 			float GlowThreshold = -0.150000006,
 		},
-		DestroyOnEscape = 
+		ChangeLevelOnEscape = 
 		{
+			string LevelToLoad = "58696b63e8aa3829:PauseMenu",
+			string LoadIntoSpace = "PauseMenu",
 		},
 	},
 	Cog = 
@@ -104,7 +106,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.121869214, -0.203115374, 50],
+			Vec3 Translation = [0, 0, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -116,7 +118,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 36.3482666,
+			float Size = 22.3130283,
 		},
 		EditorCameraController = 
 		{
@@ -124,7 +126,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-0.121869214, -0.203115374, -5.32707256e-09],
+			Vec3 LookTarget = [0, 0, 0],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -160,7 +162,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
-			float Size = 20,
+			float Size = 15,
 		},
 		SoundListener = 
 		{
@@ -180,8 +182,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 4.5, 25],
-			Vec3 Scale = [2, 2, 1],
+			Vec3 Translation = [0, 2.25, 25],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		SpriteText = 
@@ -196,7 +198,55 @@ Level =
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			string FontName = "5606fd5abef0f5a3:Hack-Regular",
 			uint FontSize = 150,
-			string Text = "GAME PAUSED",
+			string Text = "ARE YOU SURE YOU WANT TO QUIT?",
+			TextAlign Align = Center,
+			float PixelsPerUnit = 192,
+			bool Smoothing = true,
+		},
+		SoundEmitter = 
+		{
+			float Volume = 1,
+			float Pitch = 0,
+			float PitchSemitones = 0,
+			bool UsePitchSemitones = false,
+			bool Positional = false,
+			int Version = 1,
+		},
+		HueChange = 
+		{
+			float ChangeSpeed = 10,
+			float Offset = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "CubeCaption",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 1.25, 25],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5606fd5abef0f5a3:Hack-Regular",
+			uint FontSize = 93,
+			string Text = "YOU WILL LOSE YOUR PROGRESS IN THE CURRENT LEVEL",
 			TextAlign Align = Center,
 			float PixelsPerUnit = 192,
 			bool Smoothing = true,
@@ -220,15 +270,15 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 5,
+			uint Id = 6,
 		},
 		Named = 
 		{
-			string Name = "StartButton",
+			string Name = "CancelButton",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.100000001, 1.5, 25],
+			Vec3 Translation = [2.25, -0.5, 25],
 			Vec3 Scale = [1.25, 1.25, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -238,211 +288,13 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [0, 1, 0, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			string FontName = "5606fd5abef0f5a3:Hack-Regular",
 			uint FontSize = 150,
-			string Text = "REENTER THE POLYVERSE",
-			TextAlign Align = Center,
-			float PixelsPerUnit = 192,
-			bool Smoothing = true,
-		},
-		Reactive = 
-		{
-			bool Active = true,
-			bool CaptureMouse = false,
-		},
-		MouseOver = 
-		{
-			Vec4 TextColor = [254, 254, 254, 1],
-			float ScaleMultiplier = 1.20000005,
-			float ChangeSpeed = 10,
-			bool HandleColor = false,
-		},
-		DestroySpace = 
-		{
-			bool ReloadSpace = false,
-			string SpaceName = "Main",
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 6,
-				},
-				Named = 
-				{
-					string Name = "TARGET OF THE POINTING DEVICE",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -0.5, 0],
-					Vec3 Scale = [2, 2, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "5607230aebcd484f:TARGET OF THE POINTING DEVICE",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Area = 
-				{
-					Vec2 Size = [5.25, 0.625],
-					Location Origin = Center,
-				},
-				HueChange = 
-				{
-					float ChangeSpeed = 10,
-					float Offset = 0,
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 7,
-		},
-		Named = 
-		{
-			string Name = "ReloadButton",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, -1.25, 25],
-			Vec3 Scale = [1.25, 1.25, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		SpriteText = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string FontName = "5606fd5abef0f5a3:Hack-Regular",
-			uint FontSize = 150,
-			string Text = "RELOAD THE POLYVERSE",
-			TextAlign Align = Center,
-			float PixelsPerUnit = 192,
-			bool Smoothing = true,
-		},
-		Reactive = 
-		{
-			bool Active = true,
-			bool CaptureMouse = false,
-		},
-		MouseOver = 
-		{
-			Vec4 TextColor = [254, 254, 254, 1],
-			float ScaleMultiplier = 1.20000005,
-			float ChangeSpeed = 10,
-			bool HandleColor = false,
-		},
-		DestroySpace = 
-		{
-			bool ReloadSpace = true,
-			string SpaceName = "Main",
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 8,
-				},
-				Named = 
-				{
-					string Name = "TARGET OF THE POINTING DEVICE",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -0.5, 0],
-					Vec3 Scale = [2, 2, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "5607230aebcd484f:TARGET OF THE POINTING DEVICE",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Area = 
-				{
-					Vec2 Size = [5, 0.625],
-					Location Origin = Center,
-				},
-				HueChange = 
-				{
-					float ChangeSpeed = 10,
-					float Offset = 0,
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 9,
-		},
-		Named = 
-		{
-			string Name = "OptionsButton",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, -4, 25],
-			Vec3 Scale = [1.25, 1.25, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		SpriteText = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string FontName = "5606fd5abef0f5a3:Hack-Regular",
-			uint FontSize = 150,
-			string Text = "CONFIGURE THE POLYVERSE",
+			string Text = "DON'T QUIT",
 			TextAlign Align = Center,
 			float PixelsPerUnit = 192,
 			bool Smoothing = true,
@@ -461,7 +313,7 @@ Level =
 		},
 		ChangeLevelButton = 
 		{
-			string LevelToLoad = "58094111bef02645:OptionsMenu",
+			string LevelToLoad = "58696b63e8aa3829:PauseMenu",
 			string LoadIntoSpace = "PauseMenu",
 		},
 		Hierarchy = 
@@ -470,7 +322,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 10,
+					uint Id = 7,
 				},
 				Named = 
 				{
@@ -488,7 +340,7 @@ Level =
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = true,
 					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
+					Vec4 Color = [0, 1, 0, 1],
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -502,13 +354,8 @@ Level =
 				},
 				Area = 
 				{
-					Vec2 Size = [5.75, 0.625],
+					Vec2 Size = [2.75, 0.625],
 					Location Origin = Center,
-				},
-				HueChange = 
-				{
-					float ChangeSpeed = 10,
-					float Offset = 0,
 				},
 			},
 		},
@@ -517,7 +364,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 8,
 		},
 		Named = 
 		{
@@ -525,7 +372,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.100000001, -6.75, 25],
+			Vec3 Translation = [-4.25, -0.5, 25],
 			Vec3 Scale = [1.25, 1.25, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -535,13 +382,13 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [1, 0, 0, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			string FontName = "5606fd5abef0f5a3:Hack-Regular",
 			uint FontSize = 150,
-			string Text = "EXIT THE POLYVERSE",
+			string Text = "QUIT",
 			TextAlign Align = Center,
 			float PixelsPerUnit = 192,
 			bool Smoothing = true,
@@ -558,10 +405,8 @@ Level =
 			float ChangeSpeed = 10,
 			bool HandleColor = false,
 		},
-		ChangeLevelButton = 
+		QuitButton = 
 		{
-			string LevelToLoad = "58090c787ac700e0:ConfirmQuitMenu",
-			string LoadIntoSpace = "PauseMenu",
 		},
 		Hierarchy = 
 		{
@@ -569,7 +414,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 12,
+					uint Id = 9,
 				},
 				Named = 
 				{
@@ -587,7 +432,7 @@ Level =
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = true,
 					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
+					Vec4 Color = [1, 0, 0, 1],
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -601,21 +446,8 @@ Level =
 				},
 				Area = 
 				{
-					Vec2 Size = [4.5, 0.625],
+					Vec2 Size = [1.25, 0.625],
 					Location Origin = Center,
-				},
-				HueChange = 
-				{
-					float ChangeSpeed = 10,
-					float Offset = 0,
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = false,
-				},
-				QuitButton = 
-				{
 				},
 			},
 		},
@@ -624,16 +456,16 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 10,
 		},
 		Named = 
 		{
-			string Name = "CubeLogo",
+			string Name = "QuitDialog",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 7, 25],
-			Vec3 Scale = [0.25, 0.25, 1],
+			Vec3 Translation = [0, 0, 25],
+			Vec3 Scale = [2.5, 2.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -646,13 +478,26 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "560604f976cea86f:CUBE",
+			string SpriteSource = "5607230aebcd484f:TARGET OF THE POINTING DEVICE",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
+		},
+		Area = 
+		{
+			Vec2 Size = [6, 2.25],
+			Location Origin = Center,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		QuitButton = 
+		{
 		},
 		HueChange = 
 		{

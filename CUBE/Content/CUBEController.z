@@ -71,6 +71,7 @@ class CUBEController : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
+        
         if(this.Paused)
         {
             return;
