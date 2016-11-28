@@ -18,7 +18,10 @@ class GravitateToPlayer : ZilchComponent
         var cube : Cog = this.Space.FindObjectByName("CUBE");
         if (this.Attached) {
             if (!cube.CUBEController.SuperJump) {
-                this.Owner.Destroy();
+                var seq = Action.Sequence(this.Owner.Actions);
+                Action.Call(seq, this.Owner.DetachRelative);
+                Action.Property(seq, @this.Owner.Transform.Scale, Real3(0, 0, 0), 0.25, Ease.Linear);
+                Action.Call(seq, this.Owner.Destroy);
             }
             return;
         }

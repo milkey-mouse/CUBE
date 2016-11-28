@@ -1,0 +1,59 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Camera",
+	},
+	Archetyped = 
+	{
+		string Name = "586699d6ec63f219:GameCamera",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 9.03658009, 27.0533009],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [-0.238533467, 0, 0, 0.971134305],
+	},
+	Camera = 
+	{
+		ProjectionMode ProjectionMode = Perspective,
+		Facing Facing = NegativeZ,
+		CameraTransparentSort TransparentSort = InheritFromSpace,
+		float FieldOfView = 45,
+		float NearPlane = 0.00999999978,
+		float FarPlane = 500,
+		float Size = 20,
+	},
+	SoundListener = 
+	{
+		bool Active = true,
+		float Volume = 1,
+	},
+	LerpTowardsTarget = 
+	{
+		bool Tracking = false,
+		float Speed = 7.5,
+		bool Smoothing = true,
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [1, 1, 1, 1],
+		float Intensity = 1,
+		float Range = 1000,
+		float Falloff = 0.099999994,
+		float Angle = 45,
+		float Size = 1000,
+	},
+	Hierarchy = 
+	{
+	},
+},

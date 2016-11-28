@@ -30,5 +30,21 @@ Cog =
 	},
 	GravitateToPlayer = 
 	{
+		float Speed = 10,
+		float ScaleSpeed = 0.5,
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [1, 1, 0, 1],
+		float Intensity = 2.75,
+		float Range = 5,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
 	},
 },

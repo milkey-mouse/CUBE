@@ -1,0 +1,49 @@
+class AutoRenderer : ZilchComponent
+{
+    [Property]
+    var ClearColor : Real4;
+    
+    [Property]
+    var Override : Boolean = false;
+    
+    [Property]
+    var Bloom : Boolean = false;
+    
+    [Property]
+    var Lighting : Boolean = false;
+    
+    [Property]
+    var AntiAliasing : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Owner.CameraViewport.Active = false;
+        if (!this.Override) {
+            // TODO: load this.Lighting and this.AntiAliasing from config object
+        }
+        if (this.Bloom || this.Lighting || this.AntiAliasing) {
+            this.AddDeferred();
+            this.Owner.DeferredRenderer.AntiAliasing = this.AntiAliasing;
+            this.Owner.DeferredRenderer.Glow = this.Bloom;
+            if (this.Lighting) {
+                this.Owner.AmbientLight.Color = Real4(0.5, 0.5, 0.5, 1.0);
+            }
+        } else {
+            this.AddForward();
+        }
+        this.Owner.CameraViewport.Active = true;
+    }
+    
+    function AddForward() {
+        this.Owner.AddComponentByName("ForwardRenderer");
+        this.Owner.ForwardRenderer.ClearColor = this.ClearColor;
+    }
+    
+    function AddDeferred() {
+        this.Owner.AddComponentByName("DeferredRenderer");
+        this.Owner.DeferredRenderer.ClearColor = this.ClearColor;
+        this.Owner.DeferredRenderer.GlowThreshold = 1.5;
+        this.Owner.AddComponentByName("AmbientLight");
+        this.Owner.AmbientLight.Color = Real4(1.0, 1.0, 1.0, 1.0);
+    }
+}

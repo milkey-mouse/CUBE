@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 1, 7.07077217],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [0.400000006, 0.400000006, 0.400000006],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -56,5 +56,19 @@ Cog =
 	{
 		float BasePos = -2,
 		bool Paused = false,
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [1, 1, 0, 1],
+		float Intensity = 2.5,
+		float Range = 3,
+		float Falloff = 1.19999993,
+		float Angle = 45,
+		float Size = 20,
 	},
 },

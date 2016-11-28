@@ -123,13 +123,6 @@ class CUBEController : ZilchComponent
         {
             if (this.SuperJump) {
                 this.Owner.RigidBody.ApplyLinearVelocity(Real3(0,(this.JumpForce*3)-this.Owner.RigidBody.Velocity.Y,0));
-                if (this.Owner.Children.Current.Children.IsNotEmpty) {
-                    var sphere = this.Owner.Children.Current.Children.Current;
-                    var seq = Action.Sequence(this.Owner.Actions);
-                    Action.Call(seq, sphere.DetachRelative);
-                    Action.Property(seq, @sphere.Transform.Scale, Real3(0, 0, 0), 0.25, Ease.Linear);
-                    Action.Call(seq, sphere.Destroy);
-                }
                 this.SuperJump = false;
                 if (this.GameSession.FindSpaceByName("SuperJumpOverlay") != null) {
                     this.GameSession.FindSpaceByName("SuperJumpOverlay").Destroy();

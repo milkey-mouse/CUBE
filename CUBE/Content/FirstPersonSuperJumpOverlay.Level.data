@@ -89,9 +89,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.18318939, 18.7855701, 44.8850899],
+			Vec3 Translation = [3.90969014, -0.429188222, 50],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.194587857, -0.115259014, -0.0230310168, 0.973817468],
+			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
 		Camera = 
 		{
@@ -101,15 +101,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 36.7879448,
+			float Size = 100,
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = Orbit,
+			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 0.394444227,
-			float HorizontalAngle = 0.235619694,
-			Vec3 LookTarget = [6.59277916, -0.429188222, 2.88179621e-07],
+			float VerticalAngle = 0,
+			float HorizontalAngle = 0,
+			Vec3 LookTarget = [3.90969014, -0.429188222, 2.88179621e-07],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -165,7 +165,34 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 0],
+			Vec3 Translation = [-20, 0, 0],
+			Vec3 Scale = [40, 20, 9.99999975e-05],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = false,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			string MaterialName = "580bb612870edc7b:SuperJumpAdditive",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [20, 0, 0],
 			Vec3 Scale = [40, 20, 9.99999975e-05],
 			Quat Rotation = [0, 0, 0, 1],
 		},

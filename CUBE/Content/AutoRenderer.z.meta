@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "AutoRenderer",
+		uint64 ResourceId = 586698359dc2e049,
+	},
+},
