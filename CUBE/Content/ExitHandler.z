@@ -10,7 +10,7 @@ class ExitHandler : ZilchComponent
     
     var CubeCountdown : Real = 1.18;
     
-    var StartColors : Real4 = Real4.Zero;
+    var StartColors : Real4 = Real4(0, 0, 0, 1);
     
     var MadeSpace : Boolean = false;
     
@@ -24,7 +24,6 @@ class ExitHandler : ZilchComponent
         this.RefreshRenderer();
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
         this.StartColors = this.Renderer.ClearColor;
-        this.Cube = this.Space.FindObjectByName("CUBE");
         foreach(var obj : Cog in this.Space.AllObjects())
         {
             if(obj.LerpTowardsTarget != null)
@@ -50,15 +49,18 @@ class ExitHandler : ZilchComponent
     
     function OnCollisionStarted(event : CollisionEvent)
     {
-        if(event.OtherObject.Name == "CUBE")
+        if(event.OtherObject.CUBEController != null)
         {
+            this.Cube = event.OtherObject;
             if(this.Space.FindAllObjectsByName("Diamond").IsNotEmpty)
             {
                 this.Space.SoundSpace.PlayCue(SoundCue.DiamondError);
                 var targetPos : Real3 = this.Owner.Transform.WorldTranslation + Real3(0, 0, 5.5);
                 var offset : Real3 = targetPos - event.OtherObject.Transform.WorldTranslation;
+                offset.Y = 0;
                 offset = Math.Normalize(offset) * 50;
                 event.OtherObject.RigidBody.ApplyLinearVelocity(offset);
+                event.OtherObject.CUBEController.ForwardMovement = false;
             }
             else
             {
@@ -70,9 +72,15 @@ class ExitHandler : ZilchComponent
                 this.Camera.Transform.Translation = Real3(0, -17.5, 65);
                 this.Camera.Camera.FieldOfView = 25;
                 this.AlignCamera();
+                if (this.LevelSettings.DeferredRenderer != null) {
+                    // when the cube is really small antialiasing looks weird
+                    this.LevelSettings.DeferredRenderer.AntiAliasing = false;
+                }
                 this.Cube.CUBEController.Paused = true;
                 this.Cube.RigidBody.DynamicState = RigidBodyDynamicState.Kinematic;
                 this.RandRotate = this.Rand.Real3(4,4);
+                this.StartColors = this.Renderer.ClearColor;
+                Console.WriteLine(this.Renderer.ClearColor);
                 Zero.Disconnect(this.Owner, Events.CollisionStarted, this);
                 Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
             }
@@ -101,10 +109,10 @@ class ExitHandler : ZilchComponent
                 tpd.Area.Size = Real2((sb.SpriteText.MeasureGivenText(sbtext).X + 1) / 2, tpd.Area.Size.Y);
                 this.MadeSpace = true;
             }
-            if(this.Renderer.ClearColor != Real4(0,0,0,0))
+            if(this.Renderer.ClearColor != Real4(0,0,0,1))
             {
-                var mult : Real = Math.Min(1.0, -this.CubeCountdown);
-                var ccolor : Real4 = this.StartColors - (this.StartColors * mult);
+                var ccolor : Real4 = this.StartColors * Math.Max(0, 1 + this.CubeCountdown);
+                ccolor.W = 1;
                 this.Renderer.ClearColor = ccolor;
             }
             else

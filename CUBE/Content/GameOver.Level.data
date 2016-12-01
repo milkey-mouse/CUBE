@@ -103,7 +103,7 @@ Level =
 		{
 			Vec3 Translation = [0, 0, 50],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
+			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
 		Camera = 
 		{
@@ -162,6 +162,7 @@ Level =
 		SoundListener = 
 		{
 			bool Active = true,
+			float Volume = 1,
 		},
 	},
 	Cog = 
@@ -206,6 +207,8 @@ Level =
 		{
 			float Volume = 1,
 			float Pitch = 0,
+			float PitchSemitones = 0,
+			bool UsePitchSemitones = false,
 			bool Positional = false,
 			int Version = 1,
 		},

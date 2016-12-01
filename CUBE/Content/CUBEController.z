@@ -15,6 +15,8 @@ class CUBEController : ZilchComponent
     
     var SuperJump : Boolean = false;
     
+    var ForwardMovement : Boolean = true;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -25,9 +27,7 @@ class CUBEController : ZilchComponent
     {
         if(this.Paused)
         {
-            var group : ActionSet = this.Owner.Actions;
-            Action.Delay(group, 1.0);
-            Action.Call(group, this.RemoveLock);
+            this.RemoveLock();
         }
         if(event.FirstPoint.WorldNormalTowardsOther.Y < -0.7)
         {
@@ -71,7 +71,9 @@ class CUBEController : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        
+        if (!this.ForwardMovement && Math.Distance(this.Owner.RigidBody.Velocity, Real3(0, 0, 0)) < 5) {
+            this.ForwardMovement = true;
+        }
         if(this.Paused)
         {
             return;
@@ -146,13 +148,13 @@ class CUBEController : ZilchComponent
             this.Owner.RigidBody.AngularVelocity = Real3(this.Owner.RigidBody.AngularVelocity.X,0,this.Owner.RigidBody.AngularVelocity.Z);
         }
         var angle : Real = this.Owner.Orientation.AbsoluteAngle;
-        if(Zero.Keyboard.KeyIsDown(Keys.W) && !Zero.Keyboard.KeyIsDown(Keys.S))
+        if(this.ForwardMovement && Zero.Keyboard.KeyIsDown(Keys.W) && !Zero.Keyboard.KeyIsDown(Keys.S))
         {
             this.Owner.RigidBody.ApplyLinearVelocity(Real3(-this.Owner.Orientation.WorldForward.X * event.Dt * 500,
                                                            this.Owner.RigidBody.Velocity.Y,
                                                            -this.Owner.Orientation.WorldForward.Z * event.Dt * 500) - this.Owner.RigidBody.Velocity);
         }
-        else if(Zero.Keyboard.KeyIsDown(Keys.S) && !Zero.Keyboard.KeyIsDown(Keys.W))
+        else if(this.ForwardMovement && Zero.Keyboard.KeyIsDown(Keys.S) && !Zero.Keyboard.KeyIsDown(Keys.W))
         {
             this.Owner.RigidBody.ApplyLinearVelocity(Real3(this.Owner.Orientation.WorldForward.X * event.Dt * 500,
                                                            this.Owner.RigidBody.Velocity.Y,

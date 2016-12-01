@@ -118,7 +118,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 20.1896591,
+			float Size = 18.0500278,
 		},
 		EditorCameraController = 
 		{
@@ -263,6 +263,25 @@ Level =
 			float ChangeSpeed = 10,
 			bool HandleColor = false,
 		},
+		SaveButton = 
+		{
+			CogPath ObjectToSave = 
+			{
+				string Path = ":/Options",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 6,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
+			string SaveName = "Options",
+		},
 		ChangeLevelButton = 
 		{
 			string LevelToLoad = "58696b63e8aa3829:PauseMenu",
@@ -274,7 +293,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 6,
+					uint Id = 7,
 				},
 				Named = 
 				{
@@ -315,6 +334,33 @@ Level =
 					float Offset = 0,
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Named = 
+		{
+			string Name = "Options",
+		},
+		Archetyped = 
+		{
+			string Name = "5867fa609923d7ec:Options",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Options = 
+		{
+			bool Bloom = false,
+			bool Lighting = true,
+			bool AntiAliasing = true,
 		},
 	},
 },

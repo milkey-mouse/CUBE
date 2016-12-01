@@ -1,0 +1,18 @@
+class SaveButton : ZilchComponent
+{
+    [Property]
+    var ObjectToSave : CogPath;
+    
+    [Property]
+    var SaveName : String;
+       
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+    }
+    
+    function OnLeftMouseUp(event : ViewportMouseEvent)
+    {
+        Zero.ObjectStore.Store(this.SaveName, this.ObjectToSave.Cog);
+    }
+}

@@ -1,0 +1,11 @@
+class Options : ZilchComponent
+{
+    [Serialized]
+    var Bloom : Boolean = false;
+    
+    [Serialized]
+    var Lighting : Boolean = true;
+    
+    [Serialized]
+    var AntiAliasing : Boolean = true;
+}
