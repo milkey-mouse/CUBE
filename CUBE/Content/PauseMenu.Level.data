@@ -91,6 +91,9 @@ Level =
 		DestroyOnEscape = 
 		{
 		},
+		SwitchBackToMenu = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -463,6 +466,8 @@ Level =
 		{
 			string LevelToLoad = "58094111bef02645:OptionsMenu",
 			string LoadIntoSpace = "PauseMenu",
+			bool Create = false,
+			bool OnInitialize = false,
 		},
 		Hierarchy = 
 		{
@@ -562,6 +567,8 @@ Level =
 		{
 			string LevelToLoad = "58090c787ac700e0:ConfirmQuitMenu",
 			string LoadIntoSpace = "PauseMenu",
+			bool Create = false,
+			bool OnInitialize = false,
 		},
 		Hierarchy = 
 		{

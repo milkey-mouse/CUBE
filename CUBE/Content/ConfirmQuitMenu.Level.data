@@ -164,11 +164,6 @@ Level =
 			float FarPlane = 200,
 			float Size = 15,
 		},
-		SoundListener = 
-		{
-			bool Active = true,
-			float Volume = 1,
-		},
 	},
 	Cog = 
 	{
@@ -315,6 +310,7 @@ Level =
 		{
 			string LevelToLoad = "58696b63e8aa3829:PauseMenu",
 			string LoadIntoSpace = "PauseMenu",
+			bool Create = false,
 		},
 		Hierarchy = 
 		{

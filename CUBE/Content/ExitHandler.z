@@ -80,7 +80,6 @@ class ExitHandler : ZilchComponent
                 this.Cube.RigidBody.DynamicState = RigidBodyDynamicState.Kinematic;
                 this.RandRotate = this.Rand.Real3(4,4);
                 this.StartColors = this.Renderer.ClearColor;
-                Console.WriteLine(this.Renderer.ClearColor);
                 Zero.Disconnect(this.Owner, Events.CollisionStarted, this);
                 Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
             }

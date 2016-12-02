@@ -13,11 +13,17 @@ class DestroySpace : ZilchComponent
     
     function OnLeftMouseUp(event : ViewportMouseEvent)
     {
-        this.GameSession.FindSpaceByName(this.SpaceName).TimeSpace.Paused = false;
-        this.GameSession.FindSpaceByName(this.SpaceName).SoundSpace.Pause = false;
-        if (this.ReloadSpace) {
-            this.GameSession.FindSpaceByName(this.SpaceName).ReloadLevel();
+        var spaceToDestroy = this.GameSession.FindSpaceByName(this.SpaceName);
+        if (spaceToDestroy == null) {
+            Console.WriteLine("Warning: Couldn't destroy/reload target space, loading into the current one");
+            spaceToDestroy = this.Space;
         }
-        this.Space.Destroy();
+        spaceToDestroy.TimeSpace.Paused = false;
+        spaceToDestroy.SoundSpace.Pause = false;
+        if (this.ReloadSpace) {
+            spaceToDestroy.ReloadLevel();
+        } else {
+            spaceToDestroy.Destroy();
+        }
     }
 }

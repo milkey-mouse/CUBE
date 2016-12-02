@@ -147,11 +147,6 @@ Level =
 			float FarPlane = 200,
 			float Size = 20,
 		},
-		SoundListener = 
-		{
-			bool Active = true,
-			float Volume = 1,
-		},
 	},
 	Cog = 
 	{

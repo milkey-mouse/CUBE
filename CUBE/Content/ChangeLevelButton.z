@@ -4,15 +4,37 @@ class ChangeLevelButton : ZilchComponent
     var LevelToLoad : Level = null;
     
     [Property]
-    var LoadIntoSpace : String = "Main";
+    var LoadIntoSpace : String = "";
+    
+    [Property]
+    var Create : Boolean = false;
+    
+    [Property]
+    var OnInitialize : Boolean = false;
        
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+        if (this.OnInitialize) {
+            this.OnLeftMouseUp(null);
+        } else {
+            Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+        }
     }
     
     function OnLeftMouseUp(event : ViewportMouseEvent)
     {
-        this.GameSession.FindSpaceByName(this.LoadIntoSpace).LoadLevel(this.LevelToLoad);
+        var spaceToLoadInto = this.GameSession.FindSpaceByName(this.LoadIntoSpace);
+        if (spaceToLoadInto == null) {
+            if (this.Create && this.LoadIntoSpace != "") {
+                Console.WriteLine("Warning: Creating new space to store level");
+                spaceToLoadInto = this.GameSession.CreateNamedSpace(this.LoadIntoSpace, Archetype.Space);
+            } else {
+                Console.WriteLine("Warning: Couldn't load level into target space, loading into the current one");
+                spaceToLoadInto = this.Space;
+            }
+        }
+        if (spaceToLoadInto.CurrentLevel != this.LevelToLoad) {
+            spaceToLoadInto.LoadLevel(this.LevelToLoad);
+        }
     }
 }

@@ -12,10 +12,10 @@ Level =
 		},
 		CameraViewport = 
 		{
-			bool Background = true,
+			bool Background = false,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
-			int Layer = 0,
+			int Layer = 1,
 			bool Active = true,
 			bool Blocking = true,
 			CogPath Renderer = 
@@ -67,26 +67,33 @@ Level =
 			int HilightInterval = 10,
 			bool FollowEditorCamera = false,
 		},
+		HandleEscape = 
+		{
+		},
 		DeferredRenderer = 
 		{
 			Vec4 ClearColor = [0, 0, 0, 0],
 			bool DrawNonVisible = false,
-			bool DrawDebugObjects = true,
-			bool DrawEditorIcons = true,
-			bool EditorIconDepth = true,
+			bool DrawDebugObjects = false,
+			bool DrawEditorIcons = false,
+			bool EditorIconDepth = false,
 			bool Hdr = true,
 			bool Shadows = false,
 			bool AntiAliasing = false,
 			bool Refraction = false,
 			bool Reflections = false,
 			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
-			bool GodRays = true,
+			bool GodRays = false,
 			bool RenderMasks = false,
 			bool Glow = true,
-			float GlowThreshold = 0.200000003,
+			float GlowThreshold = -0.150000006,
 		},
-		HandleEscape = 
+		ChangeLevelButton = 
 		{
+			string LevelToLoad = "56060760cdea90e1:MainMenuBG",
+			string LoadIntoSpace = "MainMenuBG",
+			bool Create = true,
+			bool OnInitialize = true,
 		},
 	},
 	Cog = 
@@ -101,9 +108,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.914740264, -0.711408019, 44.4560966],
+			Vec3 Translation = [0, 0, 50],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.00261777337, -0.00261740619, -6.85188206e-06, 0.999993205],
+			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
 		Camera = 
 		{
@@ -113,15 +120,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 53.7047234,
+			float Size = 24.6596889,
 		},
 		EditorCameraController = 
 		{
-			ControlMode ControlMode = Orbit,
+			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 0.00523557002,
-			float HorizontalAngle = 0.00523479003,
-			Vec3 LookTarget = [-0.65300554, -0.973185301, -5.54253531],
+			float VerticalAngle = 0,
+			float HorizontalAngle = 0,
+			Vec3 LookTarget = [0, 0, 0],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -137,7 +144,46 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 2,
+			uint Id = 4,
+		},
+		Named = 
+		{
+			string Name = "CubeCaption",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0.118125439, 25],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5606fd5abef0f5a3:Hack-Regular",
+			uint FontSize = 150,
+			string Text = "THE FUN CANNOT BE HALTED",
+			TextAlign Align = Center,
+			float PixelsPerUnit = 192,
+			bool Smoothing = true,
+		},
+		HueChange = 
+		{
+			float ChangeSpeed = 10,
+			float Offset = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
 		},
 		Named = 
 		{
@@ -159,52 +205,12 @@ Level =
 			float FarPlane = 200,
 			float Size = 20,
 		},
-		SoundListener = 
-		{
-			bool Active = true,
-			float Volume = 1,
-		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 4,
-		},
-		Named = 
-		{
-			string Name = "Background",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0, -25],
-			Vec3 Scale = [50, 50, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [0, 0, 0, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 5,
+			uint Id = 6,
 		},
 		Named = 
 		{
@@ -244,15 +250,15 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 7,
 		},
 		Named = 
 		{
-			string Name = "CubeCaption",
+			string Name = "OptionsButton",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0.118125439, 25],
+			Vec3 Translation = [-0.100000001, -3.75, 25],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -268,22 +274,84 @@ Level =
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			string FontName = "5606fd5abef0f5a3:Hack-Regular",
 			uint FontSize = 150,
-			string Text = "THE FUN CANNOT BE HALTED",
+			string Text = "CONFIGURE THE POLYVERSE",
 			TextAlign Align = Center,
 			float PixelsPerUnit = 192,
 			bool Smoothing = true,
 		},
-		HueChange = 
+		Reactive = 
 		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		MouseOver = 
+		{
+			Vec4 TextColor = [254, 254, 254, 1],
+			float ScaleMultiplier = 1.20000005,
 			float ChangeSpeed = 10,
-			float Offset = 0,
+			bool HandleColor = false,
+		},
+		ChangeLevelButton = 
+		{
+			string LevelToLoad = "58094111bef02645:OptionsMenu",
+			string LoadIntoSpace = "",
+			bool Create = false,
+			bool OnInitialize = false,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 8,
+				},
+				Named = 
+				{
+					string Name = "TARGET OF THE POINTING DEVICE",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [2, 2, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5607230aebcd484f:TARGET OF THE POINTING DEVICE",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Area = 
+				{
+					Vec2 Size = [5.75, 0.625],
+					Location Origin = Center,
+				},
+				HueChange = 
+				{
+					float ChangeSpeed = 10,
+					float Offset = 0,
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -291,7 +359,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.100000001, -2.96711779, 25],
+			Vec3 Translation = [-0.100000001, -1.75, 25],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -324,10 +392,17 @@ Level =
 			float ChangeSpeed = 10,
 			bool HandleColor = false,
 		},
+		DestroySpace = 
+		{
+			bool ReloadSpace = false,
+			string SpaceName = "MainMenuBG",
+		},
 		ChangeLevelButton = 
 		{
 			string LevelToLoad = "560718983cb3f080:LevelBlue",
-			string LoadIntoSpace = "Main",
+			string LoadIntoSpace = "",
+			bool Create = false,
+			bool OnInitialize = false,
 		},
 		Hierarchy = 
 		{
@@ -335,7 +410,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 8,
+					uint Id = 10,
 				},
 				Named = 
 				{
@@ -382,7 +457,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -390,7 +465,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.100000001, -5.00341988, 25],
+			Vec3 Translation = [-0.100000001, -5.75, 25],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -432,7 +507,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 10,
+					uint Id = 12,
 				},
 				Named = 
 				{
@@ -481,123 +556,6 @@ Level =
 				{
 				},
 			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 11,
-		},
-		Named = 
-		{
-			string Name = "Ambience",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		SoundEmitter = 
-		{
-			float Volume = 1,
-			float Pitch = 0,
-			float PitchSemitones = 0,
-			bool UsePitchSemitones = false,
-			bool Positional = true,
-			int Version = 1,
-		},
-		PolyverseAmbience = 
-		{
-			bool Beep = true,
-			bool Music = true,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 12,
-				},
-				Named = 
-				{
-					string Name = "AlwaysPlayingAmbience",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				SoundEmitter = 
-				{
-					float Volume = 1,
-					float Pitch = 0,
-					float PitchSemitones = 0,
-					bool UsePitchSemitones = false,
-					bool Positional = true,
-					int Version = 1,
-				},
-				SimpleSound = 
-				{
-					bool StartPlaying = true,
-					string CueName = "5606cc8848aac78a:PolyverseAmbience3",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 13,
-		},
-		Named = 
-		{
-			string Name = "MenuCubeController",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [20, -20, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		MainMenuCubeDropper = 
-		{
-			float CubeSpawnRate = 4.5,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 14,
-		},
-		Named = 
-		{
-			string Name = "Light",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0, 25],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Light = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			LightType LightType = Point,
-			Vec4 Color = [1, 1, 1, 1],
-			float Intensity = 1,
-			float Range = 50,
-			float Falloff = 1,
-			float Angle = 10,
-			float Size = 20,
 		},
 	},
 },
