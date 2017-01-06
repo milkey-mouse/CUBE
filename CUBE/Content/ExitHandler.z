@@ -64,6 +64,7 @@ class ExitHandler : ZilchComponent
             }
             else
             {
+                this.RefreshRenderer();
                 SoundCue.CUBEAnthem.Volume = 3;
                 this.Space.SoundSpace.PlayCue(SoundCue.CUBEAnthem);
                 this.Camera.RemoveComponentByName("LerpTowardsTarget");

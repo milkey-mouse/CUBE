@@ -1,0 +1,32 @@
+class SaveToOptions : ZilchComponent
+{
+    var Options : Options;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Options = this.LevelSettings.LoadFromObjectStore.Object.Options;
+        if (this.Owner.Name == "Bloom") {
+            this.Owner.CheckBox.UpdateChecked(this.Options.Bloom);
+            Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnUpdate);
+        } else if (this.Owner.Name == "Lighting") {
+            this.Owner.CheckBox.UpdateChecked(this.Options.Lighting);
+            Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnUpdate);
+        } else if (this.Owner.Name == "AntiAliasing") {
+            this.Owner.CheckBox.UpdateChecked(this.Options.AntiAliasing);
+            Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnUpdate);
+        } else {
+            Zero.Connect(this.Space, Events.LogicUpdate, this.OnUpdate);
+        }
+    }
+
+    function OnUpdate(event : Event)
+    {
+        if (this.Owner.Name == "Bloom") {
+            this.Options.Bloom = this.Owner.CheckBox.Checked;
+        } else if (this.Owner.Name == "Lighting") {
+            this.Options.Lighting = this.Owner.CheckBox.Checked;
+        } else if (this.Owner.Name == "AntiAliasing") {
+            this.Options.AntiAliasing = this.Owner.CheckBox.Checked;
+        }
+    }
+}

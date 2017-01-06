@@ -11,12 +11,9 @@ GameSession =
 	DefaultGameSetup = 
 	{
 		string StartingSpaceName = "55653078043224ef:Space",
-		string StartingLevelName = "56060760cdea90e1:MainMenuBG",
+		string StartingLevelName = "581bdb7d8db8f9cc:MainMenu",
 	},
 	CameraViewports = 
-	{
-	},
-	ZilchState = 
 	{
 	},
 },

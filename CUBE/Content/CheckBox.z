@@ -1,0 +1,29 @@
+class CheckBox : ZilchComponent
+{
+    [Property]
+    var Checked : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.UpdateChecked();
+        Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnLeftMouseDown);
+    }
+    
+    function UpdateChecked() {
+        if (this.Checked) {
+            this.Owner.Sprite.SpriteSource = SpriteSource.FilledSquare;
+        } else {
+            this.Owner.Sprite.SpriteSource = SpriteSource.UnfilledSquare;
+        }
+    }
+    
+    function UpdateChecked(check: Boolean) {
+        this.Checked = check;
+        this.UpdateChecked();
+    }
+    
+    function OnLeftMouseDown(event : ViewportMouseEvent)
+    {
+        this.UpdateChecked(!this.Checked);
+    }
+}

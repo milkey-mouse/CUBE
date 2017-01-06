@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "RefreshRenderer",
+		uint64 ResourceId = 581d284276551ee2,
+	},
+},

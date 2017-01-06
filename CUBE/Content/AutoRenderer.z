@@ -23,10 +23,18 @@ class AutoRenderer : ZilchComponent
     function UpdateRenderer() {
         this.Owner.CameraViewport.Active = false;
         if (!this.Override) {
-            // TODO: load this.Lighting and this.AntiAliasing from config object
+            var opts = this.Space.FindObjectByName("Options");
+            this.Bloom = opts.Options.Bloom;
+            this.Lighting = opts.Options.Lighting;
+            this.AntiAliasing = opts.Options.AntiAliasing;
         }
         if (this.Bloom || this.Lighting || this.AntiAliasing) {
-            this.Owner.AddComponentByName("DeferredRenderer");
+            if (this.Owner.ForwardRenderer != null) {
+                this.Owner.RemoveComponentByName("ForwardRenderer");
+            }
+            if (this.Owner.DeferredRenderer == null) {
+                this.Owner.AddComponentByName("DeferredRenderer");
+            }
             this.Owner.DeferredRenderer.ClearColor = this.ClearColor;
             this.Owner.DeferredRenderer.AntiAliasing = this.AntiAliasing;
             
@@ -40,7 +48,12 @@ class AutoRenderer : ZilchComponent
                 this.Owner.AmbientLight.Color = Real4(1.0, 1.0, 1.0, 1.0);
             }
         } else {
-            this.Owner.AddComponentByName("ForwardRenderer");
+            if (this.Owner.DeferredRenderer != null) {
+                this.Owner.RemoveComponentByName("DeferredRenderer");
+            }
+            if (this.Owner.ForwardRenderer == null) {
+                this.Owner.AddComponentByName("ForwardRenderer");
+            }
             this.Owner.ForwardRenderer.ClearColor = this.ClearColor;
         }
         this.Owner.CameraViewport.Active = true;

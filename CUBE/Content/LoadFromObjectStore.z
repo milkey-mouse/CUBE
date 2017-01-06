@@ -1,0 +1,15 @@
+class LoadFromObjectStore : ZilchComponent
+{
+    [Property]
+    var SaveName : String;
+    
+    [Property]
+    var FallbackArchetype : Archetype;
+    
+    var Object : Cog;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Object = Zero.ObjectStore.RestoreOrArchetype(this.SaveName, this.FallbackArchetype, this.Space);
+    }
+}

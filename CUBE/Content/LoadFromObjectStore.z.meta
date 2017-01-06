@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LoadFromObjectStore",
+		uint64 ResourceId = 581f89a8728ecd56,
+	},
+},

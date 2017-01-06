@@ -1,0 +1,19 @@
+class RefreshRenderer : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+    }
+    function OnLeftMouseUp(event : ViewportMouseEvent)
+    {
+        if (this.Space.Name == "Main" || this.GameSession.FindSpaceByName("Main").FindObjectByName("Options") == null) {
+            return;
+        }
+        var mainOptions = this.GameSession.FindSpaceByName("Main").FindObjectByName("Options").Options;
+        var options = this.Space.FindObjectByName("Options").Options;
+        mainOptions.Bloom = options.Bloom;
+        mainOptions.Lighting = options.Lighting;
+        mainOptions.AntiAliasing = options.AntiAliasing;
+        this.GameSession.FindSpaceByName("Main").LevelSettings.AutoRenderer.UpdateRenderer();
+    }
+}

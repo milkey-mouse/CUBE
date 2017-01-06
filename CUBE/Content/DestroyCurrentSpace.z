@@ -1,0 +1,18 @@
+class DestroyCurrentSpace : ZilchComponent
+{
+    [Property]
+    var ReloadSpace : Boolean = false;
+    
+    [Property]
+    var SpaceName : String = "Main";
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+    }
+    
+    function OnLeftMouseUp(event : ViewportMouseEvent)
+    {
+        this.Space.Destroy();
+    }
+}

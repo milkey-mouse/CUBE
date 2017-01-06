@@ -12,13 +12,10 @@ Cog =
 	{
 		string Name = "5867fa609923d7ec:Options",
 	},
-	Transform = 
-	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
-	},
 	Options = 
 	{
+		bool Bloom = false,
+		bool Lighting = true,
+		bool AntiAliasing = true,
 	},
 },

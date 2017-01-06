@@ -10,6 +10,11 @@ Level =
 		{
 			string Name = "LevelSettings",
 		},
+		LoadFromObjectStore = 
+		{
+			string SaveName = "Options",
+			string FallbackArchetype = "5867fa609923d7ec:Options",
+		},
 		CameraViewport = 
 		{
 			bool Background = false,
@@ -106,7 +111,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 50],
+			Vec3 Translation = [-1.32901549, 0, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -118,7 +123,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 18.0500278,
+			float Size = 26.9274921,
 		},
 		EditorCameraController = 
 		{
@@ -126,7 +131,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0, 0, 0],
+			Vec3 LookTarget = [-1.32901549, 0, 0],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -178,7 +183,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "CubeCaption",
+			string Name = "Title",
 		},
 		Transform = 
 		{
@@ -208,21 +213,129 @@ Level =
 			float ChangeSpeed = 10,
 			float Offset = 0,
 		},
-		SoundEmitter = 
-		{
-			float Volume = 1,
-			float Pitch = 0,
-			float PitchSemitones = 0,
-			bool UsePitchSemitones = false,
-			bool Positional = false,
-			int Version = 1,
-		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
 			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "OptionsLabel",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6, 4, 25],
+			Vec3 Scale = [2, 2, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5606fd5abef0f5a3:Hack-Regular",
+			uint FontSize = 150,
+			string Text = "BLOOM",
+			TextAlign Align = Left,
+			float PixelsPerUnit = 192,
+			bool Smoothing = true,
+		},
+		HueChange = 
+		{
+			float ChangeSpeed = 10,
+			float Offset = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Named = 
+		{
+			string Name = "OptionsLabel",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6, 1, 25],
+			Vec3 Scale = [2, 2, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5606fd5abef0f5a3:Hack-Regular",
+			uint FontSize = 150,
+			string Text = "LIGHTING",
+			TextAlign Align = Left,
+			float PixelsPerUnit = 192,
+			bool Smoothing = true,
+		},
+		HueChange = 
+		{
+			float ChangeSpeed = 10,
+			float Offset = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "OptionsLabel",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6, -2, 25],
+			Vec3 Scale = [2, 2, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5606fd5abef0f5a3:Hack-Regular",
+			uint FontSize = 150,
+			string Text = "ANTIALIASING",
+			TextAlign Align = Left,
+			float PixelsPerUnit = 192,
+			bool Smoothing = true,
+		},
+		HueChange = 
+		{
+			float ChangeSpeed = 10,
+			float Offset = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 8,
 		},
 		Named = 
 		{
@@ -275,12 +388,15 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 6,
+				uint ResolvedCog = 4294967293,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
 			},
 			string SaveName = "Options",
+		},
+		RefreshRenderer = 
+		{
 		},
 		ChangeLevelButton = 
 		{
@@ -295,7 +411,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 7,
+					uint Id = 9,
 				},
 				Named = 
 				{
@@ -342,27 +458,192 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 10,
 		},
 		Named = 
 		{
-			string Name = "Options",
+			string Name = "Bloom",
 		},
 		Archetyped = 
 		{
-			string Name = "5867fa609923d7ec:Options",
+			string Name = "581d2ef31b289e1e:CheckBox",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 0],
+			Vec3 Translation = [-8, 3, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Options = 
+		Sprite = 
 		{
-			bool Bloom = false,
-			bool Lighting = true,
-			bool AntiAliasing = true,
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "581d05380d609f8c:UnfilledSquare",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		HueChange = 
+		{
+			float ChangeSpeed = 10,
+			float Offset = 0,
+		},
+		Area = 
+		{
+			Vec2 Size = [2, 2],
+			Location Origin = Center,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		CheckBox = 
+		{
+			bool Checked = true,
+		},
+		SaveToOptions = 
+		{
+		},
+		RefreshRenderer = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 11,
+		},
+		Named = 
+		{
+			string Name = "Lighting",
+		},
+		Archetyped = 
+		{
+			string Name = "581d2ef31b289e1e:CheckBox",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-8, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "581d05380d609f8c:UnfilledSquare",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		HueChange = 
+		{
+			float ChangeSpeed = 10,
+			float Offset = 0,
+		},
+		Area = 
+		{
+			Vec2 Size = [2, 2],
+			Location Origin = Center,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		CheckBox = 
+		{
+			bool Checked = true,
+		},
+		SaveToOptions = 
+		{
+		},
+		RefreshRenderer = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 12,
+		},
+		Named = 
+		{
+			string Name = "AntiAliasing",
+		},
+		Archetyped = 
+		{
+			string Name = "581d2ef31b289e1e:CheckBox",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-8, -3, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "581d05380d609f8c:UnfilledSquare",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		HueChange = 
+		{
+			float ChangeSpeed = 10,
+			float Offset = 0,
+		},
+		Area = 
+		{
+			Vec2 Size = [2, 2],
+			Location Origin = Center,
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		CheckBox = 
+		{
+			bool Checked = true,
+		},
+		SaveToOptions = 
+		{
+		},
+		RefreshRenderer = 
+		{
 		},
 	},
 },

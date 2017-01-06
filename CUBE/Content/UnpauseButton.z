@@ -1,0 +1,15 @@
+class UnpauseButton : ZilchComponent
+{
+    [Property]
+    var SpaceToUnpause : String = "Main";
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+    }
+    function OnLeftMouseUp(event : ViewportMouseEvent)
+    {
+        this.GameSession.FindSpaceByName(this.SpaceToUnpause).TimeSpace.Paused = false;
+        this.GameSession.FindSpaceByName(this.SpaceToUnpause).SoundSpace.Pause = false;
+    }
+}
